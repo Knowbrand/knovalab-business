@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Explore the ICONIC wedding photography and filmmaking portfolio.">
 <title>Our Work — ICONIC</title>
 <link rel="stylesheet" href="../css/style.css">
 </head>
@@ -11,26 +12,113 @@
   <div class="container header-inner">
     <a class="wordmark" href="../" aria-label="ICONIC home">ICONIC</a>
     <nav class="desktop-nav" aria-label="Primary navigation">
-      <a href="../">HOME</a>
-      <a href="../about/">ABOUT</a>
-      <a href="../services/">OUR WORK</a>
-      <a href="../contact/">CONTACT</a>
+      <a href="../">HOME</a><a href="../about/">ABOUT</a><a class="active" href="./">OUR WORK</a><a href="../contact/">CONTACT</a>
     </nav>
     <a class="header-cta" href="../contact/">BOOK CONSULTATION</a>
     <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span></button>
   </div>
   <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
-    <a href="../">HOME</a><a href="../about/">ABOUT</a><a href="../services/">OUR WORK</a><a href="../contact/">CONTACT</a><a class="mobile-nav-cta" href="../contact/">BOOK CONSULTATION</a>
+    <a href="../">HOME</a><a href="../about/">ABOUT</a><a href="./">OUR WORK</a><a href="../contact/">CONTACT</a><a href="../contact/">BOOK CONSULTATION</a>
   </nav>
 </header>
-<main class="placeholder-page">
-  <div class="container narrow">
-    <p class="eyebrow">ICONIC</p>
-    <h1>Curated Work.</h1>
-    <p class="hero-copy">The full ICONIC work and services page will be added here when its supplied design is provided.</p>
-    <a class="button button-primary" href="../">RETURN HOME</a>
-  </div>
+
+<main>
+  <section class="work-intro" aria-labelledby="work-title">
+    <div class="container">
+      <p class="eyebrow">SELECTED FILMS &amp; STILLS</p>
+      <h1 id="work-title">Our Work</h1>
+      <p>A curated collection of love stories and commissioned legacies.</p>
+      <div class="work-filters" role="group" aria-label="Portfolio filters">
+        <button class="work-filter active" type="button" data-filter="all" aria-pressed="true">ALL</button>
+        <button class="work-filter" type="button" data-filter="weddings" aria-pressed="false">WEDDINGS</button>
+        <button class="work-filter" type="button" data-filter="editorial" aria-pressed="false">EDITORIAL</button>
+        <button class="work-filter" type="button" data-filter="portraits" aria-pressed="false">PORTRAITS</button>
+        <button class="work-filter" type="button" data-filter="events" aria-pressed="false">EVENTS</button>
+        <button class="work-filter" type="button" data-filter="destination" aria-pressed="false">DESTINATION</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="work-portfolio" aria-label="Selected ICONIC stories">
+    <div class="container work-grid">
+      <article class="work-card wide" data-category="weddings destination">
+        <!-- Replace this placeholder with your supplied local image. -->
+        <div class="work-card-image work-image-01" aria-hidden="true"></div>
+        <div class="work-card-overlay" aria-hidden="true"></div>
+        <div class="work-card-content"><div class="work-card-index">FEATURED FILM</div><h2>Aura &amp; Devendra — Shoreline Petals</h2><p>GOA, INDIA</p></div>
+      </article>
+      <article class="work-card half tall" data-category="weddings">
+        <!-- Replace this placeholder with your supplied local image. -->
+        <div class="work-card-image work-image-02" aria-hidden="true"></div>
+        <div class="work-card-overlay" aria-hidden="true"></div>
+        <div class="work-card-content"><div class="work-card-index">STORY 01</div><h2>Aarav &amp; Kabir — Royal Ceremony</h2><p>JAIPUR, INDIA</p></div>
+      </article>
+      <article class="work-card half tall" data-category="weddings editorial">
+        <!-- Replace this placeholder with your supplied local image. -->
+        <div class="work-card-image work-image-03" aria-hidden="true"></div>
+        <div class="work-card-overlay" aria-hidden="true"></div>
+        <div class="work-card-content"><div class="work-card-index">STORY 02</div><h2>Meera &amp; Arjun — Elegant Embrace</h2><p>MUMBAI, INDIA</p></div>
+      </article>
+      <article class="work-card wide short" data-category="destination editorial">
+        <!-- Replace this placeholder with your supplied local image. -->
+        <div class="work-card-image work-image-04" aria-hidden="true"></div>
+        <div class="work-card-overlay" aria-hidden="true"></div>
+        <div class="work-card-content"><div class="work-card-index">EDITORIAL SELECTION</div><h2>Aditi &amp; Siddharth — Palm Sanctuary</h2><p>GOA, INDIA</p></div>
+      </article>
+      <article class="work-card half short" data-category="events weddings">
+        <!-- Replace this placeholder with your supplied local image. -->
+        <div class="work-card-image work-image-05" aria-hidden="true"></div>
+        <div class="work-card-overlay" aria-hidden="true"></div>
+        <div class="work-card-content"><div class="work-card-index">STORY 04</div><h2>Ishita &amp; Ranveer — High Society Banquet</h2><p>NEW DELHI, INDIA</p></div>
+      </article>
+      <article class="work-card half short" data-category="portraits">
+        <!-- Replace this placeholder with your supplied local image. -->
+        <div class="work-card-image work-image-06" aria-hidden="true"></div>
+        <div class="work-card-overlay" aria-hidden="true"></div>
+        <div class="work-card-content"><div class="work-card-index">STORY 05</div><h2>Tara &amp; Nishant — Warm Meadows</h2><p>PUNE, INDIA</p></div>
+      </article>
+      <article class="work-card wide short" data-category="weddings destination">
+        <!-- Replace this placeholder with your supplied local image. -->
+        <div class="work-card-image work-image-07" aria-hidden="true"></div>
+        <div class="work-card-overlay" aria-hidden="true"></div>
+        <div class="work-card-content"><div class="work-card-index">EDITORIAL FEATURE</div><h2>Diya &amp; Rishi — Ancient Architecture Sunset</h2><p>GOA, INDIA</p></div>
+      </article>
+      <article class="work-card half short" data-category="weddings">
+        <!-- Replace this placeholder with your supplied local image. -->
+        <div class="work-card-image work-image-08" aria-hidden="true"></div>
+        <div class="work-card-overlay" aria-hidden="true"></div>
+        <div class="work-card-content"><div class="work-card-index">STORY 07</div><h2>Pooja &amp; Rohit — Cliffside Devotion</h2><p>MAHABALIPURAM, INDIA</p></div>
+      </article>
+      <article class="work-card half short" data-category="destination editorial">
+        <!-- Replace this placeholder with your supplied local image. -->
+        <div class="work-card-image work-image-09" aria-hidden="true"></div>
+        <div class="work-card-overlay" aria-hidden="true"></div>
+        <div class="work-card-content"><div class="work-card-index">STORY 08</div><h2>Sanika &amp; Yash — Freedom of Sincerities</h2><p>GOA, INDIA</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="page-cta" aria-labelledby="work-cta-title">
+    <div class="container">
+      <h2 id="work-cta-title">Your Story Deserves to Be Told</h2>
+      <p>Commission us to preserve your wedding celebrations. We capture depth, emotion, and visual precision globally.</p>
+      <a class="button button-primary" href="../contact/">INQUIRE NOW</a>
+    </div>
+  </section>
 </main>
+
+<footer class="site-footer">
+  <div class="container footer-top">
+    <a class="footer-wordmark" href="../" aria-label="ICONIC home">ICONIC</a>
+    <div class="social-links" aria-label="Social links">
+      <!-- Replace these text placeholders with the studio's real URLs when supplied. -->
+      <span>INSTAGRAM</span><span>VIMEO</span><span>PINTEREST</span>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 ICONIC Films. All Rights Reserved.</span><span>ALL RIGHTS RESERVED.</span>
+  </div>
+</footer>
 <script src="../js/main.js"></script>
 </body>
 </html>
