@@ -1,475 +1,731 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ICONIC — a curated collection of love stories and commissioned visual legacies.">
-  <meta name="theme-color" content="#080808">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="ICONIC — Our Work. Luxury wedding photography, cinematic films, portraits, events and destination stories."
+  />
   <title>Our Work — ICONIC</title>
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap');
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 
+  <style>
     :root {
-      --black: #080808;
-      --black-2: #0d0d0d;
-      --ivory: #eee8df;
-      --muted: #918b83;
-      --muted-2: #6d6862;
-      --champagne: #c8a56d;
-      --line: rgba(255,255,255,.075);
       --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
       --sans: "Manrope", Arial, sans-serif;
-      --max: 1180px;
+
+      --black: #090909;
+      --black-2: #0d0d0d;
+      --black-3: #070707;
+
+      --ivory: #eee9e0;
+      --muted: #9b958d;
+      --muted-2: #716c65;
+
+      --champagne: #c8a56d;
+      --champagne-light: #d3b37e;
+
+      --line: rgba(255, 255, 255, 0.08);
+
+      --container: 1320px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     html {
-      background: var(--black);
       scroll-behavior: smooth;
+      background: var(--black);
     }
 
     body {
-      margin: 0;
-      overflow-x: hidden;
+      min-width: 320px;
       background: var(--black);
       color: var(--ivory);
       font-family: var(--sans);
-      font-size: 12px;
-      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    body.menu-open { overflow: hidden; }
+    body.menu-open {
+      overflow: hidden;
+    }
 
     a {
       color: inherit;
       text-decoration: none;
     }
 
-    button { font: inherit; }
+    button {
+      font: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
     ::selection {
       background: var(--champagne);
-      color: #111;
+      color: var(--black);
     }
 
     .container {
-      width: min(calc(100% - 68px), var(--max));
+      width: min(calc(100% - 48px), var(--container));
       margin-inline: auto;
     }
 
-    /* =========================
-       TYPE
-    ========================== */
-
-    h1, h2, h3, p { margin: 0; }
-
-    h1, h2, h3 {
-      font-family: var(--serif);
-      font-weight: 400;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 11px;
-      color: var(--champagne);
-      font-size: 7px;
-      font-weight: 600;
-      letter-spacing: .17em;
-      line-height: 1.2;
-      text-transform: uppercase;
-    }
-
-    .eyebrow::before,
-    .eyebrow::after {
-      content: "";
-      width: 16px;
-      height: 1px;
-      background: var(--champagne);
-    }
-
-    /* =========================
+    /* =====================================================
        HEADER
-    ========================== */
+    ===================================================== */
 
     .site-header {
       position: relative;
-      z-index: 100;
-      height: 70px;
-      background: #080808;
-      border-bottom: 1px solid rgba(255,255,255,.045);
+      z-index: 1000;
+      height: 82px;
+      background: var(--black);
+      border-bottom: 1px solid var(--line);
     }
 
     .header-inner {
-      height: 70px;
+      height: 100%;
+      width: min(calc(100% - 48px), var(--container));
+      margin-inline: auto;
+
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
     }
 
-    .wordmark,
-    .footer-wordmark {
-      font-family: var(--serif);
-      letter-spacing: .27em;
-      line-height: 1;
-    }
-
     .wordmark {
-      font-size: 17px;
-      color: #d2ccc4;
+      justify-self: start;
+
+      font-family: var(--sans);
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      line-height: 1;
     }
 
     .desktop-nav {
       display: flex;
       align-items: center;
-      gap: 32px;
+      justify-content: center;
+      gap: 39px;
     }
 
     .desktop-nav a,
     .header-cta {
-      font-size: 7px;
+      position: relative;
+
+      font-family: var(--sans);
+      font-size: 8px;
       font-weight: 600;
-      letter-spacing: .13em;
+      letter-spacing: 0.19em;
       text-transform: uppercase;
-      transition: color .25s ease, border-color .25s ease;
+
+      color: var(--muted);
+
+      transition:
+        color 0.3s ease,
+        opacity 0.3s ease;
     }
 
-    .desktop-nav a {
-      color: #88827b;
+    .desktop-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -9px;
+      width: 100%;
+      height: 1px;
+      background: var(--champagne);
+
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.3s ease;
     }
 
     .desktop-nav a:hover,
-    .desktop-nav a.active {
+    .desktop-nav a.active,
+    .header-cta:hover {
       color: var(--champagne);
+    }
+
+    .desktop-nav a:hover::after,
+    .desktop-nav a.active::after {
+      transform: scaleX(1);
     }
 
     .header-cta {
       justify-self: end;
-      min-width: 125px;
-      height: 27px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid rgba(200,165,109,.72);
-      color: #d6d0c7;
+      color: var(--ivory);
     }
 
     .header-cta:hover {
       color: var(--champagne);
-      border-color: var(--champagne);
     }
 
     .menu-toggle {
       display: none;
-      width: 32px;
-      height: 28px;
-      padding: 0;
-      border: 0;
+      justify-self: end;
+
+      width: 44px;
+      height: 44px;
+
+      border: 1px solid var(--line);
       background: transparent;
+      color: var(--ivory);
+
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+
       cursor: pointer;
-      position: relative;
     }
 
     .menu-toggle span {
-      position: absolute;
-      right: 0;
-      width: 23px;
+      width: 18px;
       height: 1px;
-      background: var(--ivory);
-      transition: top .25s ease, transform .25s ease;
+      background: currentColor;
+      transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
     }
 
-    .menu-toggle span:first-child { top: 9px; }
-    .menu-toggle span:last-child { top: 18px; }
-
-    .menu-toggle.is-open span:first-child {
-      top: 14px;
-      transform: rotate(45deg);
+    .menu-toggle[aria-expanded="true"] span:first-child {
+      transform: translateY(3px) rotate(45deg);
     }
 
-    .menu-toggle.is-open span:last-child {
-      top: 14px;
-      transform: rotate(-45deg);
+    .menu-toggle[aria-expanded="true"] span:last-child {
+      transform: translateY(-3px) rotate(-45deg);
     }
 
-    .mobile-nav {
-      display: none;
+    .mobile-menu {
+      position: fixed;
+      inset: 82px 0 0;
+      z-index: 999;
+
+      background: rgba(7, 7, 7, 0.98);
+      border-top: 1px solid var(--line);
+
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+
+      transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
     }
 
-    /* =========================
-       PAGE INTRO
-    ========================== */
-
-    .page-intro {
-      padding: 67px 0 34px;
-      text-align: center;
+    .mobile-menu.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
     }
 
-    .page-intro .eyebrow {
-      margin-bottom: 19px;
+    .mobile-menu-inner {
+      width: min(calc(100% - 48px), var(--container));
+      margin-inline: auto;
+      padding: 55px 0 40px;
+
+      display: flex;
+      flex-direction: column;
     }
 
-    .page-intro h1 {
-      font-size: clamp(45px, 5vw, 62px);
-      line-height: .95;
-      letter-spacing: -.025em;
+    .mobile-menu a {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+
+      font-family: var(--serif);
+      font-size: 38px;
+      line-height: 1;
+
+      color: var(--ivory);
+
+      transition: color 0.25s ease;
     }
 
-    .page-intro-copy {
-      margin: 17px auto 0;
-      color: #9a948d;
+    .mobile-menu a:hover,
+    .mobile-menu a.active {
+      color: var(--champagne);
+    }
+
+    .mobile-menu .mobile-book {
+      margin-top: 32px;
+      width: fit-content;
+
+      border: 1px solid var(--champagne);
+      padding: 15px 20px;
+
+      font-family: var(--sans);
       font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+    }
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .work-hero {
+      min-height: 680px;
+      display: flex;
+      align-items: flex-end;
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    .work-hero-inner {
+      width: min(calc(100% - 48px), var(--container));
+      margin-inline: auto;
+
+      padding: 150px 0 88px;
+
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+      gap: 80px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      margin-bottom: 25px;
+
+      color: var(--champagne);
+
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      max-width: 880px;
+
+      font-family: var(--serif);
+      font-size: clamp(58px, 7vw, 94px);
+      font-weight: 400;
+      letter-spacing: -0.035em;
+      line-height: 0.9;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--champagne);
+    }
+
+    .hero-copy {
+      max-width: 430px;
+
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.9;
+    }
+
+    /* =====================================================
+       WORK INTRO
+    ===================================================== */
+
+    .work-intro {
+      padding: 125px 0 105px;
+    }
+
+    .work-intro-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 100px;
+      align-items: start;
+    }
+
+    .section-label {
+      color: var(--muted-2);
+
+      font-family: var(--sans);
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      line-height: 1.6;
+      text-transform: uppercase;
+    }
+
+    .intro-title {
+      max-width: 820px;
+
+      font-family: var(--serif);
+      font-size: clamp(42px, 5.4vw, 70px);
+      font-weight: 400;
+      letter-spacing: -0.025em;
+      line-height: 0.98;
+    }
+
+    .intro-title span {
+      color: var(--muted);
+    }
+
+    .intro-text {
+      max-width: 570px;
+      margin-top: 38px;
+
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.95;
+    }
+
+    /* =====================================================
+       PROJECTS
+    ===================================================== */
+
+    .projects {
+      padding-bottom: 130px;
+    }
+
+    .project {
+      padding: 0 0 110px;
+      margin-bottom: 110px;
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    .project:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+
+      margin-bottom: 24px;
+    }
+
+    .project-number,
+    .project-category {
+      color: var(--muted-2);
+
+      font-family: var(--sans);
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .project-number {
+      color: var(--champagne);
+    }
+
+    .project-image {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 8.4;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,0.025),
+          rgba(255,255,255,0)
+        ),
+        var(--black-2);
+
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    /*
+      Replace this placeholder with the actual project image.
+
+      Example:
+      <img src="../assets/your-image.jpg" alt="..." />
+    */
+
+    .project-image::before {
+      content: "IMAGE";
+      position: absolute;
+      inset: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: rgba(238, 233, 224, 0.2);
+
+      font-family: var(--sans);
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+    }
+
+    .project-info {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 0.55fr);
+      gap: 60px;
+
+      padding-top: 30px;
+    }
+
+    .project-title {
+      font-family: var(--serif);
+      font-size: clamp(36px, 4vw, 56px);
+      font-weight: 400;
+      letter-spacing: -0.025em;
+      line-height: 0.98;
+    }
+
+    .project-location {
+      margin-top: 13px;
+
+      color: var(--champagne);
+
+      font-family: var(--sans);
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .project-description {
+      color: var(--muted);
+
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+
+      margin-top: 24px;
+
+      color: var(--ivory);
+
+      font-family: var(--sans);
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+
+      transition: color 0.3s ease;
+    }
+
+    .project-link span {
+      transition: transform 0.3s ease;
+    }
+
+    .project-link:hover {
+      color: var(--champagne);
+    }
+
+    .project-link:hover span {
+      transform: translateX(5px);
+    }
+
+    /* =====================================================
+       SERVICES STRIP
+    ===================================================== */
+
+    .services-strip {
+      padding: 105px 0 115px;
+      background: var(--black-2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .services-heading {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 80px;
+
+      margin-bottom: 65px;
+    }
+
+    .services-heading h2 {
+      max-width: 760px;
+
+      font-family: var(--serif);
+      font-size: clamp(42px, 5vw, 67px);
+      font-weight: 400;
+      letter-spacing: -0.025em;
+      line-height: 0.95;
+    }
+
+    .service-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .service-item {
+      display: grid;
+      grid-template-columns: 70px minmax(0, 1fr) minmax(250px, 0.7fr);
+      gap: 35px;
+      align-items: center;
+
+      padding: 26px 0;
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    .service-number {
+      color: var(--champagne);
+
+      font-family: var(--sans);
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+    }
+
+    .service-name {
+      font-family: var(--serif);
+      font-size: 27px;
+      font-weight: 400;
+    }
+
+    .service-description {
+      color: var(--muted);
+
+      font-size: 11px;
       line-height: 1.7;
     }
 
-    /* =========================
-       FILTERS
-    ========================== */
-
-    .filters {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 25px;
-      padding: 0 0 31px;
-    }
-
-    .filter {
-      position: relative;
-      padding: 0;
-      border: 0;
-      background: transparent;
-      color: #8e8982;
-      cursor: pointer;
-      font-size: 7px;
-      font-weight: 600;
-      letter-spacing: .11em;
-      text-transform: uppercase;
-      transition: color .25s ease;
-    }
-
-    .filter::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -8px;
-      height: 1px;
-      background: transparent;
-      transition: background .25s ease;
-    }
-
-    .filter:hover,
-    .filter.active {
-      color: var(--ivory);
-    }
-
-    .filter.active::after {
-      background: var(--champagne);
-    }
-
-    /* =========================
-       PORTFOLIO
-    ========================== */
-
-    .portfolio {
-      padding-bottom: 73px;
-    }
-
-    .portfolio-grid {
-      display: grid;
-      gap: 18px;
-    }
-
-    .story {
-      position: relative;
-      overflow: hidden;
-      background: #27231f;
-      isolation: isolate;
-    }
-
-    .story-image {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      background: #27231f;
-      background-size: cover;
-      background-position: center;
-      z-index: -2;
-    }
-
-    /* Replace each placeholder with your own local image. */
-    .story-01 .story-image {}
-    .story-02 .story-image {}
-    .story-03 .story-image {}
-    .story-04 .story-image {}
-    .story-05 .story-image {}
-    .story-06 .story-image {}
-    .story-07 .story-image {}
-    .story-08 .story-image {}
-
-    .story::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background: linear-gradient(
-        180deg,
-        rgba(0,0,0,.03) 25%,
-        rgba(0,0,0,.18) 58%,
-        rgba(0,0,0,.65) 100%
-      );
-      pointer-events: none;
-    }
-
-    .story-content {
-      min-height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 22px 25px;
-    }
-
-    .story-label {
-      margin-bottom: auto;
-      color: var(--champagne);
-      font-size: 6px;
-      font-weight: 600;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-    }
-
-    .story-title {
-      color: #f0ebe4;
-      font-family: var(--serif);
-      font-size: 20px;
-      line-height: 1.05;
-      text-shadow: 0 1px 10px rgba(0,0,0,.28);
-    }
-
-    .story-location {
-      margin-top: 4px;
-      color: #c0b9b0;
-      font-size: 6px;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-    }
-
-    .story-large {
-      height: 390px;
-    }
-
-    .story-pair {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .story-small {
-      height: 275px;
-    }
-
-    .story-wide {
-      height: 390px;
-    }
-
-    /* =========================
+    /* =====================================================
        CTA
-    ========================== */
+    ===================================================== */
 
     .final-cta {
-      padding: 69px 0 79px;
-      background: var(--black-2);
-      border-top: 1px solid rgba(255,255,255,.045);
+      padding: 155px 0;
+
       text-align: center;
     }
 
     .final-cta h2 {
-      font-size: clamp(38px, 4vw, 50px);
-      line-height: 1;
-      margin-bottom: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+
+      font-family: var(--serif);
+      font-size: clamp(48px, 6vw, 82px);
+      font-weight: 400;
+      letter-spacing: -0.035em;
+      line-height: 0.94;
     }
 
     .final-cta p {
-      width: min(100%, 410px);
-      margin: 0 auto 23px;
-      color: #928c85;
-      font-size: 8px;
-      line-height: 1.75;
+      max-width: 460px;
+      margin: 28px auto 34px;
+
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.85;
     }
 
     .button {
-      min-height: 35px;
+      min-height: 46px;
+      padding: 0 25px;
+
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0 25px;
-      background: var(--champagne);
-      border: 1px solid var(--champagne);
-      color: #11100e;
-      font-size: 7px;
-      font-weight: 700;
-      letter-spacing: .12em;
+
+      border: 1px solid transparent;
+
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.17em;
       text-transform: uppercase;
-      transition: transform .25s ease, background .25s ease;
+
+      transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
     }
 
-    .button:hover {
-      background: #d1af79;
-      transform: translateY(-1px);
+    .button-primary {
+      background: var(--champagne);
+      color: var(--black);
     }
 
-    /* =========================
+    .button-primary:hover {
+      background: var(--champagne-light);
+    }
+
+    /* =====================================================
        FOOTER
-    ========================== */
+    ===================================================== */
 
     .site-footer {
-      padding: 39px 0 22px;
-      background: #080808;
-      border-top: 1px solid rgba(255,255,255,.04);
+      padding: 58px 0 25px;
+
+      background: var(--black-3);
+      border-top: 1px solid var(--line);
     }
 
     .footer-top {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
-      padding-bottom: 33px;
+      gap: 40px;
     }
 
-    .footer-wordmark {
-      font-size: 16px;
-      color: #bdb7af;
+    .footer-logo {
+      font-family: var(--sans);
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
     }
 
-    .social-links {
+    .footer-socials {
       display: flex;
-      align-items: center;
-      gap: 24px;
-      color: #7e7871;
-      font-size: 6px;
-      letter-spacing: .1em;
-      text-transform: uppercase;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 25px;
     }
 
-    .social-links a:hover {
-      color: var(--champagne);
+    .footer-socials span {
+      color: var(--muted);
+
+      font-family: var(--sans);
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
     }
 
     .footer-bottom {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding-top: 18px;
-      border-top: 1px solid rgba(255,255,255,.05);
-      color: #504c48;
-      font-size: 6px;
-      letter-spacing: .08em;
+      gap: 30px;
+
+      margin-top: 48px;
+      padding-top: 20px;
+
+      border-top: 1px solid var(--line);
+
+      color: var(--muted-2);
+
+      font-family: var(--sans);
+      font-size: 7px;
+      font-weight: 600;
+      letter-spacing: 0.17em;
+      line-height: 1.6;
       text-transform: uppercase;
     }
+
+    /* =====================================================
+       FOCUS / ACCESSIBILITY
+    ===================================================== */
 
     a:focus-visible,
     button:focus-visible {
@@ -477,430 +733,865 @@
       outline-offset: 5px;
     }
 
-    /* =========================
-       RESPONSIVE
-    ========================== */
+    /* =====================================================
+       TABLET
+    ===================================================== */
+
+    @media (max-width: 1024px) {
+      .work-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .hero-copy {
+        max-width: 560px;
+      }
+
+      .work-intro-grid {
+        gap: 55px;
+      }
+
+      .services-heading {
+        gap: 45px;
+      }
+
+      .service-item {
+        grid-template-columns: 55px minmax(0, 1fr);
+      }
+
+      .service-description {
+        grid-column: 2;
+        max-width: 600px;
+      }
+    }
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
 
     @media (max-width: 900px) {
-      .container {
-        width: min(calc(100% - 48px), var(--max));
-      }
-
-      .header-inner {
-        display: flex;
-        justify-content: space-between;
-      }
-
       .desktop-nav,
       .header-cta {
         display: none;
       }
 
-      .menu-toggle {
-        display: block;
-      }
-
-      .mobile-nav {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        display: flex;
-        flex-direction: column;
-        padding: 8px 24px 17px;
-        background: #080808;
-        border-bottom: 1px solid var(--line);
-        transform: translateY(-120%);
-        transition: transform .3s ease;
-      }
-
-      .mobile-nav.is-open {
-        transform: translateY(0);
-      }
-
-      .mobile-nav a {
-        padding: 14px 0;
-        border-bottom: 1px solid var(--line);
-        font-size: 8px;
-        font-weight: 600;
-        letter-spacing: .16em;
-        text-transform: uppercase;
-      }
-
-      .mobile-nav a:last-child {
-        color: var(--champagne);
-      }
-
-      .story-large,
-      .story-wide {
-        height: 360px;
-      }
-
-      .story-small {
-        height: 260px;
-      }
-    }
-
-    @media (max-width: 767px) {
-      .container {
-        width: calc(100% - 48px);
-      }
-
-      .site-header,
       .header-inner {
-        height: 68px;
+        grid-template-columns: 1fr auto;
       }
 
-      .mobile-nav {
-        top: 68px;
+      .menu-toggle {
+        display: flex;
       }
 
-      .page-intro {
-        padding: 61px 0 29px;
+      .work-hero {
+        min-height: auto;
       }
 
-      .page-intro h1 {
-        font-size: 49px;
+      .work-hero-inner {
+        padding: 105px 0 75px;
       }
 
-      .filters {
-        gap: 18px;
-        padding-bottom: 28px;
+      .work-intro {
+        padding: 85px 0 75px;
       }
 
-      .portfolio {
-        padding-bottom: 58px;
-      }
-
-      .portfolio-grid {
-        gap: 13px;
-      }
-
-      .story-pair {
+      .work-intro-grid {
         grid-template-columns: 1fr;
-        gap: 13px;
+        gap: 35px;
       }
 
-      .story-large,
-      .story-wide {
-        height: 315px;
+      .projects {
+        padding-bottom: 85px;
       }
 
-      .story-small {
-        height: 255px;
+      .project {
+        padding-bottom: 75px;
+        margin-bottom: 75px;
       }
 
-      .story-content {
-        padding: 19px 19px;
+      .project-image {
+        aspect-ratio: 4 / 3;
       }
 
-      .story-title {
-        font-size: 18px;
-      }
-
-      .final-cta {
-        padding: 66px 0 73px;
-      }
-
-      .footer-top {
-        align-items: flex-start;
-        flex-direction: column;
+      .project-info {
+        grid-template-columns: 1fr;
         gap: 22px;
       }
 
-      .social-links {
-        flex-wrap: wrap;
-        gap: 16px;
+      .services-strip {
+        padding: 80px 0 85px;
       }
 
-      .footer-bottom {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 8px;
+      .services-heading {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        margin-bottom: 45px;
+      }
+
+      .final-cta {
+        padding: 105px 0;
       }
     }
 
+    @media (max-width: 600px) {
+      .container,
+      .header-inner,
+      .mobile-menu-inner {
+        width: min(calc(100% - 40px), var(--container));
+      }
+
+      .site-header {
+        height: 76px;
+      }
+
+      .mobile-menu {
+        inset: 76px 0 0;
+      }
+
+      .mobile-menu-inner {
+        padding-top: 35px;
+      }
+
+      .mobile-menu a {
+        font-size: 32px;
+        padding: 16px 0;
+      }
+
+      .wordmark {
+        font-size: 18px;
+      }
+
+      .work-hero-inner {
+        padding: 85px 0 65px;
+      }
+
+      .eyebrow {
+        margin-bottom: 20px;
+        font-size: 8px;
+        letter-spacing: 0.21em;
+      }
+
+      .hero-title {
+        font-size: clamp(51px, 15vw, 70px);
+        line-height: 0.91;
+      }
+
+      .hero-copy {
+        font-size: 12px;
+        line-height: 1.85;
+      }
+
+      .work-intro {
+        padding: 72px 0 65px;
+      }
+
+      .intro-title {
+        font-size: clamp(40px, 12vw, 55px);
+      }
+
+      .intro-text {
+        margin-top: 28px;
+        font-size: 12px;
+        line-height: 1.85;
+      }
+
+      .project {
+        padding-bottom: 60px;
+        margin-bottom: 60px;
+      }
+
+      .project-meta {
+        margin-bottom: 18px;
+      }
+
+      .project-image {
+        aspect-ratio: 1 / 1.08;
+      }
+
+      .project-info {
+        padding-top: 24px;
+      }
+
+      .project-title {
+        font-size: 39px;
+      }
+
+      .project-description {
+        font-size: 11px;
+      }
+
+      .service-item {
+        grid-template-columns: 38px minmax(0, 1fr);
+        gap: 15px;
+        padding: 22px 0;
+      }
+
+      .service-name {
+        font-size: 25px;
+      }
+
+      .service-description {
+        grid-column: 2;
+        font-size: 10.5px;
+      }
+
+      .final-cta {
+        padding: 85px 0;
+      }
+
+      .final-cta h2 {
+        font-size: clamp(46px, 13vw, 62px);
+      }
+
+      .final-cta p {
+        font-size: 11px;
+      }
+
+      .footer-top,
+      .footer-bottom {
+        flex-direction: column;
+      }
+
+      .footer-socials {
+        justify-content: flex-start;
+        gap: 18px 25px;
+      }
+
+      .footer-bottom {
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .container,
+      .header-inner,
+      .mobile-menu-inner {
+        width: calc(100% - 32px);
+      }
+
+      .hero-title {
+        font-size: 48px;
+      }
+
+      .mobile-menu a {
+        font-size: 29px;
+      }
+    }
+
+    /* =====================================================
+       REDUCED MOTION
+    ===================================================== */
+
     @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition: none !important; }
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
     }
   </style>
 </head>
 
 <body>
+
+  <!-- =====================================================
+       HEADER
+  ===================================================== -->
+
   <header class="site-header">
-    <div class="container header-inner">
-      <a class="wordmark" href="../" aria-label="ICONIC home">ICONIC</a>
+    <div class="header-inner">
+
+      <a class="wordmark" href="../" aria-label="ICONIC Home">
+        ICONIC
+      </a>
 
       <nav class="desktop-nav" aria-label="Primary navigation">
         <a href="../">HOME</a>
         <a href="../about/">ABOUT</a>
-        <a class="active" href="./">OUR WORK</a>
+        <a href="./" class="active" aria-current="page">OUR WORK</a>
         <a href="../contact/">CONTACT</a>
       </nav>
 
-      <a class="header-cta" href="../contact/">BOOK CONSULTATION</a>
+      <a class="header-cta" href="../contact/">
+        BOOK CONSULTATION
+      </a>
 
       <button
         class="menu-toggle"
         type="button"
-        aria-label="Open navigation"
+        aria-label="Open navigation menu"
         aria-expanded="false"
-        aria-controls="mobile-nav"
+        aria-controls="mobile-menu"
       >
         <span></span>
         <span></span>
       </button>
-    </div>
 
-    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
-      <a href="../">HOME</a>
-      <a href="../about/">ABOUT</a>
-      <a href="./">OUR WORK</a>
-      <a href="../contact/">CONTACT</a>
-      <a href="../contact/">BOOK CONSULTATION</a>
-    </nav>
+    </div>
   </header>
 
+  <!-- MOBILE MENU -->
+
+  <div class="mobile-menu" id="mobile-menu">
+    <nav
+      class="mobile-menu-inner"
+      aria-label="Mobile navigation"
+    >
+      <a href="../">HOME</a>
+      <a href="../about/">ABOUT</a>
+      <a href="./" class="active" aria-current="page">OUR WORK</a>
+      <a href="../contact/">CONTACT</a>
+
+      <a class="mobile-book" href="../contact/">
+        BOOK CONSULTATION
+      </a>
+    </nav>
+  </div>
+
+
   <main>
-    <section class="page-intro" aria-labelledby="work-title">
-      <div class="container">
-        <p class="eyebrow">SELECTED FILMS &amp; STILLS</p>
-        <h1 id="work-title">Our Work</h1>
-        <p class="page-intro-copy">
-          A curated collection of love stories and commissioned visual legacies.
+
+    <!-- ===================================================
+         HERO
+    ==================================================== -->
+
+    <section class="work-hero">
+      <div class="work-hero-inner">
+
+        <div>
+          <p class="eyebrow">
+            OUR WORK / SELECTED STORIES
+          </p>
+
+          <h1 class="hero-title">
+            Stories told in
+            <em>light.</em>
+          </h1>
+        </div>
+
+        <p class="hero-copy">
+          A collection of celebrations, portraits and cinematic
+          stories created with an instinct for quiet emotion,
+          considered composition and timeless visual language.
         </p>
-      </div>
-    </section>
-
-    <section class="filters" aria-label="Portfolio categories">
-      <button class="filter active" type="button" data-filter="all">ALL</button>
-      <button class="filter" type="button" data-filter="weddings">WEDDINGS</button>
-      <button class="filter" type="button" data-filter="films">WEDDING FILMS</button>
-      <button class="filter" type="button" data-filter="portraits">PORTRAITS</button>
-      <button class="filter" type="button" data-filter="events">EVENTS &amp; GALAS</button>
-      <button class="filter" type="button" data-filter="prewedding">PRE-WEDDING</button>
-    </section>
-
-    <section class="portfolio" aria-label="Selected ICONIC stories">
-      <div class="container portfolio-grid">
-
-        <!-- STORY 01 — FEATURED -->
-        <article class="story story-large story-01" data-category="prewedding weddings">
-          <div class="story-image" aria-hidden="true">
-            <!-- Replace this placeholder with your image. -->
-          </div>
-          <div class="story-content">
-            <span class="story-label">FEATURED FILM</span>
-            <div>
-              <h2 class="story-title">Aura &amp; Devendra — Shoreline Petals</h2>
-              <p class="story-location">GOA, INDIA</p>
-            </div>
-          </div>
-        </article>
-
-        <!-- STORIES 02 + 03 -->
-        <div class="story-pair">
-          <article class="story story-small story-02" data-category="weddings">
-            <div class="story-image" aria-hidden="true">
-              <!-- Replace this placeholder with your image. -->
-            </div>
-            <div class="story-content">
-              <span class="story-label">STORY 02</span>
-              <div>
-                <h2 class="story-title">Aman &amp; Kabir — Royal Ceremony</h2>
-                <p class="story-location">JAIPUR, INDIA</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="story story-small story-03" data-category="weddings">
-            <div class="story-image" aria-hidden="true">
-              <!-- Replace this placeholder with your image. -->
-            </div>
-            <div class="story-content">
-              <span class="story-label">STORY 03</span>
-              <div>
-                <h2 class="story-title">Meera &amp; Arjun — Elegant Embrace</h2>
-                <p class="story-location">UDAIPUR, INDIA</p>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <!-- STORY 04 — WIDE -->
-        <article class="story story-wide story-04" data-category="prewedding">
-          <div class="story-image" aria-hidden="true">
-            <!-- Replace this placeholder with your image. -->
-          </div>
-          <div class="story-content">
-            <span class="story-label">EDITORIAL SELECTION</span>
-            <div>
-              <h2 class="story-title">Aditi &amp; Siddharth — Palm Sanctuary</h2>
-              <p class="story-location">GOA, INDIA</p>
-            </div>
-          </div>
-        </article>
-
-        <!-- STORIES 05 + 06 -->
-        <div class="story-pair">
-          <article class="story story-small story-05" data-category="events">
-            <div class="story-image" aria-hidden="true">
-              <!-- Replace this placeholder with your image. -->
-            </div>
-            <div class="story-content">
-              <span class="story-label">STORY 05</span>
-              <div>
-                <h2 class="story-title">Ishita &amp; Ranveer — High Society Banquet</h2>
-                <p class="story-location">NEW DELHI, INDIA</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="story story-small story-06" data-category="prewedding">
-            <div class="story-image" aria-hidden="true">
-              <!-- Replace this placeholder with your image. -->
-            </div>
-            <div class="story-content">
-              <span class="story-label">STORY 06</span>
-              <div>
-                <h2 class="story-title">Tara &amp; Nishant — Warm Meadows</h2>
-                <p class="story-location">MUSSOORIE, INDIA</p>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <!-- STORY 07 — FULL WIDTH -->
-        <article class="story story-wide story-07" data-category="prewedding weddings">
-          <div class="story-image" aria-hidden="true">
-            <!-- Replace this placeholder with your image. -->
-          </div>
-          <div class="story-content">
-            <span class="story-label">EDITORIAL FEATURE</span>
-            <div>
-              <h2 class="story-title">Diya &amp; Rishi — Ancient Architecture Sunset</h2>
-              <p class="story-location">HAMPI, INDIA</p>
-            </div>
-          </div>
-        </article>
-
-        <!-- STORIES 08 + 09 -->
-        <div class="story-pair">
-          <article class="story story-small story-08" data-category="weddings">
-            <div class="story-image" aria-hidden="true">
-              <!-- Replace this placeholder with your image. -->
-            </div>
-            <div class="story-content">
-              <span class="story-label">STORY 08</span>
-              <div>
-                <h2 class="story-title">Pooja &amp; Rohit — Cliffside Devotion</h2>
-                <p class="story-location">MAHABALESHWAR, INDIA</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="story story-small story-09" data-category="prewedding">
-            <div class="story-image" aria-hidden="true">
-              <!-- Replace this placeholder with your image. -->
-            </div>
-            <div class="story-content">
-              <span class="story-label">STORY 09</span>
-              <div>
-                <h2 class="story-title">Sanika &amp; Yash — Freedom of Sincerities</h2>
-                <p class="story-location">GOA, INDIA</p>
-              </div>
-            </div>
-          </article>
-        </div>
 
       </div>
     </section>
 
-    <section class="final-cta" aria-labelledby="cta-title">
+
+    <!-- ===================================================
+         INTRO
+    ==================================================== -->
+
+    <section class="work-intro">
       <div class="container">
-        <h2 id="cta-title">Your Story Deserves to Be Told</h2>
+
+        <div class="work-intro-grid">
+
+          <div>
+            <p class="section-label">
+              PORTFOLIO / HIGHLIGHTS
+            </p>
+          </div>
+
+          <div>
+            <h2 class="intro-title">
+              Every story has its own
+              <span>rhythm.</span>
+            </h2>
+
+            <p class="intro-text">
+              From intimate ceremonies to grand destination
+              celebrations, our work is guided by the people,
+              places and fleeting moments that make each story
+              entirely its own.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         PROJECTS
+    ==================================================== -->
+
+    <section class="projects">
+      <div class="container">
+
+        <!-- PROJECT 01 -->
+
+        <article class="project">
+
+          <div class="project-meta">
+            <span class="project-number">01</span>
+            <span class="project-category">
+              WEDDING / CINEMATIC FILM
+            </span>
+          </div>
+
+          <div
+            class="project-image"
+            aria-hidden="true"
+          >
+            <!-- Replace this placeholder with your image -->
+          </div>
+
+          <div class="project-info">
+
+            <div>
+              <h2 class="project-title">
+                Aria &amp; K…
+              </h2>
+
+              <p class="project-location">
+                TOKYO, JAPAN
+              </p>
+            </div>
+
+            <div>
+              <p class="project-description">
+                An intimate celebration shaped by quiet
+                architecture, soft morning light and the
+                understated elegance of Tokyo.
+              </p>
+
+              <a class="project-link" href="../contact/">
+                DISCUSS YOUR STORY
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- PROJECT 02 -->
+
+        <article class="project">
+
+          <div class="project-meta">
+            <span class="project-number">02</span>
+            <span class="project-category">
+              DESTINATION WEDDING
+            </span>
+          </div>
+
+          <div
+            class="project-image"
+            aria-hidden="true"
+          >
+            <!-- Replace this placeholder with your image -->
+          </div>
+
+          <div class="project-info">
+
+            <div>
+              <h2 class="project-title">
+                Elena &amp; Matteo
+              </h2>
+
+              <p class="project-location">
+                POSITANO, ITALY
+              </p>
+            </div>
+
+            <div>
+              <p class="project-description">
+                A Mediterranean celebration documented through
+                sun-washed frames, intimate gestures and the
+                natural movement of a summer evening.
+              </p>
+
+              <a class="project-link" href="../contact/">
+                DISCUSS YOUR STORY
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- PROJECT 03 -->
+
+        <article class="project">
+
+          <div class="project-meta">
+            <span class="project-number">03</span>
+            <span class="project-category">
+              PORTRAITS / EDITORIAL
+            </span>
+          </div>
+
+          <div
+            class="project-image"
+            aria-hidden="true"
+          >
+            <!-- Replace this placeholder with your image -->
+          </div>
+
+          <div class="project-info">
+
+            <div>
+              <h2 class="project-title">
+                The Quiet Portrait
+              </h2>
+
+              <p class="project-location">
+                LONDON, UNITED KINGDOM
+              </p>
+            </div>
+
+            <div>
+              <p class="project-description">
+                Portraiture approached as visual storytelling —
+                restrained, expressive and centered entirely on
+                the character in front of the lens.
+              </p>
+
+              <a class="project-link" href="../contact/">
+                COMMISSION A PORTRAIT
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- PROJECT 04 -->
+
+        <article class="project">
+
+          <div class="project-meta">
+            <span class="project-number">04</span>
+            <span class="project-category">
+              EVENTS / GALAS
+            </span>
+          </div>
+
+          <div
+            class="project-image"
+            aria-hidden="true"
+          >
+            <!-- Replace this placeholder with your image -->
+          </div>
+
+          <div class="project-info">
+
+            <div>
+              <h2 class="project-title">
+                An Evening in Gold
+              </h2>
+
+              <p class="project-location">
+                PARIS, FRANCE
+              </p>
+            </div>
+
+            <div>
+              <p class="project-description">
+                An evening of fashion, art and celebration,
+                photographed with a discreet editorial eye and
+                an emphasis on atmosphere.
+              </p>
+
+              <a class="project-link" href="../contact/">
+                PLAN YOUR COVERAGE
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- PROJECT 05 -->
+
+        <article class="project">
+
+          <div class="project-meta">
+            <span class="project-number">05</span>
+            <span class="project-category">
+              PRE-WEDDING / DESTINATION
+            </span>
+          </div>
+
+          <div
+            class="project-image"
+            aria-hidden="true"
+          >
+            <!-- Replace this placeholder with your image -->
+          </div>
+
+          <div class="project-info">
+
+            <div>
+              <h2 class="project-title">
+                Before Forever
+              </h2>
+
+              <p class="project-location">
+                AMALFI COAST, ITALY
+              </p>
+            </div>
+
+            <div>
+              <p class="project-description">
+                A destination story built around movement,
+                landscape and the quiet anticipation of two
+                people beginning something extraordinary.
+              </p>
+
+              <a class="project-link" href="../contact/">
+                CREATE YOUR STORY
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         SERVICES
+    ==================================================== -->
+
+    <section class="services-strip">
+      <div class="container">
+
+        <div class="services-heading">
+
+          <p class="eyebrow">
+            WHAT WE CREATE
+          </p>
+
+          <h2>
+            Photography, film and
+            <em>everything between.</em>
+          </h2>
+
+        </div>
+
+        <div class="service-list">
+
+          <div class="service-item">
+            <span class="service-number">01</span>
+
+            <h3 class="service-name">
+              Wedding Photography
+            </h3>
+
+            <p class="service-description">
+              Timeless visual storytelling of every emotion
+              and tiny detail, from vows to quiet moments.
+            </p>
+          </div>
+
+          <div class="service-item">
+            <span class="service-number">02</span>
+
+            <h3 class="service-name">
+              Wedding Films
+            </h3>
+
+            <p class="service-description">
+              Cinematic, story-driven documentation tailored
+              with customized score design and authentic
+              soundscapes.
+            </p>
+          </div>
+
+          <div class="service-item">
+            <span class="service-number">03</span>
+
+            <h3 class="service-name">
+              Portraits
+            </h3>
+
+            <p class="service-description">
+              Vogue-style editorial framing capturing the raw,
+              exquisite nuance of character.
+            </p>
+          </div>
+
+          <div class="service-item">
+            <span class="service-number">04</span>
+
+            <h3 class="service-name">
+              Events &amp; Galas
+            </h3>
+
+            <p class="service-description">
+              Elegant high-society gatherings, fashion shows,
+              and marquee private celebrations captured
+              discreetly.
+            </p>
+          </div>
+
+          <div class="service-item">
+            <span class="service-number">05</span>
+
+            <h3 class="service-name">
+              Pre-Wedding Shoots
+            </h3>
+
+            <p class="service-description">
+              Art-directed love stories documented in
+              breathtaking scenic destinations around the globe.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         FINAL CTA
+    ==================================================== -->
+
+    <section class="final-cta">
+      <div class="container">
+
+        <p class="eyebrow">
+          YOUR STORY AWAITS
+        </p>
+
+        <h2>
+          Let’s create something
+          <em>iconic.</em>
+        </h2>
+
         <p>
-          Commission us to preserve your wedding celebrations. We capture
-          depth, emotion, and visual precision globally.
+          Tell us about the celebration, destination or story
+          you have in mind. We would love to hear it.
         </p>
-        <a class="button" href="../contact/">INQUIRE NOW</a>
+
+        <a class="button button-primary" href="../contact/">
+          REQUEST WEDDING COMMISSION
+        </a>
+
       </div>
     </section>
+
   </main>
+
+
+  <!-- =====================================================
+       FOOTER
+  ===================================================== -->
 
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-top">
-        <a class="footer-wordmark" href="../" aria-label="ICONIC home">ICONIC</a>
 
-        <div class="social-links" aria-label="Social links">
-          <!-- Replace these with ICONIC's real social URLs when available. -->
-          <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
-          <a href="https://vimeo.com/" target="_blank" rel="noopener noreferrer">VIMEO</a>
-          <a href="https://pinterest.com/" target="_blank" rel="noopener noreferrer">PINTEREST</a>
+      <div class="footer-top">
+
+        <div class="footer-logo">
+          ICONIC
         </div>
+
+        <div class="footer-socials">
+          <!-- Add real URLs when supplied -->
+          <span>INSTAGRAM</span>
+          <span>VIMEO</span>
+          <span>PINTEREST</span>
+        </div>
+
       </div>
 
       <div class="footer-bottom">
-        <span>© 2026 ICONIC Studio. Fine Art Wedding Films &amp; Still Photography.</span>
+        <span>© 2026 ICONIC Films. All Rights Reserved.</span>
         <span>ALL RIGHTS RESERVED.</span>
       </div>
+
     </div>
   </footer>
 
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ===================================================== -->
+
   <script>
     (() => {
-      const menuButton = document.querySelector(".menu-toggle");
-      const mobileNav = document.querySelector(".mobile-nav");
+      const body = document.body;
+      const toggle = document.querySelector(".menu-toggle");
+      const menu = document.querySelector(".mobile-menu");
+      const menuLinks = menu
+        ? menu.querySelectorAll("a")
+        : [];
 
-      const closeMenu = () => {
-        if (!menuButton || !mobileNav) return;
-        menuButton.classList.remove("is-open");
-        mobileNav.classList.remove("is-open");
-        menuButton.setAttribute("aria-expanded", "false");
-        menuButton.setAttribute("aria-label", "Open navigation");
-        document.body.classList.remove("menu-open");
-      };
+      if (!toggle || !menu) return;
 
-      if (menuButton && mobileNav) {
-        menuButton.addEventListener("click", () => {
-          const open = !mobileNav.classList.contains("is-open");
-
-          menuButton.classList.toggle("is-open", open);
-          mobileNav.classList.toggle("is-open", open);
-          menuButton.setAttribute("aria-expanded", String(open));
-          menuButton.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
-          document.body.classList.toggle("menu-open", open);
-        });
-
-        mobileNav.querySelectorAll("a").forEach(link => {
-          link.addEventListener("click", closeMenu);
-        });
-
-        window.addEventListener("resize", () => {
-          if (window.innerWidth > 900) closeMenu();
-        });
+      function openMenu() {
+        menu.classList.add("open");
+        body.classList.add("menu-open");
+        toggle.setAttribute("aria-expanded", "true");
+        toggle.setAttribute("aria-label", "Close navigation menu");
       }
 
-      const filters = document.querySelectorAll(".filter");
-      const stories = document.querySelectorAll("[data-category]");
+      function closeMenu() {
+        menu.classList.remove("open");
+        body.classList.remove("menu-open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Open navigation menu");
+      }
 
-      filters.forEach(filter => {
-        filter.addEventListener("click", () => {
-          const category = filter.dataset.filter;
+      toggle.addEventListener("click", () => {
+        const isOpen =
+          toggle.getAttribute("aria-expanded") === "true";
 
-          filters.forEach(item => item.classList.remove("active"));
-          filter.classList.add("active");
+        if (isOpen) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
 
-          stories.forEach(story => {
-            const categories = story.dataset.category.split(" ");
-            const show = category === "all" || categories.includes(category);
-            story.hidden = !show;
-          });
+      menuLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          closeMenu();
         });
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeMenu();
+        }
+      });
+
+      menu.addEventListener("click", (event) => {
+        if (event.target === menu) {
+          closeMenu();
+        }
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 900) {
+          closeMenu();
+        }
       });
     })();
   </script>
+
 </body>
 </html>
