@@ -75,6 +75,7 @@ img{
   margin:auto;
 }
 
+
 /* HEADER */
 
 header{
@@ -136,6 +137,7 @@ header{
   background:none;
   border:0;
   color:var(--ivory);
+  cursor:pointer;
 }
 
 .menu-icon,
@@ -155,12 +157,18 @@ header{
   left:0;
 }
 
-.menu-icon:before{top:-6px}
-.menu-icon:after{top:6px}
+.menu-icon:before{
+  top:-6px;
+}
+
+.menu-icon:after{
+  top:6px;
+}
 
 .mobile-menu{
   display:none;
 }
+
 
 /* HERO */
 
@@ -175,24 +183,95 @@ header{
 
 .hero-image{
   position:absolute;
-  inset:0;
+  inset:-12px;
+
   background-image:url("https://i.pinimg.com/736x/9a/0d/bb/9a0dbb323ae1f1f367b5b37b7a7c2129.jpg");
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
+
+  /*
+    Subtle cinematic softness:
+    - blur softens the photographic detail
+    - saturation is reduced for a matte editorial feel
+    - brightness/contrast are slightly lowered
+  */
+  filter:
+    blur(4px)
+    saturate(.72)
+    brightness(.82)
+    contrast(.92);
+
+  transform:scale(1.035);
 }
 
+/* Main matte darkness */
 .hero-image::after{
   content:"";
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,.52);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(9,9,9,.30) 0%,
+      rgba(9,9,9,.38) 48%,
+      rgba(9,9,9,.58) 100%
+    );
+
+  backdrop-filter:
+    blur(2px)
+    saturate(.78);
+
+  -webkit-backdrop-filter:
+    blur(2px)
+    saturate(.78);
+}
+
+/* Very subtle warm matte wash */
+.hero-image::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(238,233,224,.055) 0%,
+      rgba(238,233,224,.018) 42%,
+      rgba(9,9,9,.08) 100%
+    );
+
+  pointer-events:none;
 }
 
 .hero-content{
   position:relative;
   z-index:2;
   width:min(900px,calc(100% - 48px));
+
+  /*
+    Subtle matte-glass layer.
+    It is intentionally restrained so the hero
+    still feels editorial rather than "glassmorphism".
+  */
+  padding:42px 48px;
+
+  background:rgba(9,9,9,.12);
+
+  border:1px solid rgba(255,255,255,.055);
+
+  backdrop-filter:
+    blur(5px)
+    saturate(.82);
+
+  -webkit-backdrop-filter:
+    blur(5px)
+    saturate(.82);
+
+  box-shadow:
+    0 18px 60px rgba(0,0,0,.14);
 }
 
 .eyebrow{
@@ -234,6 +313,7 @@ h3{
   max-width:650px;
   margin:auto;
   font-size:13px;
+  line-height:1.7;
 }
 
 .buttons{
@@ -253,6 +333,7 @@ h3{
   font-weight:600;
   letter-spacing:.17em;
   text-transform:uppercase;
+  transition:.25s ease;
 }
 
 .primary{
@@ -273,6 +354,7 @@ h3{
   color:var(--champagne);
 }
 
+
 /* SECTIONS */
 
 section{
@@ -292,6 +374,7 @@ section{
   font-size:clamp(42px,5vw,67px);
   margin:20px 0;
 }
+
 
 /* SERVICES */
 
@@ -325,6 +408,7 @@ section{
 .service p{
   color:var(--muted);
   font-size:12px;
+  line-height:1.7;
   margin:0;
 }
 
@@ -341,6 +425,7 @@ section{
   height:100%;
   object-fit:cover;
 }
+
 
 /* CURATED STORIES */
 
@@ -374,6 +459,11 @@ section{
   font-weight:600;
   letter-spacing:.18em;
   text-transform:uppercase;
+  transition:.25s;
+}
+
+.archive-link:hover{
+  color:var(--champagne-light);
 }
 
 .story-grid{
@@ -441,6 +531,7 @@ section{
   margin:0;
 }
 
+
 /* PHILOSOPHY */
 
 .quote{
@@ -455,6 +546,7 @@ section{
   font-size:clamp(32px,4vw,55px);
   line-height:1.15;
 }
+
 
 /* ABOUT */
 
@@ -488,6 +580,7 @@ section{
 .about-copy p{
   color:var(--muted);
   font-size:13px;
+  line-height:1.8;
 }
 
 .stats{
@@ -512,6 +605,7 @@ section{
   font-weight:400;
 }
 
+
 /* TESTIMONIAL */
 
 .testimonial{
@@ -534,6 +628,7 @@ section{
   letter-spacing:.12em;
 }
 
+
 /* CTA */
 
 .cta{
@@ -552,6 +647,7 @@ section{
   max-width:550px;
   margin:0 auto 30px;
 }
+
 
 /* FOOTER */
 
@@ -588,6 +684,7 @@ footer{
   font-size:8px;
 }
 
+
 /* MOBILE */
 
 @media(max-width:900px){
@@ -616,6 +713,7 @@ footer{
     background:rgba(9,9,9,.98);
     z-index:90;
     padding:25px 22px;
+    overflow-y:auto;
   }
 
   .mobile-menu.open{
@@ -654,6 +752,11 @@ footer{
     min-height:600px;
   }
 
+  .hero-content{
+    width:min(900px,calc(100% - 40px));
+    padding:38px 30px;
+  }
+
   .service{
     grid-template-columns:55px 1fr 90px;
   }
@@ -686,6 +789,7 @@ footer{
   }
 }
 
+
 @media(max-width:600px){
 
   :root{
@@ -696,12 +800,47 @@ footer{
     font-size:17px;
   }
 
+  .hero{
+    min-height:600px;
+  }
+
+  .hero-image{
+    filter:
+      blur(3px)
+      saturate(.70)
+      brightness(.80)
+      contrast(.92);
+
+    transform:scale(1.035);
+  }
+
+  .hero-content{
+    width:calc(100% - 32px);
+    padding:34px 22px;
+
+    background:rgba(9,9,9,.15);
+
+    backdrop-filter:
+      blur(4px)
+      saturate(.82);
+
+    -webkit-backdrop-filter:
+      blur(4px)
+      saturate(.82);
+
+    border:1px solid rgba(255,255,255,.05);
+
+    box-shadow:
+      0 14px 45px rgba(0,0,0,.15);
+  }
+
   .hero h1{
     font-size:clamp(48px,14vw,68px);
   }
 
   .hero p{
     font-size:12px;
+    line-height:1.65;
   }
 
   .buttons{
@@ -755,9 +894,16 @@ footer{
   }
 }
 
+
 @media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *{transition:none!important}
+
+  html{
+    scroll-behavior:auto;
+  }
+
+  *{
+    transition:none!important;
+  }
 }
 </style>
 </head>
@@ -765,6 +911,7 @@ footer{
 <body>
 
 <header>
+
   <a class="logo" href="./">ICONIC</a>
 
   <nav class="nav">
@@ -774,24 +921,45 @@ footer{
     <a href="./contact/">CONTACT</a>
   </nav>
 
-  <a class="header-button" href="./contact/">BOOK CONSULTATION</a>
+  <a class="header-button" href="./contact/">
+    BOOK CONSULTATION
+  </a>
 
-  <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">
+  <button
+    class="menu-toggle"
+    aria-label="Open navigation"
+    aria-expanded="false"
+    type="button"
+  >
     <span class="menu-icon"></span>
   </button>
+
 </header>
 
+
 <div class="mobile-menu">
+
   <nav class="mobile-nav">
+
     <a class="active" href="./">HOME</a>
+
     <a href="./about/">ABOUT</a>
+
     <a href="./services/">OUR WORK</a>
+
     <a href="./contact/">CONTACT</a>
-    <a class="button primary" href="./contact/">BOOK CONSULTATION</a>
+
+    <a class="button primary" href="./contact/">
+      BOOK CONSULTATION
+    </a>
+
   </nav>
+
 </div>
 
+
 <main>
+
 
 <!-- HERO -->
 
@@ -801,7 +969,9 @@ footer{
 
   <div class="hero-content">
 
-    <div class="eyebrow">THE LUXURY CINEMATIC STUDIO</div>
+    <div class="eyebrow">
+      THE LUXURY CINEMATIC STUDIO
+    </div>
 
     <h1>
       Where Memories Become<br>
@@ -814,357 +984,548 @@ footer{
     </p>
 
     <div class="buttons">
-      <a class="button secondary" href="./services/">VIEW FOLIO</a>
-      <a class="button primary" href="./contact/">CONNECT WITH US</a>
+
+      <a class="button secondary" href="./services/">
+        VIEW FOLIO
+      </a>
+
+      <a class="button primary" href="./contact/">
+        CONNECT WITH US
+      </a>
+
     </div>
 
   </div>
 
 </section>
+
 
 <!-- SERVICES -->
 
 <section>
 
-<div class="container">
+  <div class="container">
 
-<div class="section-heading">
-  <div class="eyebrow">WHAT WE LOVE TO CREATE</div>
-  <h2>A Legacy of Light &amp; Motion</h2>
-</div>
+    <div class="section-heading">
 
-<div class="services">
+      <div class="eyebrow">
+        WHAT WE LOVE TO CREATE
+      </div>
 
-<article class="service">
-  <div class="service-number">01</div>
+      <h2>
+        A Legacy of Light &amp; Motion
+      </h2>
 
-  <h3>Wedding Photography</h3>
+    </div>
 
-  <p>
-    Timeless visual storytelling of every emotion and tiny detail,
-    from vows to quiet moments.
-  </p>
 
-  <div class="service-image">
-    <img
-      src="https://i.pinimg.com/736x/54/9e/c1/549ec157e73367e73f055bdc6884fd56.jpg"
-      alt="Wedding photography"
-      loading="lazy">
+    <div class="services">
+
+
+      <article class="service">
+
+        <div class="service-number">
+          01
+        </div>
+
+        <h3>
+          Wedding Photography
+        </h3>
+
+        <p>
+          Timeless visual storytelling of every emotion and tiny detail,
+          from vows to quiet moments.
+        </p>
+
+        <div class="service-image">
+
+          <img
+            src="https://i.pinimg.com/736x/54/9e/c1/549ec157e73367e73f055bdc6884fd56.jpg"
+            alt="Wedding photography"
+            loading="lazy">
+
+        </div>
+
+      </article>
+
+
+      <article class="service">
+
+        <div class="service-number">
+          02
+        </div>
+
+        <h3>
+          Wedding Films
+        </h3>
+
+        <p>
+          Cinematic, story-driven documentation tailored with customized
+          score design and authentic soundscapes.
+        </p>
+
+        <div class="service-image">
+
+          <img
+            src="https://i.pinimg.com/736x/af/b9/e1/afb9e142d9c66eafcd871c9811187b8f.jpg"
+            alt="Wedding film"
+            loading="lazy">
+
+        </div>
+
+      </article>
+
+
+      <article class="service">
+
+        <div class="service-number">
+          03
+        </div>
+
+        <h3>
+          Portraits
+        </h3>
+
+        <p>
+          Vogue-style editorial framing capturing the raw, exquisite nuance
+          of character.
+        </p>
+
+        <div class="service-image">
+
+          <img
+            src="https://i.pinimg.com/736x/b7/5b/aa/b75baa6710955e67b0c3b8672cdc80fd.jpg"
+            alt="Wedding portrait"
+            loading="lazy">
+
+        </div>
+
+      </article>
+
+
+      <article class="service">
+
+        <div class="service-number">
+          04
+        </div>
+
+        <h3>
+          Events &amp; Galas
+        </h3>
+
+        <p>
+          Elegant high-society gatherings, fashion shows, and marquee
+          private celebrations captured discreetly.
+        </p>
+
+        <div class="service-image">
+
+          <img
+            src="https://i.pinimg.com/736x/fb/da/52/fbda52f5f1a82e88458d86c3f80543e6.jpg"
+            alt="Luxury event"
+            loading="lazy">
+
+        </div>
+
+      </article>
+
+
+      <article class="service">
+
+        <div class="service-number">
+          05
+        </div>
+
+        <h3>
+          Pre-Wedding Shoots
+        </h3>
+
+        <p>
+          Art-directed love stories documented in breathtaking scenic
+          destinations around the globe.
+        </p>
+
+        <div class="service-image">
+
+          <img
+            src="https://i.pinimg.com/736x/53/65/55/536555d5586bedaa9b6331ddf4dc3078.jpg"
+            alt="Pre-wedding shoot"
+            loading="lazy">
+
+        </div>
+
+      </article>
+
+
+    </div>
+
   </div>
-</article>
-
-<article class="service">
-  <div class="service-number">02</div>
-
-  <h3>Wedding Films</h3>
-
-  <p>
-    Cinematic, story-driven documentation tailored with customized
-    score design and authentic soundscapes.
-  </p>
-
-  <div class="service-image">
-    <img
-      src="https://i.pinimg.com/736x/af/b9/e1/afb9e142d9c66eafcd871c9811187b8f.jpg"
-      alt="Wedding film"
-      loading="lazy">
-  </div>
-</article>
-
-<article class="service">
-  <div class="service-number">03</div>
-
-  <h3>Portraits</h3>
-
-  <p>
-    Vogue-style editorial framing capturing the raw, exquisite nuance
-    of character.
-  </p>
-
-  <div class="service-image">
-    <img
-      src="https://i.pinimg.com/736x/b7/5b/aa/b75baa6710955e67b0c3b8672cdc80fd.jpg"
-      alt="Wedding portrait"
-      loading="lazy">
-  </div>
-</article>
-
-<article class="service">
-  <div class="service-number">04</div>
-
-  <h3>Events &amp; Galas</h3>
-
-  <p>
-    Elegant high-society gatherings, fashion shows, and marquee
-    private celebrations captured discreetly.
-  </p>
-
-  <div class="service-image">
-    <img
-      src="https://i.pinimg.com/736x/fb/da/52/fbda52f5f1a82e88458d86c3f80543e6.jpg"
-      alt="Luxury event"
-      loading="lazy">
-  </div>
-</article>
-
-<article class="service">
-  <div class="service-number">05</div>
-
-  <h3>Pre-Wedding Shoots</h3>
-
-  <p>
-    Art-directed love stories documented in breathtaking scenic
-    destinations around the globe.
-  </p>
-
-  <div class="service-image">
-    <img
-      src="https://i.pinimg.com/736x/53/65/55/536555d5586bedaa9b6331ddf4dc3078.jpg"
-      alt="Pre-wedding shoot"
-      loading="lazy">
-  </div>
-</article>
-
-</div>
-</div>
 
 </section>
+
 
 <!-- CURATED STORIES -->
 
 <section class="stories-section">
 
-<div class="container">
+  <div class="container">
 
-<div class="stories-head">
+    <div class="stories-head">
 
-  <div class="stories-title">
-    <div class="eyebrow">PORTFOLIO / HIGHLIGHTS</div>
-    <h2>Curated Stories</h2>
+      <div class="stories-title">
+
+        <div class="eyebrow">
+          PORTFOLIO / HIGHLIGHTS
+        </div>
+
+        <h2>
+          Curated Stories
+        </h2>
+
+      </div>
+
+      <a class="archive-link" href="./services/">
+        VIEW ARCHIVE →
+      </a>
+
+    </div>
+
+
+    <div class="story-grid">
+
+
+      <article class="story-card">
+
+        <img
+          src="https://i.pinimg.com/736x/2e/a7/19/2ea719de63066763282533fc8ddeae27.jpg"
+          alt="Aria and K wedding story"
+          loading="lazy">
+
+        <div class="story-label">
+          STORY 01
+        </div>
+
+        <div class="story-content">
+
+          <h3>
+            Aria &amp; K… — Tokyo Atelier
+          </h3>
+
+          <p>
+            TOKYO, JAPAN
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="story-card">
+
+        <img
+          src="https://i.pinimg.com/736x/7b/70/ea/7b70eae8764b484cf9e3c5485e818f7c.jpg"
+          alt="Elena and Matteo wedding story"
+          loading="lazy">
+
+        <div class="story-label">
+          STORY 02
+        </div>
+
+        <div class="story-content">
+
+          <h3>
+            Elena &amp; Matteo — Amalfi Coast
+          </h3>
+
+          <p>
+            POSITANO, ITALY
+          </p>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
   </div>
 
-  <a class="archive-link" href="./services/">
-    VIEW ARCHIVE →
-  </a>
-
-</div>
-
-<div class="story-grid">
-
-  <article class="story-card">
-
-    <img
-      src="https://i.pinimg.com/736x/2e/a7/19/2ea719de63066763282533fc8ddeae27.jpg"
-      alt="Aria and K wedding story"
-      loading="lazy">
-
-    <div class="story-label">STORY 01</div>
-
-    <div class="story-content">
-      <h3>Aria &amp; K… — Tokyo Atelier</h3>
-      <p>TOKYO, JAPAN</p>
-    </div>
-
-  </article>
-
-  <article class="story-card">
-
-    <img
-      src="https://i.pinimg.com/736x/7b/70/ea/7b70eae8764b484cf9e3c5485e818f7c.jpg"
-      alt="Elena and Matteo wedding story"
-      loading="lazy">
-
-    <div class="story-label">STORY 02</div>
-
-    <div class="story-content">
-      <h3>Elena &amp; Matteo — Amalfi Coast</h3>
-      <p>POSITANO, ITALY</p>
-    </div>
-
-  </article>
-
-</div>
-
-</div>
-
 </section>
+
 
 <!-- PHILOSOPHY -->
 
 <section class="quote dark">
 
-<div class="container">
+  <div class="container">
 
-<div class="eyebrow">
-  OUR PHILOSOPHY
-</div>
+    <div class="eyebrow">
+      OUR PHILOSOPHY
+    </div>
 
-<div class="quote-text">
-“We believe simplicity is the ultimate expression of craft.
-Our film reels and still photographs hold real lives in perfect,
-unmanipulated reverence.”
-</div>
+    <div class="quote-text">
+      “We believe simplicity is the ultimate expression of craft.
+      Our film reels and still photographs hold real lives in perfect,
+      unmanipulated reverence.”
+    </div>
 
-</div>
+  </div>
 
 </section>
+
 
 <!-- ABOUT -->
 
 <section>
 
-<div class="container">
+  <div class="container">
 
-<div class="about-grid">
+    <div class="about-grid">
 
-<div class="about-copy">
 
-<div class="eyebrow">THE ARTISTS BEHIND THE LENS</div>
+      <div class="about-copy">
 
-<h2>Quiet Lives.</h2>
+        <div class="eyebrow">
+          THE ARTISTS BEHIND THE LENS
+        </div>
 
-<p>
-Founded by a collective of visual artists, ICONIC is dedicated to
-capturing human tenderness in its most authentic, quiet form.
-We believe that true luxury is not manufactured; it is discovered
-in natural, fleeting moments between the people we care for.
-</p>
+        <h2>
+          Quiet Lives.
+        </h2>
 
-<div class="stats">
+        <p>
+          Founded by a collective of visual artists, ICONIC is dedicated to
+          capturing human tenderness in its most authentic, quiet form.
+          We believe that true luxury is not manufactured; it is discovered
+          in natural, fleeting moments between the people we care for.
+        </p>
 
-<div class="stat">
-<span>Years of Global Experience</span>
-<strong>20+</strong>
-</div>
 
-<div class="stat">
-<span>Weddings Documented Globally</span>
-<strong>450+</strong>
-</div>
+        <div class="stats">
 
-<div class="stat">
-<span>International Filmmaking Awards</span>
-<strong>18</strong>
-</div>
 
-<div class="stat">
-<span>Timeless Quality Guarantee</span>
-<strong>100%</strong>
-</div>
+          <div class="stat">
 
-</div>
+            <span>
+              Years of Global Experience
+            </span>
 
-</div>
+            <strong>
+              20+
+            </strong>
 
-<div class="about-image">
+          </div>
 
-  <img
-    src="https://i.pinimg.com/736x/28/72/62/2872629c5f21f7f39cd4fba204fda33e.jpg"
-    alt="ICONIC wedding photography"
-    loading="lazy">
 
-</div>
+          <div class="stat">
 
-</div>
+            <span>
+              Weddings Documented Globally
+            </span>
 
-</div>
+            <strong>
+              450+
+            </strong>
+
+          </div>
+
+
+          <div class="stat">
+
+            <span>
+              International Filmmaking Awards
+            </span>
+
+            <strong>
+              18
+            </strong>
+
+          </div>
+
+
+          <div class="stat">
+
+            <span>
+              Timeless Quality Guarantee
+            </span>
+
+            <strong>
+              100%
+            </strong>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+      <div class="about-image">
+
+        <img
+          src="https://i.pinimg.com/736x/28/72/62/2872629c5f21f7f39cd4fba204fda33e.jpg"
+          alt="ICONIC wedding photography"
+          loading="lazy">
+
+      </div>
+
+
+    </div>
+
+  </div>
 
 </section>
+
 
 <!-- TESTIMONIAL -->
 
 <section class="testimonial">
 
-<div class="container">
+  <div class="container">
 
-<div class="eyebrow">
-  CLIENT STORY
-</div>
+    <div class="eyebrow">
+      CLIENT STORY
+    </div>
 
-<div class="testimonial-copy">
-“Working with ICONIC was like having classic filmmakers tell our
-story. They were invisible yet captured every tear, every laugh, and
-turned our day into a piece of fine art. The film still brings us to
-tears.”
-</div>
+    <div class="testimonial-copy">
+      “Working with ICONIC was like having classic filmmakers tell our
+      story. They were invisible yet captured every tear, every laugh, and
+      turned our day into a piece of fine art. The film still brings us to
+      tears.”
+    </div>
 
-<div class="testimonial-name">
-— SOPHIA &amp; ALEXANDER / SANTORINI
-</div>
+    <div class="testimonial-name">
+      — SOPHIA &amp; ALEXANDER / SANTORINI
+    </div>
 
-</div>
+  </div>
 
 </section>
+
 
 <!-- CTA -->
 
 <section class="cta">
 
-<div class="container">
+  <div class="container">
 
-<h2>Let’s create something iconic.</h2>
+    <h2>
+      Let’s create something iconic.
+    </h2>
 
-<a class="button primary" href="./contact/">
-REQUEST WEDDING COMMISSION
-</a>
+    <a class="button primary" href="./contact/">
+      REQUEST WEDDING COMMISSION
+    </a>
 
-</div>
+  </div>
 
 </section>
 
+
 </main>
+
+
+<!-- FOOTER -->
 
 <footer>
 
-<div class="container">
+  <div class="container">
 
-<div class="footer-top">
+    <div class="footer-top">
 
-<a class="logo" href="./">ICONIC</a>
+      <a class="logo" href="./">
+        ICONIC
+      </a>
 
-<div class="social">
-  <span>INSTAGRAM</span>
-  <span>VIMEO</span>
-  <span>PINTEREST</span>
-</div>
+      <div class="social">
+        <span>INSTAGRAM</span>
+        <span>VIMEO</span>
+        <span>PINTEREST</span>
+      </div>
 
-</div>
+    </div>
 
-<div class="footer-bottom">
-  <span>© 2026 ICONIC Studio. Fine Art Wedding Films &amp; Still Photography.</span>
-  <span>ALL RIGHTS RESERVED.</span>
-</div>
 
-</div>
+    <div class="footer-bottom">
+
+      <span>
+        © 2026 ICONIC Studio. Fine Art Wedding Films &amp; Still Photography.
+      </span>
+
+      <span>
+        ALL RIGHTS RESERVED.
+      </span>
+
+    </div>
+
+  </div>
 
 </footer>
 
+
 <script>
+
 const menuButton = document.querySelector(".menu-toggle");
 const mobileMenu = document.querySelector(".mobile-menu");
 
 function closeMenu(){
+
   mobileMenu.classList.remove("open");
+
   document.body.classList.remove("menu-open");
+
   menuButton.setAttribute("aria-expanded","false");
+
+  menuButton.setAttribute("aria-label","Open navigation");
+
 }
 
+
 menuButton.addEventListener("click",()=>{
+
   const open = mobileMenu.classList.toggle("open");
 
   document.body.classList.toggle("menu-open",open);
+
   menuButton.setAttribute("aria-expanded",open);
+
+  menuButton.setAttribute(
+    "aria-label",
+    open ? "Close navigation" : "Open navigation"
+  );
+
 });
+
 
 document.querySelectorAll(".mobile-menu a").forEach(link=>{
+
   link.addEventListener("click",closeMenu);
+
 });
 
+
 document.addEventListener("keydown",e=>{
+
   if(e.key === "Escape"){
     closeMenu();
   }
+
 });
+
+
+document.addEventListener("click",e=>{
+
+  if(
+    mobileMenu.classList.contains("open") &&
+    !mobileMenu.contains(e.target) &&
+    !menuButton.contains(e.target)
+  ){
+    closeMenu();
+  }
+
+});
+
 </script>
 
 </body>
