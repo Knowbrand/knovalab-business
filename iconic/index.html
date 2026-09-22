@@ -60,6 +60,11 @@ textarea{
   font:inherit;
 }
 
+img{
+  display:block;
+  max-width:100%;
+}
+
 :focus-visible{
   outline:1px solid var(--champagne);
   outline-offset:4px;
@@ -171,7 +176,10 @@ header{
 .hero-image{
   position:absolute;
   inset:0;
-  background:#111;
+  background-image:url("https://i.pinimg.com/736x/9a/0d/bb/9a0dbb323ae1f1f367b5b37b7a7c2129.jpg");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
 }
 
 .hero-image::after{
@@ -179,17 +187,6 @@ header{
   position:absolute;
   inset:0;
   background:rgba(0,0,0,.52);
-}
-
-.image-placeholder{
-  position:absolute;
-  inset:0;
-  display:grid;
-  place-items:center;
-  color:#4e4a45;
-  font-size:9px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
 }
 
 .hero-content{
@@ -296,6 +293,8 @@ section{
   margin:20px 0;
 }
 
+/* SERVICES */
+
 .services{
   display:grid;
   gap:0;
@@ -304,10 +303,11 @@ section{
 
 .service{
   display:grid;
-  grid-template-columns:90px 1fr 2fr;
+  grid-template-columns:90px 1fr 2fr 112px;
   gap:30px;
   align-items:center;
-  padding:28px 0;
+  min-height:132px;
+  padding:20px 0;
   border-bottom:1px solid var(--line);
 }
 
@@ -328,6 +328,121 @@ section{
   margin:0;
 }
 
+.service-image{
+  width:112px;
+  height:82px;
+  overflow:hidden;
+  justify-self:end;
+  background:#111;
+}
+
+.service-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* CURATED STORIES */
+
+.stories-section{
+  background:var(--black-3);
+}
+
+.stories-head{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  margin-bottom:50px;
+}
+
+.stories-title .eyebrow{
+  justify-content:flex-start;
+}
+
+.stories-title .eyebrow::before{
+  display:none;
+}
+
+.stories-title h2{
+  font-size:clamp(42px,5vw,67px);
+  margin:17px 0 0;
+}
+
+.archive-link{
+  color:var(--champagne);
+  font-size:8px;
+  font-weight:600;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+.story-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+}
+
+.story-card{
+  position:relative;
+  min-height:520px;
+  overflow:hidden;
+  background:#111;
+}
+
+.story-card img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.story-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to bottom,
+    rgba(0,0,0,.05) 35%,
+    rgba(0,0,0,.72) 100%
+  );
+}
+
+.story-label{
+  position:absolute;
+  top:28px;
+  left:28px;
+  z-index:2;
+  color:var(--champagne);
+  font-size:8px;
+  font-weight:600;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+.story-content{
+  position:absolute;
+  z-index:2;
+  left:30px;
+  right:30px;
+  bottom:30px;
+}
+
+.story-content h3{
+  font-size:30px;
+  margin:0 0 8px;
+}
+
+.story-content p{
+  color:var(--muted);
+  font-size:9px;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+  margin:0;
+}
+
+/* PHILOSOPHY */
+
 .quote{
   text-align:center;
   padding:125px 0;
@@ -341,6 +456,8 @@ section{
   line-height:1.15;
 }
 
+/* ABOUT */
+
 .about-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -352,6 +469,15 @@ section{
   aspect-ratio:4/5;
   background:#111;
   position:relative;
+  overflow:hidden;
+}
+
+.about-image img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
 .about-copy h2{
@@ -385,6 +511,30 @@ section{
   font-size:22px;
   font-weight:400;
 }
+
+/* TESTIMONIAL */
+
+.testimonial{
+  text-align:center;
+  background:var(--black-2);
+}
+
+.testimonial-copy{
+  max-width:900px;
+  margin:28px auto 0;
+  font-family:var(--serif);
+  font-size:clamp(27px,3vw,42px);
+  line-height:1.25;
+}
+
+.testimonial-name{
+  margin-top:27px;
+  color:var(--muted);
+  font-size:8px;
+  letter-spacing:.12em;
+}
+
+/* CTA */
 
 .cta{
   text-align:center;
@@ -505,11 +655,22 @@ footer{
   }
 
   .service{
-    grid-template-columns:55px 1fr;
+    grid-template-columns:55px 1fr 90px;
   }
 
   .service p{
     grid-column:2;
+  }
+
+  .service-image{
+    width:90px;
+    height:72px;
+    grid-column:3;
+    grid-row:1 / span 2;
+  }
+
+  .story-card{
+    min-height:410px;
   }
 
   .about-grid{
@@ -553,17 +714,36 @@ footer{
   }
 
   .service{
-    grid-template-columns:45px 1fr;
-    gap:15px;
+    grid-template-columns:38px 1fr 72px;
+    gap:14px;
   }
 
   .service h3{
-    font-size:24px;
+    font-size:22px;
   }
 
   .service p{
-    grid-column:1/-1;
-    padding-left:60px;
+    grid-column:1 / span 2;
+    padding-left:52px;
+  }
+
+  .service-image{
+    width:72px;
+    height:72px;
+  }
+
+  .stories-head{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:24px;
+  }
+
+  .story-grid{
+    grid-template-columns:1fr;
+  }
+
+  .story-card{
+    min-height:440px;
   }
 
   .quote-text{
@@ -613,12 +793,11 @@ footer{
 
 <main>
 
+<!-- HERO -->
+
 <section class="hero">
 
-  <div class="hero-image">
-    <!-- Replace this with your local image -->
-    <div class="image-placeholder">HERO IMAGE SLOT</div>
-  </div>
+  <div class="hero-image"></div>
 
   <div class="hero-content">
 
@@ -643,6 +822,8 @@ footer{
 
 </section>
 
+<!-- SERVICES -->
+
 <section>
 
 <div class="container">
@@ -656,38 +837,159 @@ footer{
 
 <article class="service">
   <div class="service-number">01</div>
+
   <h3>Wedding Photography</h3>
-  <p>Timeless visual storytelling of every emotion and tiny detail, from vows to quiet moments.</p>
+
+  <p>
+    Timeless visual storytelling of every emotion and tiny detail,
+    from vows to quiet moments.
+  </p>
+
+  <div class="service-image">
+    <img
+      src="https://i.pinimg.com/736x/54/9e/c1/549ec157e73367e73f055bdc6884fd56.jpg"
+      alt="Wedding photography"
+      loading="lazy">
+  </div>
 </article>
 
 <article class="service">
   <div class="service-number">02</div>
+
   <h3>Wedding Films</h3>
-  <p>Cinematic, story-driven documentation tailored with customized score design and authentic soundscapes.</p>
+
+  <p>
+    Cinematic, story-driven documentation tailored with customized
+    score design and authentic soundscapes.
+  </p>
+
+  <div class="service-image">
+    <img
+      src="https://i.pinimg.com/736x/af/b9/e1/afb9e142d9c66eafcd871c9811187b8f.jpg"
+      alt="Wedding film"
+      loading="lazy">
+  </div>
 </article>
 
 <article class="service">
   <div class="service-number">03</div>
+
   <h3>Portraits</h3>
-  <p>Vogue-style editorial framing capturing the raw, exquisite nuance of character.</p>
+
+  <p>
+    Vogue-style editorial framing capturing the raw, exquisite nuance
+    of character.
+  </p>
+
+  <div class="service-image">
+    <img
+      src="https://i.pinimg.com/736x/b7/5b/aa/b75baa6710955e67b0c3b8672cdc80fd.jpg"
+      alt="Wedding portrait"
+      loading="lazy">
+  </div>
 </article>
 
 <article class="service">
   <div class="service-number">04</div>
+
   <h3>Events &amp; Galas</h3>
-  <p>Elegant high-society gatherings, fashion shows, and marquee private celebrations captured discreetly.</p>
+
+  <p>
+    Elegant high-society gatherings, fashion shows, and marquee
+    private celebrations captured discreetly.
+  </p>
+
+  <div class="service-image">
+    <img
+      src="https://i.pinimg.com/736x/fb/da/52/fbda52f5f1a82e88458d86c3f80543e6.jpg"
+      alt="Luxury event"
+      loading="lazy">
+  </div>
 </article>
 
 <article class="service">
   <div class="service-number">05</div>
+
   <h3>Pre-Wedding Shoots</h3>
-  <p>Art-directed love stories documented in breathtaking scenic destinations around the globe.</p>
+
+  <p>
+    Art-directed love stories documented in breathtaking scenic
+    destinations around the globe.
+  </p>
+
+  <div class="service-image">
+    <img
+      src="https://i.pinimg.com/736x/53/65/55/536555d5586bedaa9b6331ddf4dc3078.jpg"
+      alt="Pre-wedding shoot"
+      loading="lazy">
+  </div>
 </article>
 
 </div>
 </div>
 
 </section>
+
+<!-- CURATED STORIES -->
+
+<section class="stories-section">
+
+<div class="container">
+
+<div class="stories-head">
+
+  <div class="stories-title">
+    <div class="eyebrow">PORTFOLIO / HIGHLIGHTS</div>
+    <h2>Curated Stories</h2>
+  </div>
+
+  <a class="archive-link" href="./services/">
+    VIEW ARCHIVE →
+  </a>
+
+</div>
+
+<div class="story-grid">
+
+  <article class="story-card">
+
+    <img
+      src="https://i.pinimg.com/736x/2e/a7/19/2ea719de63066763282533fc8ddeae27.jpg"
+      alt="Aria and K wedding story"
+      loading="lazy">
+
+    <div class="story-label">STORY 01</div>
+
+    <div class="story-content">
+      <h3>Aria &amp; K… — Tokyo Atelier</h3>
+      <p>TOKYO, JAPAN</p>
+    </div>
+
+  </article>
+
+  <article class="story-card">
+
+    <img
+      src="https://i.pinimg.com/736x/7b/70/ea/7b70eae8764b484cf9e3c5485e818f7c.jpg"
+      alt="Elena and Matteo wedding story"
+      loading="lazy">
+
+    <div class="story-label">STORY 02</div>
+
+    <div class="story-content">
+      <h3>Elena &amp; Matteo — Amalfi Coast</h3>
+      <p>POSITANO, ITALY</p>
+    </div>
+
+  </article>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PHILOSOPHY -->
 
 <section class="quote dark">
 
@@ -707,16 +1009,13 @@ unmanipulated reverence.”
 
 </section>
 
+<!-- ABOUT -->
+
 <section>
 
 <div class="container">
 
 <div class="about-grid">
-
-<div class="about-image">
-  <!-- Replace this with your local image -->
-  <div class="image-placeholder">ABOUT IMAGE SLOT</div>
-</div>
 
 <div class="about-copy">
 
@@ -757,24 +1056,53 @@ in natural, fleeting moments between the people we care for.
 
 </div>
 
+<div class="about-image">
+
+  <img
+    src="https://i.pinimg.com/736x/28/72/62/2872629c5f21f7f39cd4fba204fda33e.jpg"
+    alt="ICONIC wedding photography"
+    loading="lazy">
+
+</div>
+
 </div>
 
 </div>
 
 </section>
 
-<section class="cta dark">
+<!-- TESTIMONIAL -->
+
+<section class="testimonial">
 
 <div class="container">
 
-<div class="eyebrow">THE COMMISSION</div>
+<div class="eyebrow">
+  CLIENT STORY
+</div>
+
+<div class="testimonial-copy">
+“Working with ICONIC was like having classic filmmakers tell our
+story. They were invisible yet captured every tear, every laugh, and
+turned our day into a piece of fine art. The film still brings us to
+tears.”
+</div>
+
+<div class="testimonial-name">
+— SOPHIA &amp; ALEXANDER / SANTORINI
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+<div class="container">
 
 <h2>Let’s create something iconic.</h2>
-
-<p>
-Tell us about your celebration and let us build a visual legacy
-around the moments that matter.
-</p>
 
 <a class="button primary" href="./contact/">
 REQUEST WEDDING COMMISSION
@@ -812,8 +1140,8 @@ REQUEST WEDDING COMMISSION
 </footer>
 
 <script>
-const menuButton=document.querySelector(".menu-toggle");
-const mobileMenu=document.querySelector(".mobile-menu");
+const menuButton = document.querySelector(".menu-toggle");
+const mobileMenu = document.querySelector(".mobile-menu");
 
 function closeMenu(){
   mobileMenu.classList.remove("open");
@@ -822,7 +1150,8 @@ function closeMenu(){
 }
 
 menuButton.addEventListener("click",()=>{
-  const open=mobileMenu.classList.toggle("open");
+  const open = mobileMenu.classList.toggle("open");
+
   document.body.classList.toggle("menu-open",open);
   menuButton.setAttribute("aria-expanded",open);
 });
@@ -832,7 +1161,9 @@ document.querySelectorAll(".mobile-menu a").forEach(link=>{
 });
 
 document.addEventListener("keydown",e=>{
-  if(e.key==="Escape") closeMenu();
+  if(e.key === "Escape"){
+    closeMenu();
+  }
 });
 </script>
 
