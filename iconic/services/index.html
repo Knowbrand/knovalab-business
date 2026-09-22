@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Our Work — ICONIC</title>
 
@@ -15,496 +14,651 @@
 <style>
 
 :root{
---black:#090909;
---black-2:#0d0d0d;
---black-3:#070707;
---ivory:#eee9e0;
---muted:#9b958d;
---champagne:#c8a56d;
---champagne-light:#d3b37e;
---line:rgba(255,255,255,.08);
+    --black:#090909;
+    --black-2:#0d0d0d;
+    --black-3:#070707;
+    --ivory:#eee9e0;
+    --muted:#9b958d;
+    --champagne:#c8a56d;
+    --champagne-light:#d3b37e;
+    --line:rgba(255,255,255,.08);
 
---serif:"Cormorant Garamond",Georgia,serif;
---sans:"Manrope",Arial,sans-serif;
+    --serif:"Cormorant Garamond",Georgia,serif;
+    --sans:"Manrope",Arial,sans-serif;
 
---container:min(calc(100% - 48px),1320px);
+    --container:min(calc(100% - 48px),1320px);
 }
 
 *{
-box-sizing:border-box;
+    box-sizing:border-box;
 }
 
-html,body{
-margin:0;
-background:var(--black);
-color:var(--ivory);
-font-family:var(--sans);
-overflow-x:hidden;
+html,
+body{
+    margin:0;
+    padding:0;
+    background:var(--black);
+    color:var(--ivory);
+    font-family:var(--sans);
+    overflow-x:hidden;
 }
 
 body.menu-open{
-overflow:hidden;
+    overflow:hidden;
 }
 
 a{
-color:inherit;
-text-decoration:none;
+    color:inherit;
+    text-decoration:none;
 }
 
 :focus-visible{
-outline:1px solid var(--champagne);
-outline-offset:4px;
+    outline:1px solid var(--champagne);
+    outline-offset:4px;
 }
 
 .container{
-width:var(--container);
-margin:auto;
+    width:var(--container);
+    margin:0 auto;
 }
 
-/* HEADER */
+
+/* ================= HEADER ================= */
 
 header{
-height:82px;
-padding:0 48px;
-display:grid;
-grid-template-columns:1fr auto 1fr;
-align-items:center;
-background:var(--black);
-border-bottom:1px solid var(--line);
-position:relative;
-z-index:100;
+    height:82px;
+    padding:0 48px;
+
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+
+    background:var(--black);
+    border-bottom:1px solid var(--line);
+
+    position:relative;
+    z-index:100;
 }
 
 .logo{
-font-size:20px;
-font-weight:500;
-letter-spacing:.2em;
+    font-size:20px;
+    font-weight:500;
+    letter-spacing:.2em;
 }
 
 .nav{
-display:flex;
-gap:39px;
+    display:flex;
+    gap:39px;
 }
 
 .nav a{
-font-size:8px;
-font-weight:600;
-letter-spacing:.19em;
-color:var(--muted);
+    font-size:8px;
+    font-weight:600;
+    letter-spacing:.19em;
+    color:var(--muted);
 }
 
 .nav a:hover,
 .nav a.active{
-color:var(--champagne);
+    color:var(--champagne);
 }
 
 .header-button{
-justify-self:end;
-border:1px solid rgba(200,165,109,.75);
-padding:11px 18px;
-font-size:8px;
-font-weight:600;
-letter-spacing:.17em;
+    justify-self:end;
+
+    border:1px solid rgba(200,165,109,.75);
+    padding:11px 18px;
+
+    font-size:8px;
+    font-weight:600;
+    letter-spacing:.17em;
 }
 
 .header-button:hover{
-background:var(--champagne);
-color:var(--black);
+    background:var(--champagne);
+    color:var(--black);
 }
 
 .menu-toggle{
-display:none;
-width:45px;
-height:45px;
-background:none;
-border:0;
-color:var(--ivory);
+    display:none;
+    width:45px;
+    height:45px;
+    background:none;
+    border:0;
+    color:var(--ivory);
 }
 
 .menu-icon,
 .menu-icon:before,
 .menu-icon:after{
-width:20px;
-height:1px;
-background:currentColor;
-display:block;
-position:relative;
+    width:20px;
+    height:1px;
+    background:currentColor;
+    display:block;
+    position:relative;
 }
 
 .menu-icon:before,
 .menu-icon:after{
-content:"";
-position:absolute;
-left:0;
+    content:"";
+    position:absolute;
+    left:0;
 }
 
-.menu-icon:before{top:-6px}
-.menu-icon:after{top:6px}
+.menu-icon:before{
+    top:-6px;
+}
+
+.menu-icon:after{
+    top:6px;
+}
 
 .mobile-menu{
-display:none;
+    display:none;
 }
 
-/* INTRO */
+
+/* ================= INTRO ================= */
 
 .intro{
-text-align:center;
-padding:72px 0 45px;
+    text-align:center;
+    padding:72px 0 45px;
 }
 
 .eyebrow{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:13px;
-font-size:8px;
-font-weight:600;
-letter-spacing:.25em;
-color:var(--champagne);
-text-transform:uppercase;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:13px;
+
+    font-size:8px;
+    font-weight:600;
+    letter-spacing:.25em;
+    color:var(--champagne);
+    text-transform:uppercase;
 }
 
 .eyebrow:before,
 .eyebrow:after{
-content:"";
-width:22px;
-height:1px;
-background:var(--champagne);
+    content:"";
+    width:22px;
+    height:1px;
+    background:var(--champagne);
 }
 
-h1,h2,h3{
-font-family:var(--serif);
-font-weight:400;
-line-height:1.05;
+h1,
+h2,
+h3{
+    font-family:var(--serif);
+    font-weight:400;
+    line-height:1.05;
 }
 
 .intro h1{
-font-size:clamp(55px,7vw,85px);
-margin:20px 0 12px;
+    font-size:clamp(55px,7vw,85px);
+    margin:20px 0 12px;
 }
 
 .intro p{
-color:var(--muted);
-font-size:12px;
+    color:var(--muted);
+    font-size:12px;
 }
 
 .filters{
-display:flex;
-justify-content:center;
-gap:25px;
-flex-wrap:wrap;
-margin-top:25px;
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+    margin-top:25px;
 }
 
 .filters a{
-font-size:7px;
-letter-spacing:.15em;
-color:var(--muted);
+    font-size:7px;
+    letter-spacing:.15em;
+    color:var(--muted);
 }
 
 .filters a:hover{
-color:var(--champagne);
+    color:var(--champagne);
 }
 
-/* ARCHIVE */
+
+/* ================= ARCHIVE ================= */
 
 .archive{
-padding:0 0 100px;
+    padding:0 0 100px;
 }
 
 .work-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:18px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
 }
 
+
+/* ================= STORY CARD ================= */
+
 .work{
-position:relative;
-height:390px;
-overflow:hidden;
-background:#111;
+    position:relative;
+
+    height:390px;
+
+    overflow:hidden;
+
+    background:#111;
+
+    padding:0;
+    margin:0;
 }
 
 .work.large{
-grid-column:1/-1;
-height:520px;
+    grid-column:1 / -1;
+    height:520px;
 }
+
+
+/* IMAGE CONTAINER */
 
 .work-image{
-position:absolute;
-inset:0;
-background:#111;
+    position:absolute;
+
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+
+    width:100%;
+    height: 135%;
+
+    overflow:hidden;
+
+    margin:0;
+    padding:0;
+
+    background:#111;
 }
+
+
+/* ACTUAL IMAGE */
+
+.work-image img{
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    display:block;
+
+    margin:0;
+    padding:0;
+    border:0;
+
+    max-width:none;
+    max-height:none;
+
+    object-fit:cover;
+
+    object-position:center center;
+
+    z-index:1;
+
+    transform:none;
+}
+
+
+/* DARK OVERLAY */
 
 .work-image:after{
-content:"";
-position:absolute;
-inset:0;
-background:linear-gradient(
-to bottom,
-rgba(0,0,0,0) 35%,
-rgba(0,0,0,.7) 100%
-);
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+
+    z-index:2;
+
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.02) 20%,
+            rgba(0,0,0,.10) 45%,
+            rgba(0,0,0,.72) 100%
+        );
 }
+
+
+/* REMOVE OLD PLACEHOLDER */
 
 .placeholder{
-position:absolute;
-inset:0;
-display:grid;
-place-items:center;
-color:#4e4a45;
-font-size:9px;
-letter-spacing:.2em;
+    display:none !important;
 }
 
+
+/* STORY TEXT */
+
 .work-info{
-position:absolute;
-z-index:2;
-left:25px;
-right:25px;
-bottom:24px;
+    position:absolute;
+
+    left:25px;
+    right:25px;
+    bottom:24px;
+
+    z-index:5;
 }
 
 .story-number{
-font-size:7px;
-letter-spacing:.2em;
-color:var(--champagne);
-text-transform:uppercase;
+    font-size:7px;
+    letter-spacing:.2em;
+    color:var(--champagne);
+    text-transform:uppercase;
 }
 
 .work-info h2{
-font-size:29px;
-margin:8px 0 2px;
+    font-size:29px;
+    margin:8px 0 2px;
 }
 
 .work-info p{
-margin:0;
-font-size:7px;
-letter-spacing:.15em;
-text-transform:uppercase;
-color:#bbb4aa;
+    margin:0;
+
+    font-size:7px;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+
+    color:#bbb4aa;
 }
 
-/* CTA */
+
+/* ================= CTA ================= */
 
 .cta{
-background:var(--black-2);
-border-top:1px solid var(--line);
-text-align:center;
-padding:110px 0;
+    background:var(--black-2);
+
+    border-top:1px solid var(--line);
+
+    text-align:center;
+
+    padding:110px 0;
 }
 
 .cta h2{
-font-size:clamp(42px,5vw,64px);
-margin:20px 0;
+    font-size:clamp(42px,5vw,64px);
+    margin:20px 0;
 }
 
 .cta p{
-max-width:550px;
-margin:0 auto 30px;
-color:var(--muted);
-font-size:12px;
+    max-width:550px;
+
+    margin:0 auto 30px;
+
+    color:var(--muted);
+    font-size:12px;
 }
 
 .button{
-min-height:46px;
-padding:0 25px;
-display:inline-flex;
-align-items:center;
-justify-content:center;
-font-size:9px;
-font-weight:600;
-letter-spacing:.17em;
-text-transform:uppercase;
+    min-height:46px;
+
+    padding:0 25px;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:9px;
+    font-weight:600;
+    letter-spacing:.17em;
+    text-transform:uppercase;
 }
 
 .primary{
-background:var(--champagne);
-color:var(--black);
+    background:var(--champagne);
+    color:var(--black);
 }
 
 .primary:hover{
-background:var(--champagne-light);
+    background:var(--champagne-light);
 }
 
-/* FOOTER */
+
+/* ================= FOOTER ================= */
 
 footer{
-background:var(--black-3);
-border-top:1px solid var(--line);
-padding:58px 0 25px;
+    background:var(--black-3);
+
+    border-top:1px solid var(--line);
+
+    padding:58px 0 25px;
 }
 
 .footer-top{
-display:flex;
-justify-content:space-between;
-align-items:center;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
 .social{
-display:flex;
-gap:27px;
+    display:flex;
+    gap:27px;
 }
 
 .social span{
-font-size:8px;
-color:var(--muted);
+    font-size:8px;
+    color:var(--muted);
 }
 
 .footer-bottom{
-border-top:1px solid var(--line);
-margin-top:38px;
-padding-top:22px;
-display:flex;
-justify-content:space-between;
-color:#716c65;
-font-size:8px;
+    border-top:1px solid var(--line);
+
+    margin-top:38px;
+    padding-top:22px;
+
+    display:flex;
+    justify-content:space-between;
+
+    color:#716c65;
+    font-size:8px;
 }
 
-/* MOBILE */
+
+/* ================= TABLET ================= */
 
 @media(max-width:900px){
 
-header{
-height:74px;
-padding:0 22px;
-grid-template-columns:1fr auto;
+    header{
+        height:74px;
+        padding:0 22px;
+
+        grid-template-columns:1fr auto;
+    }
+
+    .nav,
+    .header-button{
+        display:none;
+    }
+
+    .menu-toggle{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+
+    .mobile-menu{
+        position:fixed;
+
+        display:none;
+
+        top:74px;
+        left:0;
+        right:0;
+        bottom:0;
+
+        background:rgba(9,9,9,.98);
+
+        z-index:90;
+
+        padding:25px 22px;
+    }
+
+    .mobile-menu.open{
+        display:block;
+    }
+
+    .mobile-nav{
+        display:grid;
+    }
+
+    .mobile-nav a{
+        padding:18px 0;
+
+        border-bottom:1px solid var(--line);
+
+        font-size:11px;
+        letter-spacing:.15em;
+
+        color:var(--muted);
+    }
+
+    .mobile-nav a.active,
+    .mobile-nav a:hover{
+        color:var(--champagne);
+    }
+
+    .mobile-nav .button{
+        margin-top:25px;
+        border:0;
+        color:var(--black);
+        text-align:center;
+    }
+
+    .work-grid{
+        grid-template-columns:1fr;
+    }
+
+    .work.large{
+        grid-column:auto;
+        height:430px;
+    }
+
+    .work{
+        height:380px;
+    }
 }
 
-.nav,
-.header-button{
-display:none;
-}
 
-.menu-toggle{
-display:flex;
-align-items:center;
-justify-content:center;
-}
-
-.mobile-menu{
-position:fixed;
-display:none;
-inset:74px 0 0;
-background:rgba(9,9,9,.98);
-z-index:90;
-padding:25px 22px;
-}
-
-.mobile-menu.open{
-display:block;
-}
-
-.mobile-nav{
-display:grid;
-}
-
-.mobile-nav a{
-padding:18px 0;
-border-bottom:1px solid var(--line);
-font-size:11px;
-letter-spacing:.15em;
-color:var(--muted);
-}
-
-.mobile-nav a.active,
-.mobile-nav a:hover{
-color:var(--champagne);
-}
-
-.mobile-nav .button{
-margin-top:25px;
-border:0;
-color:var(--black);
-text-align:center;
-}
-
-.work-grid{
-grid-template-columns:1fr;
-}
-
-.work.large{
-grid-column:auto;
-height:430px;
-}
-
-.work{
-height:380px;
-}
-
-}
+/* ================= MOBILE ================= */
 
 @media(max-width:600px){
 
-:root{
---container:min(calc(100% - 40px),1320px);
+    :root{
+        --container:min(calc(100% - 40px),1320px);
+    }
+
+    .logo{
+        font-size:17px;
+    }
+
+    .intro{
+        padding:65px 0 40px;
+    }
+
+    .intro h1{
+        font-size:clamp(50px,14vw,68px);
+    }
+
+    .filters{
+        gap:15px;
+    }
+
+    .archive{
+        padding-bottom:70px;
+    }
+
+    .work,
+    .work.large{
+        height:360px;
+    }
+
+    .work-info{
+        left:20px;
+        right:20px;
+        bottom:20px;
+    }
+
+    .work-info h2{
+        font-size:24px;
+    }
+
+    .cta{
+        padding:80px 0;
+    }
+
+    .footer-top,
+    .footer-bottom{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:25px;
+    }
 }
 
-.logo{
-font-size:17px;
-}
-
-.intro{
-padding:65px 0 40px;
-}
-
-.intro h1{
-font-size:clamp(50px,14vw,68px);
-}
-
-.filters{
-gap:15px;
-}
-
-.archive{
-padding-bottom:70px;
-}
-
-.work,
-.work.large{
-height:360px;
-}
-
-.work-info h2{
-font-size:24px;
-}
-
-.cta{
-padding:80px 0;
-}
-
-.footer-top,
-.footer-bottom{
-flex-direction:column;
-align-items:flex-start;
-gap:25px;
-}
-
-}
 
 @media(prefers-reduced-motion:reduce){
-*{transition:none!important}
+
+    *{
+        transition:none !important;
+    }
+
 }
 
-</style>
 
+/* ===== ICONIC STORY IMAGES - FINAL FIX ===== */
+/* ===== FINAL ICONIC WORK IMAGE FIX ===== */
+
+/* ===== ADD ONLY - STORY IMAGES + SPACING FIX ===== */
+ 
+/* ===== FINAL FIX: STOP STORY CARDS FROM OVERLAPPING ===== */
+/* =====================================================
+   ICONIC - ALL STORY IMAGES FINAL FIX
+   ADD ONLY - DO NOT DELETE EXISTING CSS
+   ===================================================== */
+
+ 
+ </style>
 </head>
+
 
 <body>
 
 <header>
 
-<a class="logo" href="../">ICONIC</a>
+<a class="logo" href="../">
+ICONIC
+</a>
 
 <nav class="nav">
 
-<a href="../">HOME</a>
+<a href="../">
+HOME
+</a>
 
-<a href="../about/">ABOUT</a>
+<a href="../about/">
+ABOUT
+</a>
 
-<a class="active" href="./">OUR WORK</a>
+<a class="active" href="./">
+OUR WORK
+</a>
 
-<a href="../contact/">CONTACT</a>
+<a href="../contact/">
+CONTACT
+</a>
 
 </nav>
 
@@ -512,7 +666,11 @@ gap:25px;
 BOOK CONSULTATION
 </a>
 
-<button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">
+<button
+    class="menu-toggle"
+    aria-label="Open navigation"
+    aria-expanded="false"
+>
 
 <span class="menu-icon"></span>
 
@@ -525,13 +683,21 @@ BOOK CONSULTATION
 
 <nav class="mobile-nav">
 
-<a href="../">HOME</a>
+<a href="../">
+HOME
+</a>
 
-<a href="../about/">ABOUT</a>
+<a href="../about/">
+ABOUT
+</a>
 
-<a class="active" href="./">OUR WORK</a>
+<a class="active" href="./">
+OUR WORK
+</a>
 
-<a href="../contact/">CONTACT</a>
+<a href="../contact/">
+CONTACT
+</a>
 
 <a class="button primary" href="../contact/">
 BOOK CONSULTATION
@@ -544,6 +710,7 @@ BOOK CONSULTATION
 
 <main>
 
+
 <section class="intro">
 
 <div class="container">
@@ -552,7 +719,9 @@ BOOK CONSULTATION
 SELECTED FILMS &amp; STILLS
 </div>
 
-<h1>Our Work</h1>
+<h1>
+Our Work
+</h1>
 
 <p>
 A curated collection of love stories and commissioned visual legacies.
@@ -580,14 +749,16 @@ A curated collection of love stories and commissioned visual legacies.
 <div class="work-grid">
 
 
+<!-- STORY 01 -->
+
 <article class="work large" id="weddings">
 
 <div class="work-image">
 
-<!-- Replace with your local image -->
-<div class="placeholder">
-STORY 01 IMAGE SLOT
-</div>
+<img
+src="../images/bg1.jpg"
+alt="Aria and Devendra wedding"
+>
 
 </div>
 
@@ -610,14 +781,16 @@ Goa, India
 </article>
 
 
+<!-- STORY 02 -->
+
 <article class="work" id="editorial">
 
 <div class="work-image">
 
-<!-- Replace with your local image -->
-<div class="placeholder">
-STORY 02 IMAGE SLOT
-</div>
+<img
+src="../images/bg99.jpg"
+alt="Aarav and Kabir royal ceremony"
+>
 
 </div>
 
@@ -640,14 +813,16 @@ Jaipur, India
 </article>
 
 
+<!-- STORY 03 -->
+
 <article class="work" id="films">
 
 <div class="work-image">
 
-<!-- Replace with your local image -->
-<div class="placeholder">
-STORY 03 IMAGE SLOT
-</div>
+<img
+src="../images/bg3.jpg"
+alt="Meera and Arjun elegant embrace"
+>
 
 </div>
 
@@ -670,14 +845,16 @@ Mumbai, India
 </article>
 
 
+<!-- STORY 04 -->
+
 <article class="work large">
 
 <div class="work-image">
 
-<!-- Replace with your local image -->
-<div class="placeholder">
-STORY 04 IMAGE SLOT
-</div>
+<img
+src="../images/bg4.jpg"
+alt="Aditi and Siddharth palm sanctuary"
+>
 
 </div>
 
@@ -700,14 +877,16 @@ Goa, India
 </article>
 
 
+<!-- STORY 05 -->
+
 <article class="work" id="portraits">
 
 <div class="work-image">
 
-<!-- Replace with your local image -->
-<div class="placeholder">
-STORY 05 IMAGE SLOT
-</div>
+<img
+src="../images/bg5.jpg"
+alt="Ishita and Ranveer high society banquet"
+>
 
 </div>
 
@@ -730,14 +909,16 @@ New Delhi, India
 </article>
 
 
+<!-- STORY 06 -->
+
 <article class="work">
 
 <div class="work-image">
 
-<!-- Replace with your local image -->
-<div class="placeholder">
-STORY 06 IMAGE SLOT
-</div>
+<img
+src="../images/bg6.jpg"
+alt="Tara and Nishant warm meadows"
+>
 
 </div>
 
@@ -760,14 +941,16 @@ Kerala, India
 </article>
 
 
+<!-- STORY 07 -->
+
 <article class="work large">
 
 <div class="work-image">
 
-<!-- Replace with your local image -->
-<div class="placeholder">
-STORY 07 IMAGE SLOT
-</div>
+<img
+src="../images/bg7.jpg"
+alt="Diya and Rishi ancient architecture sunset"
+>
 
 </div>
 
@@ -790,14 +973,16 @@ Hampi, India
 </article>
 
 
+<!-- STORY 08 -->
+
 <article class="work">
 
 <div class="work-image">
 
-<!-- Replace with your local image -->
-<div class="placeholder">
-STORY 08 IMAGE SLOT
-</div>
+<img
+src="../images/bg8.jpg"
+alt="Pooja and Rohit cliffside devotion"
+>
 
 </div>
 
@@ -820,14 +1005,16 @@ Maharashtra, India
 </article>
 
 
+<!-- STORY 09 -->
+
 <article class="work">
 
 <div class="work-image">
 
-<!-- Replace with your local image -->
-<div class="placeholder">
-STORY 09 IMAGE SLOT
-</div>
+<img
+src="../images/bg9.jpg"
+alt="Sanika and Yash freedom of shorelines"
+>
 
 </div>
 
@@ -924,42 +1111,48 @@ ALL RIGHTS RESERVED.
 
 <script>
 
-const button=document.querySelector(".menu-toggle");
-
-const menu=document.querySelector(".mobile-menu");
+const button = document.querySelector(".menu-toggle");
+const menu = document.querySelector(".mobile-menu");
 
 function closeMenu(){
 
-menu.classList.remove("open");
+    menu.classList.remove("open");
 
-document.body.classList.remove("menu-open");
+    document.body.classList.remove("menu-open");
 
-button.setAttribute("aria-expanded","false");
+    button.setAttribute("aria-expanded","false");
 
 }
 
 button.addEventListener("click",()=>{
 
-const open=menu.classList.toggle("open");
+    const open = menu.classList.toggle("open");
 
-document.body.classList.toggle("menu-open",open);
+    document.body.classList.toggle("menu-open",open);
 
-button.setAttribute("aria-expanded",open);
+    button.setAttribute("aria-expanded",open);
 
 });
 
 menu.querySelectorAll("a").forEach(link=>{
 
-link.addEventListener("click",closeMenu);
+    link.addEventListener("click",closeMenu);
 
 });
 
 document.addEventListener("keydown",e=>{
 
-if(e.key==="Escape") closeMenu();
+    if(e.key === "Escape"){
+        closeMenu();
+    }
 
 });
 
+
+
+
+
+   
 </script>
 
 </body>
