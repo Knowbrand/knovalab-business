@@ -252,7 +252,6 @@ background:#111;
 aspect-ratio:1.35;
 position:relative;
 }
-
 .image-placeholder{
 position:absolute;
 inset:0;
@@ -510,6 +509,346 @@ font-size:7px;
 @media(prefers-reduced-motion:reduce){
 *{transition:none!important}
 }
+/* ===== ABOUT HERO - FULL WIDTH + PERFECT HEIGHT ===== */
+
+.hero {
+    position: relative !important;
+
+    width: 100vw !important;
+    max-width: none !important;
+
+    height: 620px !important;
+    min-height: 620px !important;
+    max-height: 620px !important;
+
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: 0 !important;
+
+    padding: 0 !important;
+
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+.hero-image {
+    position: absolute !important;
+
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: hidden !important;
+}
+
+.hero-image img {
+    position: absolute !important;
+
+    top: 0 !important;
+    left: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    max-width: none !important;
+    max-height: none !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: block !important;
+
+    object-fit: cover !important;
+    object-position: center center !important;
+}
+
+/* IMAGE SLOT hide */
+.hero-image .placeholder {
+    display: none !important;
+}
+
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 768px) {
+
+    .hero {
+        width: 100vw !important;
+
+        height: 500px !important;
+        min-height: 500px !important;
+        max-height: 500px !important;
+
+        margin-left: calc(50% - 50vw) !important;
+    }
+
+    .hero-image img {
+        object-position: center center !important;
+    }
+}
+
+/* ==========================================
+   ABOUT - TWO IMAGES LEFT + CONTENT RIGHT
+   ========================================== */
+
+.about-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    gap: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    align-items: stretch !important;
+}
+
+
+/* LEFT SIDE - TWO IMAGES */
+.about-images {
+    width: 100% !important;
+    height: 560px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: grid !important;
+    grid-template-rows: 1fr 1fr !important;
+
+    gap: 0 !important;
+
+    overflow: hidden !important;
+}
+
+
+/* EACH IMAGE */
+.about-images .about-image {
+    position: relative !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: hidden !important;
+}
+
+
+/* ACTUAL IMAGE */
+.about-images .about-image img {
+    position: absolute !important;
+
+    top: 0 !important;
+    left: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    display: block !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    max-width: none !important;
+    max-height: none !important;
+
+    object-fit: cover !important;
+    object-position: center center !important;
+}
+
+
+/* HIDE IMAGE SLOT TEXT */
+.about-images .placeholder {
+    display: none !important;
+}
+
+
+/* RIGHT SIDE CONTENT */
+.about-grid .about-content {
+    width: 100% !important;
+    height: 560px !important;
+
+    box-sizing: border-box !important;
+
+    margin: 0 !important;
+
+    padding: 60px 55px !important;
+
+    overflow: hidden !important;
+}
+
+
+/* ==========================================
+   MOBILE
+   ========================================== */
+
+@media (max-width: 768px) {
+
+    .about-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .about-images {
+        height: 500px !important;
+    }
+
+    .about-grid .about-content {
+        height: auto !important;
+        padding: 50px 25px !important;
+    }
+}
+
+/* ===== ABOUT - TWO IMAGES SMALLER ===== */
+
+.about-image {
+    width:0% !important;
+    height: 0px !important;
+
+    margin: 0 0 12px 0 !important;
+    padding: 0 !important;
+
+    position: relative !important;
+    overflow: hidden !important;
+
+    box-sizing: border-box !important;
+}
+
+.about-image img {
+    width: 0% !important;
+    height: 0% !important;
+
+    display: block !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    object-fit: cover !important;
+    object-position: center center !important;
+}
+
+/* Slot text hide */
+.about-image .placeholder {
+    display: none !important;
+}
+
+/* ===== TWO ABOUT IMAGES - SMALL & FIXED ===== */
+
+.about-image {
+    position: relative !important;
+
+    width: 0% !important;
+    height: 20px !important;
+
+    margin: 0 0 12px 0 !important;
+    padding: 0 !important;
+
+    overflow: hidden !important;
+
+    box-sizing: border-box !important;
+}
+
+.about-image img {
+    position: absolute !important;
+
+    top: 0 !important;
+    left: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    display: block !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    object-fit: cover !important;
+    object-position: center !important;
+
+    max-width: 50% !important;
+    max-height:50% !important;
+}
+
+.about-image .placeholder {
+    display: none !important;
+}
+
+
+/* Prevent the image column from covering the text */
+.about-grid {
+    overflow: visible !important;
+    align-items: start !important;
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+    .about-image {
+        height: 180px !important;
+        margin-bottom: 10px !important;
+    }
+}
+
+/* ===== ABOUT LEFT IMAGES FIX ===== */
+
+.about-images {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    overflow: hidden !important;
+}
+
+.about-images .about-image {
+    width: 100% !important;
+    height: 50vh !important;
+    min-height: 0 !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.about-images .about-image img {
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+    object-fit: cover !important;
+    object-position: center !important;
+}
+
+/* IMAGE 01 + IMAGE 02 label */
+.about-images .about-image span {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+
+/* RIGHT SIDE CONTENT KO SPACE DO */
+.about-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    align-items: stretch !important;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .about-images .about-image {
+        height: 300px !important;
+    }
+}
 </style>
 </head>
 
@@ -551,8 +890,10 @@ font-size:7px;
 <section class="hero">
 
 <div class="hero-image">
+
 <!-- Replace with local image -->
-<div class="placeholder">ABOUT HERO IMAGE SLOT</div>
+ <img src="../images/bg9.jpg" alt="Wedding Photography">
+ <div class="placeholder">ABOUT HERO IMAGE SLOT</div>
 </div>
 
 <div class="hero-content">
@@ -600,11 +941,13 @@ real lives in perfect, unmanipulated reverence.
 
 <div class="image">
 <!-- Replace with local image -->
+<img src="../images/bg6.jpg" alt="Wedding Photography">
 <div class="image-placeholder">ABOUT IMAGE 01</div>
 </div>
 
 <div class="image">
 <!-- Replace with local image -->
+<img src="../images/bg7.jpg" alt="Wedding Photography">
 <div class="image-placeholder">ABOUT IMAGE 02</div>
 </div>
 
@@ -788,5 +1131,36 @@ if(e.key==="Escape")closeMenu();
 });
 </script>
 
+
+
+
+</script>
+<script>
+document.querySelectorAll('*').forEach(function(el) {
+
+    const text = el.textContent.trim();
+
+    if (text === 'ABOUT IMAGE 01') {
+        el.style.backgroundImage = "url('../images/bg1.jpg')";
+        el.style.backgroundSize = "cover";
+        el.style.backgroundPosition = "center";
+        el.style.backgroundRepeat = "no-repeat";
+        el.style.color = "transparent";
+        el.style.minHeight = "340px";
+        el.style.overflow = "hidden";
+    }
+
+    if (text === 'ABOUT IMAGE 02') {
+        el.style.backgroundImage = "url('../images/bg7.jpg')";
+        el.style.backgroundSize = "cover";
+        el.style.backgroundPosition = "center";
+        el.style.backgroundRepeat = "no-repeat";
+        el.style.color = "transparent";
+        el.style.minHeight = "340px";
+        el.style.overflow = "hidden";
+    }
+
+});
+</script>
 </body>
 </html>
