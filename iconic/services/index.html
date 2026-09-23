@@ -80,10 +80,19 @@ header{
     z-index:100;
 }
 
-.logo{
-    font-size:20px;
-    font-weight:500;
-    letter-spacing:.2em;
+.navbar-logo{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    width:max-content;
+}
+
+.navbar-logo img{
+    display:block;
+    width:auto;
+    height:54px;
+    max-width:180px;
+    object-fit:contain;
 }
 
 .nav{
@@ -268,7 +277,7 @@ h3{
     bottom:0;
 
     width:100%;
-    height: 135%;
+    height:135%;
 
     overflow:hidden;
 
@@ -439,19 +448,37 @@ footer{
 }
 
 .footer-top{
-    display:flex;
-    justify-content:space-between;
+    display:grid;
+    grid-template-columns:auto minmax(260px,1fr) auto;
     align-items:center;
+    gap:40px;
+}
+
+.footer-address{
+    max-width:430px;
+
+    color:var(--muted);
+    font-size:8px;
+    line-height:1.8;
+    letter-spacing:.12em;
+    text-transform:uppercase;
 }
 
 .social{
     display:flex;
+    justify-content:flex-end;
+    align-items:center;
     gap:27px;
 }
 
-.social span{
+.social a{
     font-size:8px;
     color:var(--muted);
+    transition:color .25s ease;
+}
+
+.social a:hover{
+    color:var(--champagne);
 }
 
 .footer-bottom{
@@ -477,6 +504,11 @@ footer{
         padding:0 22px;
 
         grid-template-columns:1fr auto;
+    }
+
+    .navbar-logo img{
+        height:46px;
+        max-width:150px;
     }
 
     .nav,
@@ -550,6 +582,16 @@ footer{
     .work{
         height:380px;
     }
+
+    .footer-top{
+        grid-template-columns:1fr;
+        gap:28px;
+        align-items:flex-start;
+    }
+
+    .social{
+        justify-content:flex-start;
+    }
 }
 
 
@@ -561,8 +603,9 @@ footer{
         --container:min(calc(100% - 40px),1320px);
     }
 
-    .logo{
-        font-size:17px;
+    .navbar-logo img{
+        height:42px;
+        max-width:140px;
     }
 
     .intro{
@@ -606,6 +649,16 @@ footer{
         align-items:flex-start;
         gap:25px;
     }
+
+    .footer-address{
+        max-width:100%;
+        font-size:7px;
+    }
+
+    .social{
+        flex-wrap:wrap;
+        gap:20px;
+    }
 }
 
 
@@ -622,15 +675,15 @@ footer{
 /* ===== FINAL ICONIC WORK IMAGE FIX ===== */
 
 /* ===== ADD ONLY - STORY IMAGES + SPACING FIX ===== */
- 
+
 /* ===== FINAL FIX: STOP STORY CARDS FROM OVERLAPPING ===== */
+
 /* =====================================================
    ICONIC - ALL STORY IMAGES FINAL FIX
    ADD ONLY - DO NOT DELETE EXISTING CSS
    ===================================================== */
 
- 
- </style>
+</style>
 </head>
 
 
@@ -638,8 +691,11 @@ footer{
 
 <header>
 
-<a class="logo" href="../">
-ICONIC
+<a class="navbar-logo" href="../" aria-label="ICONIC Home">
+    <img
+        src="https://i.pinimg.com/736x/56/b0/07/56b007965b04f8920b2009bb08ad35e5.jpg"
+        alt="ICONIC"
+    >
 </a>
 
 <nav class="nav">
@@ -1078,15 +1134,35 @@ INQUIRE NOW
 
 <div class="footer-top">
 
-<a class="logo" href="../">
-ICONIC
+<a class="navbar-logo" href="../" aria-label="ICONIC Home">
+    <img
+        src="https://i.pinimg.com/736x/56/b0/07/56b007965b04f8920b2009bb08ad35e5.jpg"
+        alt="ICONIC"
+    >
 </a>
+
+<div class="footer-address">
+NO 9, Shiv Shambo Building, Lane, near Sai Mandir Road,<br>
+Wadmukhwadi, Maharashtra 412105
+</div>
 
 <div class="social">
 
-<span>INSTAGRAM</span>
-<span>VIMEO</span>
-<span>PINTEREST</span>
+<a
+    href="https://www.instagram.com/iconic_photography_fillm?stkn=d2Q1a2NpaWE2OHBo&utm_source=qr"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+INSTAGRAM
+</a>
+
+<a
+    href="https://youtube.com/@iconic.photography_flim?si=eiCf-IyfhqCTjhBb"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+YOUTUBE
+</a>
 
 </div>
 
@@ -1148,11 +1224,6 @@ document.addEventListener("keydown",e=>{
 
 });
 
-
-
-
-
-   
 </script>
 
 </body>
