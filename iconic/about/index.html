@@ -849,6 +849,97 @@ font-size:7px;
         height: 300px !important;
     }
 }
+
+
+/* ===== ADDED: NAVBAR LOGO IMAGE + FOOTER LOGO / ADDRESS / LINKS STYLING ===== */
+
+.logo,
+.navbar-logo{
+    display:flex;
+    align-items:center;
+    justify-self:start;
+    width:max-content;
+}
+
+.logo img,
+.navbar-logo img{
+    display:block;
+    width:auto;
+    height:54px;
+    max-width:180px;
+    object-fit:contain;
+    object-position:left center;
+}
+
+.footer-top{
+    display:grid;
+    grid-template-columns:auto minmax(260px,1fr) auto;
+    align-items:center;
+    gap:40px;
+}
+
+.footer-address{
+    max-width:430px;
+
+    color:var(--muted);
+    font-size:8px;
+    line-height:1.8;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+}
+
+.social{
+    justify-content:flex-end;
+    align-items:center;
+}
+
+.social a{
+    font-size:8px;
+    color:var(--muted);
+    transition:color .25s ease;
+}
+
+.social a:hover{
+    color:var(--champagne);
+}
+
+@media(max-width:900px){
+
+    .logo img,
+    .navbar-logo img{
+        height:46px;
+        max-width:150px;
+    }
+
+    .footer-top{
+        grid-template-columns:1fr;
+        gap:28px;
+        align-items:flex-start;
+    }
+
+    .social{
+        justify-content:flex-start;
+    }
+}
+
+@media(max-width:600px){
+
+    .logo img,
+    .navbar-logo img{
+        height:42px;
+        max-width:140px;
+    }
+
+    .footer-address{
+        max-width:100%;
+        font-size:7px;
+    }
+
+    .social{
+        flex-wrap:wrap;
+        gap:20px;
+    }
+}
 </style>
 </head>
 
@@ -856,7 +947,12 @@ font-size:7px;
 
 <header>
 
-<a class="logo" href="../">ICONIC</a>
+<a class="logo" href="../" aria-label="ICONIC Home">
+<img
+    src="https://i.pinimg.com/736x/56/b0/07/56b007965b04f8920b2009bb08ad35e5.jpg"
+    alt="ICONIC"
+/>
+</a>
 
 <nav class="nav">
 <a href="../">HOME</a>
