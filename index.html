@@ -3,157 +3,164 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Knovalab Business — Business Directory</title>
 <meta name="description" content="Explore websites built by Knovalab for businesses across different industries.">
+<title>Knovalab Business — Business Directory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#0f0f0f; --side:#121212; --card:#1a1a1a; --card-hover:#1e1e1e;
-  --line:#262626; --line-2:#333; --accent:#ff6a00; --accent-soft:rgba(255,106,0,.12);
-  --text:#f5f5f5; --text-2:#a1a1aa; --muted:#71717a; --input:#151515;
-  --r:10px; --side-w:260px;
-  --font:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-}
+:root{--orange:#ff6a00;--orange-hover:#ff7b1c;--bg:#000;--deep:#050505;--alt:#0d0d0d;--card:#141414;--text:#f7f7f7;--muted:#949494;--line:rgba(255,255,255,.075);--tint:#281205;--radius:18px;--side:280px}
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 Geist,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+body.nav-open{overflow:hidden}
+h1,h2,h3,h4,p{margin-top:0}
+h1,h2,h3{font-family:Outfit,Arial,sans-serif;line-height:1.08;letter-spacing:-.028em;font-weight:600}
+p{color:var(--muted)}
 a{color:inherit;text-decoration:none}
 button,input,select,textarea{font:inherit;color:inherit}
 button{cursor:pointer}
-:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid rgba(255,106,0,.48);outline-offset:3px}
 svg.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.eyebrow{display:flex;align-items:center;gap:11px;color:var(--orange);font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:22px}
+.eyebrow:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange)}
 
-.app{display:grid;grid-template-columns:var(--side-w) 1fr;min-height:100vh}
+.app{display:grid;grid-template-columns:var(--side) 1fr;min-height:100vh}
 
 /* SIDEBAR */
-.sidebar{position:sticky;top:0;height:100vh;background:var(--side);border-right:1px solid var(--line);display:flex;flex-direction:column;padding:20px 14px;z-index:60}
-.brand{display:block;padding:4px 10px 22px}
-.brand b{display:block;font-size:17px;letter-spacing:.18em;font-weight:700}
-.brand b span{color:var(--accent)}
-.brand small{display:block;margin-top:3px;font-size:9px;letter-spacing:.22em;color:var(--muted);font-weight:600}
-.nav-label{padding:18px 10px 8px;font-size:10px;letter-spacing:.16em;font-weight:600;color:var(--muted)}
-.nav{display:flex;flex-direction:column;gap:2px;overflow-y:auto;min-height:0}
-.nav a{position:relative;display:flex;align-items:center;gap:11px;padding:9px 10px;border-radius:8px;color:var(--text-2);transition:background .15s,color .15s}
-.nav a:hover{background:#1a1a1a;color:var(--text)}
-.nav a.active{background:var(--accent-soft);color:var(--text)}
-.nav a.active:before{content:"";position:absolute;left:-14px;top:8px;bottom:8px;width:3px;border-radius:0 3px 3px 0;background:var(--accent)}
-.nav a.active svg{color:var(--accent)}
+.sidebar{position:sticky;top:0;height:100vh;background:var(--deep);border-right:1px solid var(--line);display:flex;flex-direction:column;padding:26px 18px 22px;z-index:60}
+.brand{display:block;padding:2px 12px 26px}
+.brand b{display:block;font:700 1.45rem Outfit,Arial,sans-serif;letter-spacing:-.02em}
+.brand small{display:block;margin-top:2px;font-size:.68rem;letter-spacing:.14em;color:var(--muted);font-weight:600;text-transform:uppercase}
+.nav-label{padding:22px 12px 10px;font-size:.7rem;letter-spacing:.1em;font-weight:600;color:#666;text-transform:uppercase}
+.nav{display:flex;flex-direction:column;gap:3px;overflow-y:auto;min-height:0}
+.nav a{position:relative;display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;color:#999;font-size:.92rem;transition:.2s}
+.nav a:hover{background:#111;color:#fff}
+.nav a.active{background:#1a0d04;color:#fff}
+.nav a.active:before{content:"";position:absolute;left:-18px;top:9px;bottom:9px;width:3px;border-radius:0 3px 3px 0;background:var(--orange)}
+.nav a.active svg{color:var(--orange)}
 .nav .name{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.nav .count{font-size:11px;color:var(--muted);background:#1a1a1a;border:1px solid var(--line);border-radius:20px;padding:0 7px;min-width:24px;text-align:center}
-.nav a.active .count{color:var(--accent);border-color:rgba(255,106,0,.3);background:transparent}
-.side-foot{margin-top:auto;padding-top:16px;border-top:1px solid var(--line)}
-.btn-add{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;padding:10px;border:1px solid rgba(255,106,0,.45);background:transparent;color:var(--accent);border-radius:8px;font-weight:600;transition:background .15s,color .15s}
-.btn-add:hover{background:var(--accent);color:#0f0f0f}
-.powered{margin:12px 0 0;text-align:center;font-size:11px;color:var(--muted)}
+.nav .count{font-size:.72rem;color:#777;border:1px solid var(--line);border-radius:999px;padding:0 8px;min-width:26px;text-align:center}
+.nav a.active .count{color:var(--orange);border-color:rgba(255,106,0,.3)}
+.side-foot{margin-top:auto;padding-top:18px;border-top:1px solid var(--line)}
+.powered{margin:14px 0 0;text-align:center;font-size:.74rem;color:#606060}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 22px;border:1px solid transparent;border-radius:9px;background:var(--orange);color:#fff;font-weight:600;transition:.2s}
+.btn:hover{background:var(--orange-hover);transform:translateY(-2px)}
+.btn.secondary{background:transparent;border-color:rgba(255,255,255,.56)}
+.btn.secondary:hover{border-color:#fff;background:#111}
+.btn.block{width:100%}
 
 /* MAIN */
 .main{min-width:0}
-.toolbar{height:60px;display:flex;align-items:center;gap:14px;padding:0 32px;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(15,15,15,.94);z-index:40}
-.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:8px;width:38px;height:38px;align-items:center;justify-content:center;color:var(--text)}
-.crumb{color:var(--muted);font-size:13px}
-.crumb b{color:var(--text);font-weight:500}
-.tb-right{margin-left:auto;display:flex;align-items:center;gap:14px}
-.status{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--muted)}
-.status:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
-.btn{display:inline-flex;align-items:center;gap:7px;border:0;border-radius:8px;padding:9px 14px;font-weight:600;background:var(--accent);color:#0f0f0f;transition:filter .15s}
-.btn:hover{filter:brightness(1.1)}
-.btn.ghost{background:transparent;border:1px solid var(--line-2);color:var(--text)}
-.btn.ghost:hover{border-color:var(--accent);color:var(--accent);filter:none}
-.content{max-width:1180px;margin:0 auto;padding:36px 32px 60px}
-h1{font-size:34px;line-height:1.15;margin:0 0 8px;letter-spacing:-.02em;font-weight:650}
-.lede{margin:0 0 24px;color:var(--text-2);font-size:15px}
+.toolbar{height:76px;display:flex;align-items:center;gap:16px;padding:0 48px;background:rgba(0,0,0,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:40}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:9px;width:42px;height:42px;align-items:center;justify-content:center;color:#fff}
+.crumb{color:#777;font-size:.88rem}
+.crumb b{color:#fff;font-weight:500}
+.tb-right{margin-left:auto;display:flex;align-items:center;gap:20px}
+.status{display:flex;align-items:center;gap:8px;font-size:.82rem;color:#777}
+.status:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange)}
+.tb-right .btn{min-height:42px;padding:0 18px}
+.content{max-width:1320px;margin:0 auto;padding:72px 48px 100px}
+h1{font-size:clamp(2.6rem,3.6vw,4rem);margin-bottom:20px;max-width:800px}
+.lede{max-width:640px;font-size:1.08rem;line-height:1.75;margin-bottom:38px}
 
-.search{position:relative;max-width:640px}
-.search .i{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--muted)}
-.search input{width:100%;height:50px;padding:0 44px;background:var(--input);border:1px solid var(--line);border-radius:var(--r);outline:none;transition:border-color .15s}
-.search input::placeholder{color:var(--muted)}
-.search input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
-.search .clear{position:absolute;right:10px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:6px;border:0;background:none;color:var(--muted);display:none;align-items:center;justify-content:center}
-.search .clear:hover{color:var(--text);background:#222}
+.search{position:relative;max-width:700px}
+.search .i{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:#777}
+.search input{width:100%;height:58px;padding:0 50px;background:var(--card);border:1px solid var(--line);border-radius:12px;outline:none;transition:.2s}
+.search input::placeholder{color:#6e6e6e}
+.search input:focus{border-color:var(--orange);box-shadow:0 0 0 4px rgba(255,106,0,.12)}
+.search .clear{position:absolute;right:12px;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:8px;border:0;background:none;color:#777;display:none;align-items:center;justify-content:center}
+.search .clear:hover{color:#fff;background:#222}
 .search.has-text .clear{display:flex}
 
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0 34px;max-width:640px}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px}
-.stat b{display:block;font-size:24px;line-height:1.1;font-weight:650}
-.stat span{font-size:12px;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:38px 0 90px;max-width:700px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px}
+.stat strong{display:block;color:var(--orange);font:700 2.2rem/1 Outfit,Arial,sans-serif;margin-bottom:10px}
+.stat span{font-size:.84rem;color:var(--muted)}
 
-.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:16px;flex-wrap:wrap}
-h2{margin:0;font-size:20px;font-weight:600;letter-spacing:-.01em}
-.sec-head p{margin:2px 0 0;color:var(--muted);font-size:13px}
-.sort{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted)}
-.sort select{background:var(--input);border:1px solid var(--line);border-radius:8px;padding:7px 10px;outline:none}
-.sort select:focus{border-color:var(--accent)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:34px;flex-wrap:wrap;padding-top:42px;border-top:1px solid var(--line)}
+h2{font-size:clamp(1.9rem,2.4vw,2.6rem);margin-bottom:8px}
+.sec-head p{margin:0;font-size:.95rem}
+.sort{display:flex;align-items:center;gap:10px;font-size:.82rem;color:#777}
+.sort select{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:9px 12px;outline:none}
+.sort select:focus{border-color:var(--orange)}
 
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.card{display:flex;flex-direction:column;gap:12px;padding:18px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);transition:border-color .15s,background .15s,transform .15s}
-.card:hover{border-color:var(--accent);background:var(--card-hover);transform:translateY(-2px)}
-.card-top{display:flex;align-items:center;gap:12px}
-.logo{width:44px;height:44px;border-radius:9px;background:#111;border:1px solid var(--line);display:grid;place-items:center;color:var(--accent);overflow:hidden;flex:none;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}
+.card{display:flex;flex-direction:column;gap:18px;min-height:250px;padding:34px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);transition:.2s}
+.card:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.14)}
+.logo{width:50px;height:50px;border-radius:12px;background:var(--tint);color:var(--orange);display:grid;place-items:center;overflow:hidden;flex:none}
 .logo img{width:100%;height:100%;object-fit:cover}
-.card h3{margin:0;font-size:16px;font-weight:600;line-height:1.25}
-.ind{font-size:12px;color:var(--muted)}
-.card p{margin:0;color:var(--text-2);font-size:13px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:39px}
-.card-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px}
-.tags{display:flex;gap:6px;flex-wrap:wrap}
-.tag{font-size:11px;color:var(--text-2);border:1px solid var(--line);border-radius:20px;padding:1px 8px}
-.open{display:flex;align-items:center;gap:4px;font-size:12px;font-weight:600;color:var(--muted);transition:color .15s}
-.card:hover .open{color:var(--accent)}
-.open .i{width:15px;height:15px;transition:transform .15s}
-.card:hover .open .i{transform:translateX(3px)}
+.card h3{font-size:1.35rem;margin:0 0 4px}
+.ind{font-size:.8rem;color:#777}
+.card p{margin:0;font-size:.92rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.tags{display:flex;gap:7px;flex-wrap:wrap}
+.tag{padding:5px 10px;border-radius:999px;border:1px solid var(--line);background:#0a0a0a;color:#aaa;font-size:.72rem}
+.open{display:flex;align-items:center;gap:5px;color:var(--orange);font-size:.86rem;font-weight:600;white-space:nowrap}
+.open .i{width:16px;height:16px;transition:transform .2s}
+.card:hover .open .i{transform:translateX(4px)}
 
-.empty{border:1px dashed var(--line-2);border-radius:var(--r);padding:48px 24px;text-align:center;background:rgba(255,255,255,.01)}
-.empty .logo{margin:0 auto 14px;width:52px;height:52px}
-.empty h3{margin:0 0 6px;font-size:17px}
-.empty p{margin:0 auto 18px;max-width:420px;color:var(--text-2)}
+.empty{border:1px dashed rgba(255,255,255,.14);border-radius:var(--radius);padding:70px 28px;text-align:center;background:var(--card)}
+.empty .logo{margin:0 auto 22px}
+.empty h3{font-size:1.5rem;margin-bottom:10px}
+.empty p{max-width:440px;margin:0 auto 26px}
 
 /* MODAL */
-dialog{width:min(520px,calc(100% - 32px));background:var(--side);color:var(--text);border:1px solid var(--line-2);border-radius:14px;padding:0}
-dialog::backdrop{background:rgba(0,0,0,.65)}
-.m-head{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid var(--line)}
-.m-head h3{margin:0;font-size:17px}
-.m-body{padding:20px 22px;display:grid;gap:14px;max-height:70vh;overflow-y:auto}
-.f label{display:block;margin-bottom:6px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
-.f input,.f select,.f textarea{width:100%;background:var(--input);border:1px solid var(--line);border-radius:8px;padding:10px 12px;outline:none}
-.f textarea{min-height:70px;resize:vertical}
-.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--accent)}
-.f small{display:block;margin-top:5px;color:var(--muted);font-size:12px}
-.m-foot{display:flex;justify-content:flex-end;gap:10px;padding:16px 22px;border-top:1px solid var(--line)}
-pre{margin:0;padding:14px;background:#0c0c0c;border:1px solid var(--line);border-radius:8px;font-size:12px;line-height:1.55;overflow-x:auto;color:#d4d4d8;white-space:pre-wrap;word-break:break-word}
-.hint{margin:0;color:var(--text-2);font-size:13px}
-.hint code{color:var(--accent);font-size:12px}
-
+dialog{width:min(540px,calc(100% - 32px));background:var(--card);color:var(--text);border:1px solid rgba(255,255,255,.14);border-radius:22px;padding:0}
+dialog::backdrop{background:rgba(0,0,0,.75)}
+.m-head,.m-foot{display:flex;align-items:center;padding:22px 30px}
+.m-head{justify-content:space-between;border-bottom:1px solid var(--line)}
+.m-head h3{margin:0;font-size:1.3rem}
+.m-body{padding:26px 30px;display:grid;gap:16px;max-height:68vh;overflow-y:auto}
+.m-foot{justify-content:flex-end;gap:12px;border-top:1px solid var(--line)}
+.f label{display:block;margin-bottom:7px;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:#777;font-weight:600}
+.f input,.f select,.f textarea{width:100%;background:#0a0a0a;border:1px solid var(--line);border-radius:9px;padding:12px 14px;outline:none}
+.f textarea{min-height:76px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--orange)}
+.f small{display:block;margin-top:6px;color:#777;font-size:.78rem}
+pre{margin:0;padding:16px;background:#0a0a0a;border:1px solid var(--line);border-radius:12px;font-size:.78rem;line-height:1.6;color:#d4d4d8;white-space:pre-wrap;word-break:break-word}
+.hint{margin:0;font-size:.9rem}
+.hint code{color:var(--orange);font-size:.82rem}
+.note{padding:18px 20px;background:#271508;border:1px solid rgba(255,106,0,.16);border-radius:12px;color:var(--orange);font-weight:600;font-size:.88rem}
 .overlay{display:none}
 
-@media(max-width:1100px){.grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:900px){
+@media(max-width:1500px){.content{padding:60px 40px 90px}.card{padding:30px}}
+@media(max-width:1200px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:960px){
   .app{grid-template-columns:1fr}
-  .sidebar{position:fixed;left:0;top:0;width:min(290px,86vw);transform:translateX(-100%);transition:transform .25s ease}
+  .sidebar{position:fixed;left:0;top:0;width:min(310px,86vw);transform:translateX(-100%);transition:transform .25s ease}
   body.nav-open .sidebar{transform:none}
-  body.nav-open{overflow:hidden}
-  .overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:50}
+  .overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:50}
   body.nav-open .overlay{display:block}
   .menu-btn{display:flex}
-  .toolbar{padding:0 18px}
+  .toolbar{padding:0 22px;height:70px}
   .status{display:none}
-  .content{padding:26px 18px 48px}
+  .content{padding:48px 22px 72px}
+  .stats{margin-bottom:64px}
 }
-@media(max-width:620px){
-  .grid{grid-template-columns:1fr}
-  h1{font-size:28px}
-  .stats{gap:8px}
-  .stat{padding:12px}
-  .stat b{font-size:20px}
+@media(max-width:640px){
+  .grid{grid-template-columns:1fr;gap:20px}
+  .stats{gap:10px}
+  .stat{padding:18px 16px}
+  .stat strong{font-size:1.7rem}
+  .card{padding:26px;min-height:auto}
   .tb-right .btn span{display:none}
+  .tb-right .btn{padding:0 13px}
+  .empty{padding:48px 22px}
 }
-@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
 <div class="app">
 
   <aside class="sidebar" id="sidebar" aria-label="Directory navigation">
-    <a class="brand" href="#/" data-nav><b>KNOVA<span>LAB</span></b><small>BUSINESS DIRECTORY</small></a>
+    <a class="brand" href="#/"><b>Knovalab</b><small>Business Directory</small></a>
     <nav class="nav" id="nav"></nav>
     <div class="side-foot">
-      <button class="btn-add" type="button" data-add><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add a Business</button>
+      <button class="btn secondary block" type="button" data-add><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add a Business</button>
       <p class="powered">Powered by Knovalab</p>
     </div>
   </aside>
@@ -170,13 +177,14 @@ pre{margin:0;padding:14px;background:#0c0c0c;border:1px solid var(--line);border
     </header>
 
     <main class="content">
+      <div class="eyebrow" id="eyebrow"></div>
       <h1 id="title"></h1>
       <p class="lede" id="lede"></p>
 
       <form class="search" id="searchForm" role="search" autocomplete="off">
-        <label for="q" class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Search businesses</label>
+        <label for="q" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Search businesses</label>
         <svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-        <input id="q" type="search" placeholder="Search businesses, industries, or services..." />
+        <input id="q" type="search" placeholder="Search businesses, industries, or services...">
         <button class="clear" id="clear" type="button" aria-label="Clear search"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
       </form>
 
@@ -195,202 +203,200 @@ pre{margin:0;padding:14px;background:#0c0c0c;border:1px solid var(--line);border
 
 <dialog id="addDlg" aria-labelledby="addTitle">
   <form method="dialog" id="addForm">
-    <div class="m-head"><h3 id="addTitle">Add a Business</h3>
-      <button class="btn ghost" type="button" data-close style="padding:6px 10px">Close</button></div>
-    <div class="m-body" id="addBody">
-      <p class="hint">Fill in the details to generate a directory entry. Paste it into the <code>BUSINESSES</code> list in <code>index.html</code> and deploy.</p>
-      <div class="f"><label for="fName">Business name</label><input id="fName" required maxlength="60"></div>
-      <div class="f"><label for="fSlug">Website path</label><input id="fSlug" required pattern="[a-z0-9\-]+" placeholder="e.g. iconic"><small id="fSlugHint">business.knovalab.in/…</small></div>
-      <div class="f"><label for="fInd">Industry</label><select id="fInd"></select></div>
-      <div class="f"><label for="fDesc">Short description</label><textarea id="fDesc" maxlength="140"></textarea></div>
-      <div class="f"><label for="fTags">Tags (comma separated)</label><input id="fTags" placeholder="wedding, photography"></div>
-    </div>
-    <div class="m-foot"><button class="btn ghost" type="button" data-close>Cancel</button><button class="btn" type="submit">Generate entry</button></div>
+    <div class="m-head"><h3 id="addTitle">Add a Business</h3><button class="btn secondary" type="button" data-close style="min-height:36px;padding:0 14px">Close</button></div>
+    <div class="m-body" id="addBody"></div>
+    <div class="m-foot" id="addFoot"></div>
   </form>
 </dialog>
 
 <script>
-/* ============ DATA — edit here only ============ */
+/* =====================================================================
+   HOW TO ADD A WEBSITE
+   1. Find the industry below (each industry has its own  sites:[ ... ]  list).
+   2. Copy any one line inside it, paste it as a new line, edit the values.
+      Put a comma after every line except the last one in that list.
+   3. Save and deploy. Counts, search, stats and the sidebar update by themselves.
 
-const INDUSTRIES = [
-  {id:"restaurants",  name:"Restaurants & Cafes",   icon:"M7 3v8M5 3v5a2 2 0 004 0V3M7 11v10M17 3c-2 2-2 6 0 8v10"},
-  {id:"fitness",      name:"Fitness & Wellness",    icon:"M6 8v8M18 8v8M3 10v4M21 10v4M6 12h12"},
-  {id:"education",    name:"Education",             icon:"M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5"},
-  {id:"retail",       name:"Retail & Shopping",     icon:"M5 8h14l-1 12H6zM9 8a3 3 0 016 0"},
-  {id:"realestate",   name:"Real Estate",           icon:"M4 21V9l8-6 8 6v12zM10 21v-6h4v6"},
-  {id:"professional", name:"Professional Services", icon:"M3 8h18v12H3zM9 8V5h6v3"},
-  {id:"beauty",       name:"Beauty & Lifestyle",    icon:"M12 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"},
-  {id:"technology",   name:"Technology",            icon:"M4 5h16v11H4zM8 20h8M12 16v4"},
-  {id:"travel",       name:"Travel & Hospitality",  icon:"M21 3L3 10l7 3 3 7z"},
-  {id:"other",        name:"Other Businesses",      icon:"M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"}
+   A line looks like this:
+   {name:"Business Name", slug:"folder-name", desc:"One short sentence.", tags:["tag one","tag two"], logo:"", added:"2026-10-10"},
+
+   slug  = the folder of the site, so the card opens  business.knovalab.in/<slug>
+   logo  = optional image path (leave "" to show the industry icon)
+   added = optional date, used for "Recently added" sorting
+   ===================================================================== */
+
+const DIRECTORY = [
+
+  { id:"restaurants", name:"Restaurants & Cafes", icon:"M7 3v8M5 3v5a2 2 0 004 0V3M7 11v10M17 3c-2 2-2 6 0 8v10", sites:[
+    // ➕ paste new Restaurants & Cafes websites here
+  ]},
+
+  { id:"fitness", name:"Fitness & Wellness", icon:"M6 8v8M18 8v8M3 10v4M21 10v4M6 12h12", sites:[
+    // ➕ paste new Fitness & Wellness websites here
+  ]},
+
+  { id:"education", name:"Education", icon:"M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5", sites:[
+    // ➕ paste new Education websites here
+  ]},
+
+  { id:"retail", name:"Retail & Shopping", icon:"M5 8h14l-1 12H6zM9 8a3 3 0 016 0", sites:[
+    // ➕ paste new Retail & Shopping websites here
+  ]},
+
+  { id:"realestate", name:"Real Estate", icon:"M4 21V9l8-6 8 6v12zM10 21v-6h4v6", sites:[
+    // ➕ paste new Real Estate websites here
+  ]},
+
+  { id:"professional", name:"Professional Services", icon:"M3 8h18v12H3zM9 8V5h6v3", sites:[
+    // ➕ paste new Professional Services websites here
+  ]},
+
+  { id:"beauty", name:"Beauty & Lifestyle", icon:"M12 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2z", sites:[
+    // ➕ paste new Beauty & Lifestyle websites here
+  ]},
+
+  { id:"technology", name:"Technology", icon:"M4 5h16v11H4zM8 20h8M12 16v4", sites:[
+    // ➕ paste new Technology websites here
+  ]},
+
+  { id:"travel", name:"Travel & Hospitality", icon:"M21 3L3 10l7 3 3 7z", sites:[
+    // ➕ paste new Travel & Hospitality websites here
+  ]},
+
+  { id:"other", name:"Other Businesses", icon:"M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z", sites:[
+    {name:"ICONIC", slug:"iconic", desc:"Luxury wedding photography and cinematic films.", tags:["wedding","photography","films"], logo:"", added:""},
+    // ➕ paste new Other Businesses websites here
+  ]}
+
 ];
 
-/* Real, registered websites only. Add new entries at the end.
-   Fields: name, slug (URL path), industry (an id above), description, tags[], aliases[],
-           logo (optional image path), added (optional "YYYY-MM-DD") */
-const BUSINESSES = [
-  {
-    name:"ICONIC", slug:"iconic", industry:"other",
-    description:"Luxury wedding photography and cinematic films.",
-    tags:["wedding","photography","films"], aliases:["Iconic Studio"],
-    logo:"", added:""
-  }
-];
+/* ============ nothing below needs editing ============ */
 
-/* ============ HELPERS ============ */
+const INDUSTRIES = DIRECTORY.map(({sites, ...i}) => i);
+const BUSINESSES = DIRECTORY.flatMap(d => d.sites.map(s => ({...s, industry:d.id})));
 
 const $ = s => document.querySelector(s);
 const ind = id => INDUSTRIES.find(i => i.id === id);
-const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const norm = s => String(s).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g," ").trim();
-const icon = (d, extra="") => `<svg class="i" viewBox="0 0 24 24" ${extra}><path d="${d}"/></svg>`;
-const OVERVIEW_ICON = "M3 11l9-8 9 8M5 10v10h14V10";
-const ARROW = "M5 12h14M13 6l6 6-6 6";
-
-const words = b => norm([b.name, ...(b.aliases||[]), ind(b.industry)?.name||"", ...(b.tags||[])].join(" ")).split(" ");
+const icon = (d, x="") => `<svg class="i" viewBox="0 0 24 24" ${x}><path d="${d}"/></svg>`;
+const HOME = "M3 11l9-8 9 8M5 10v10h14V10", ARROW = "M5 12h14M13 6l6 6-6 6";
+const words = b => norm([b.name, ...(b.aliases||[]), ind(b.industry).name, ...(b.tags||[])].join(" ")).split(" ");
 const matches = (b, q) => { const t = norm(q).split(" ").filter(Boolean); if(!t.length) return true; const w = words(b); return t.every(x => w.some(y => y.startsWith(x))); };
-const days = d => d ? (Date.now() - new Date(d).getTime()) / 864e5 : Infinity;
+const age = d => d ? (Date.now() - new Date(d).getTime()) / 864e5 : Infinity;
+const plural = (n, a, b) => `${n} ${n===1 ? a : b}`;
 
-/* ============ STATE + ROUTING (hash based: safe with existing /slug routes) ============ */
-
-let route = {view:"overview", id:null};
-function readRoute(){
-  const m = location.hash.match(/^#\/i\/([a-z0-9-]+)/);
-  route = m && ind(m[1]) ? {view:"industry", id:m[1]} : {view:"overview", id:null};
-}
-
-/* ============ RENDER ============ */
+let route = {id:null};
+const readRoute = () => { const m = location.hash.match(/^#\/i\/([a-z0-9-]+)/); route = {id: m && ind(m[1]) ? m[1] : null}; };
 
 function renderNav(){
-  const link = (href, active, ic, label, count) =>
-    `<a href="${href}" data-nav class="${active?"active":""}" ${active?'aria-current="page"':""}>${icon(ic)}<span class="name">${esc(label)}</span>${count!=null?`<span class="count">${count}</span>`:""}</a>`;
-  $("#nav").innerHTML =
-    link("#/", route.view==="overview", OVERVIEW_ICON, "Overview", BUSINESSES.length) +
-    `<div class="nav-label">INDUSTRIES</div>` +
-    INDUSTRIES.map(i => link(`#/i/${i.id}`, route.id===i.id, i.icon, i.name, BUSINESSES.filter(b=>b.industry===i.id).length)).join("");
+  const a = (href, on, ic, label, n) => `<a href="${href}" class="${on?"active":""}" ${on?'aria-current="page"':""}>${icon(ic)}<span class="name">${esc(label)}</span><span class="count">${n}</span></a>`;
+  $("#nav").innerHTML = a("#/", !route.id, HOME, "Overview", BUSINESSES.length)
+    + `<div class="nav-label">Industries</div>`
+    + INDUSTRIES.map(i => a(`#/i/${i.id}`, route.id===i.id, i.icon, i.name, BUSINESSES.filter(b=>b.industry===i.id).length)).join("");
 }
 
 function renderHead(){
-  const cur = route.id ? ind(route.id) : null;
-  $("#crumb").innerHTML = cur ? `Directory / <b>${esc(cur.name)}</b>` : `Directory / <b>Overview</b>`;
-  $("#status").textContent = `${BUSINESSES.length} ${BUSINESSES.length===1?"website":"websites"} listed`;
+  const cur = route.id && ind(route.id), n = cur ? BUSINESSES.filter(b=>b.industry===cur.id).length : 0;
+  $("#crumb").innerHTML = `Directory / <b>${esc(cur ? cur.name : "Overview")}</b>`;
+  $("#status").textContent = `${plural(BUSINESSES.length,"website","websites")} listed`;
+  $("#eyebrow").textContent = cur ? "Industry" : "Knovalab Business Directory";
   $("#title").textContent = cur ? cur.name : "Find a business.";
-  const n = cur ? BUSINESSES.filter(b=>b.industry===cur.id).length : 0;
-  $("#lede").textContent = cur
-    ? `${n} ${n===1?"website":"websites"} in this industry.`
-    : "Explore websites built for businesses across different industries.";
+  $("#lede").textContent = cur ? `${plural(n,"website","websites")} in this industry.` : "Explore websites built for businesses across different industries.";
   $("#secTitle").textContent = cur ? "Websites" : "Explore Businesses";
   document.title = (cur ? cur.name + " — " : "") + "Knovalab Business";
 }
 
 function renderStats(){
-  const used = new Set(BUSINESSES.map(b=>b.industry)).size;
-  const recent = BUSINESSES.filter(b => days(b.added) <= 30).length;
-  const third = recent ? ["Added in 30 Days", recent] : ["Industries in Use", used];
+  const recent = BUSINESSES.filter(b => age(b.added) <= 30).length;
+  const third = recent ? ["Added in 30 Days", recent] : ["Industries in Use", new Set(BUSINESSES.map(b=>b.industry)).size];
   $("#stats").innerHTML = [["Total Websites", BUSINESSES.length], ["Industries", INDUSTRIES.length], third]
-    .map(([l,v]) => `<div class="stat"><b>${v}</b><span>${l}</span></div>`).join("");
+    .map(([l,v]) => `<div class="stat"><strong>${v}</strong><span>${l}</span></div>`).join("");
 }
 
 function card(b){
-  const i = ind(b.industry) || ind("other");
-  const logo = b.logo ? `<img src="${esc(b.logo)}" alt="" loading="lazy">` : icon(i.icon, 'style="width:22px;height:22px"');
-  const tags = (b.tags||[]).slice(0,2).map(t=>`<span class="tag">${esc(t)}</span>`).join("");
+  const i = ind(b.industry);
+  const logo = b.logo ? `<img src="${esc(b.logo)}" alt="" loading="lazy">` : icon(i.icon, 'style="width:24px;height:24px"');
+  const tags = (b.tags||[]).slice(0,2).map(t => `<span class="tag">${esc(t)}</span>`).join("");
   return `<a class="card" href="/${esc(b.slug)}" aria-label="Open ${esc(b.name)} website">
-    <div class="card-top"><div class="logo">${logo}</div><div><h3>${esc(b.name)}</h3><div class="ind">${esc(i.name)}</div></div></div>
-    <p>${esc(b.description||"")}</p>
+    <div class="logo">${logo}</div>
+    <div><h3>${esc(b.name)}</h3><div class="ind">${esc(i.name)}</div></div>
+    <p>${esc(b.desc)}</p>
     <div class="card-foot"><div class="tags">${tags}</div><span class="open">Open ${icon(ARROW)}</span></div></a>`;
 }
 
 function visible(){
-  const q = $("#q").value;
-  let list = BUSINESSES.filter(b => (!route.id || b.industry===route.id) && matches(b,q));
-  list.sort($("#sort").value==="new"
-    ? (a,b) => (new Date(b.added||0)) - (new Date(a.added||0)) || a.name.localeCompare(b.name)
+  const list = BUSINESSES.filter(b => (!route.id || b.industry===route.id) && matches(b, $("#q").value));
+  return list.sort($("#sort").value==="new"
+    ? (a,b) => new Date(b.added||0) - new Date(a.added||0) || a.name.localeCompare(b.name)
     : (a,b) => a.name.localeCompare(b.name));
-  return list;
 }
 
 function renderResults(){
-  const q = $("#q").value.trim(), list = visible(), cur = route.id ? ind(route.id) : null;
-  $("#secCount").textContent = q ? `${list.length} ${list.length===1?"result":"results"} for “${q}”` : `${list.length} ${list.length===1?"website":"websites"}`;
+  const q = $("#q").value.trim(), list = visible(), cur = route.id && ind(route.id);
+  $("#secCount").textContent = q ? `${plural(list.length,"result","results")} for “${q}”` : plural(list.length,"website","websites");
   $("#searchForm").classList.toggle("has-text", !!q);
   if(list.length){ $("#results").innerHTML = `<div class="grid">${list.map(card).join("")}</div>`; return; }
-  const icn = cur ? cur.icon : "M11 4a7 7 0 100 14 7 7 0 000-14zM20 20l-3.5-3.5";
-  $("#results").innerHTML = `<div class="empty"><div class="logo">${icon(icn,'style="width:24px;height:24px"')}</div>
+  $("#results").innerHTML = `<div class="empty"><div class="logo">${icon(cur ? cur.icon : "M11 4a7 7 0 100 14 7 7 0 000-14zM20 20l-3.5-3.5", 'style="width:24px;height:24px"')}</div>
     <h3>${q ? "No matching businesses" : `No websites in ${cur ? esc(cur.name) : "the directory"} yet`}</h3>
-    <p>${q ? "Try a different name, industry or service." : "Be the first to add one. It only takes a minute."}</p>
-    ${q ? `<button class="btn ghost" type="button" id="resetQ">Clear search</button>` : `<button class="btn" type="button" data-add>Add a Business</button>`}</div>`;
+    <p>${q ? "Try a different name, industry or service." : "Add the first one. It takes a minute."}</p>
+    ${q ? `<button class="btn secondary" type="button" id="resetQ">Clear search</button>` : `<button class="btn" type="button" data-add>Add a Business</button>`}</div>`;
 }
 
 function render(){ readRoute(); renderNav(); renderHead(); renderStats(); renderResults(); }
 
-/* ============ EVENTS ============ */
-
-window.addEventListener("hashchange", () => { closeNav(); render(); window.scrollTo(0,0); });
-
-const q = $("#q");
-q.addEventListener("input", renderResults);
+window.addEventListener("hashchange", () => { closeNav(); render(); scrollTo(0,0); });
+$("#q").addEventListener("input", renderResults);
 $("#sort").addEventListener("change", renderResults);
-$("#clear").addEventListener("click", () => { q.value=""; renderResults(); q.focus(); });
+$("#clear").addEventListener("click", () => { $("#q").value=""; renderResults(); $("#q").focus(); });
 $("#searchForm").addEventListener("submit", e => {
   e.preventDefault();
   const list = visible();
-  if(q.value.trim() && list.length===1) location.href = "/" + list[0].slug;   // only ever opens a registered business
+  if($("#q").value.trim() && list.length===1) location.href = "/" + list[0].slug;   // only opens a registered business
 });
 document.addEventListener("click", e => {
-  if(e.target.closest("#resetQ")){ q.value=""; renderResults(); }
+  if(e.target.closest("#resetQ")){ $("#q").value=""; renderResults(); }
   if(e.target.closest("[data-add]")){ closeNav(); openAdd(); }
 });
 
-/* mobile drawer */
 function closeNav(){ document.body.classList.remove("nav-open"); $("#menuBtn").setAttribute("aria-expanded","false"); }
-$("#menuBtn").addEventListener("click", () => {
-  const open = document.body.classList.toggle("nav-open");
-  $("#menuBtn").setAttribute("aria-expanded", open);
-});
+$("#menuBtn").addEventListener("click", () => $("#menuBtn").setAttribute("aria-expanded", document.body.classList.toggle("nav-open")));
 $("#overlay").addEventListener("click", closeNav);
-document.addEventListener("keydown", e => { if(e.key==="Escape") closeNav(); });
 $("#nav").addEventListener("click", e => { if(e.target.closest("a")) closeNav(); });
+document.addEventListener("keydown", e => { if(e.key==="Escape") closeNav(); });
 
-/* ============ ADD A BUSINESS (no backend: generates a ready-to-paste entry) ============ */
-
-const dlg = $("#addDlg"), form = $("#addForm");
-const formHTML = $("#addBody").innerHTML;
+/* ---- Add a Business: builds the one-line entry for you to paste (no backend needed) ---- */
+const dlg = $("#addDlg");
 
 function openAdd(){
-  $("#addBody").innerHTML = formHTML;
-  $("#addForm .m-foot").style.display = "";
-  $("#fInd").innerHTML = INDUSTRIES.map(i => `<option value="${i.id}" ${i.id===route.id?"selected":""}>${esc(i.name)}</option>`).join("");
-  $("#fName").addEventListener("input", () => {
-    if(!$("#fSlug").dataset.touched) $("#fSlug").value = norm($("#fName").value).replace(/ /g,"-");
-    updHint();
-  });
-  $("#fSlug").addEventListener("input", () => { $("#fSlug").dataset.touched = 1; updHint(); });
-  updHint();
-  dlg.showModal();
-  $("#fName").focus();
+  $("#addBody").innerHTML = `
+    <p class="hint">Fill this in and I'll write the line for you. You then paste it into that industry's list in <code>index.html</code>.</p>
+    <div class="f"><label for="fName">Business name</label><input id="fName" required maxlength="60"></div>
+    <div class="f"><label for="fSlug">Website folder</label><input id="fSlug" required pattern="[a-z0-9\\-]+" placeholder="e.g. iconic"><small id="fHint">business.knovalab.in/…</small></div>
+    <div class="f"><label for="fInd">Industry</label><select id="fInd">${INDUSTRIES.map(i=>`<option value="${i.id}" ${i.id===route.id?"selected":""}>${esc(i.name)}</option>`).join("")}</select></div>
+    <div class="f"><label for="fDesc">Short description</label><textarea id="fDesc" maxlength="140"></textarea></div>
+    <div class="f"><label for="fTags">Tags (comma separated)</label><input id="fTags" placeholder="wedding, photography"></div>`;
+  $("#addFoot").innerHTML = `<button class="btn secondary" type="button" data-close>Cancel</button><button class="btn" type="submit">Generate line</button>`;
+  const hint = () => $("#fHint").textContent = "business.knovalab.in/" + ($("#fSlug").value || "…");
+  $("#fName").addEventListener("input", () => { if(!$("#fSlug").dataset.t) $("#fSlug").value = norm($("#fName").value).replace(/ /g,"-"); hint(); });
+  $("#fSlug").addEventListener("input", () => { $("#fSlug").dataset.t = 1; hint(); });
+  dlg.showModal(); $("#fName").focus();
 }
-function updHint(){ $("#fSlugHint").textContent = "business.knovalab.in/" + ($("#fSlug").value || "…"); }
 
-dlg.addEventListener("click", e => { if(e.target.closest("[data-close]") || e.target === dlg) dlg.close(); });
+dlg.addEventListener("click", e => { if(e.target.closest("[data-close]") || e.target===dlg) dlg.close(); });
 
-form.addEventListener("submit", e => {
+$("#addForm").addEventListener("submit", e => {
   e.preventDefault();
-  const slug = $("#fSlug").value.trim();
-  if(BUSINESSES.some(b => b.slug === slug)){ $("#fSlugHint").textContent = "That path is already in the directory."; return; }
+  const slug = $("#fSlug").value.trim(), d = ind($("#fInd").value);
+  if(BUSINESSES.some(b => b.slug===slug)){ $("#fHint").textContent = "That folder is already in the directory."; return; }
   const tags = $("#fTags").value.split(",").map(t=>t.trim().toLowerCase()).filter(Boolean);
-  const entry = `  {\n    name:${JSON.stringify($("#fName").value.trim())}, slug:${JSON.stringify(slug)}, industry:${JSON.stringify($("#fInd").value)},\n    description:${JSON.stringify($("#fDesc").value.trim())},\n    tags:${JSON.stringify(tags)}, aliases:[],\n    logo:"", added:${JSON.stringify(new Date().toISOString().slice(0,10))}\n  }`;
-  $("#addBody").innerHTML = `<p class="hint">Add a comma after the previous entry, then paste this at the end of the <code>BUSINESSES</code> list in <code>index.html</code>. The business folder itself must exist at <code>/${esc(slug)}</code>.</p><pre id="snip">${esc(entry)}</pre>`;
-  $("#addForm .m-foot").style.display = "none";
-  const copy = document.createElement("div");
-  copy.className = "m-foot";
-  copy.innerHTML = `<button class="btn ghost" type="button" data-close>Done</button><button class="btn" type="button" id="copyBtn">Copy entry</button>`;
-  form.appendChild(copy);
-  copy.querySelector("#copyBtn").onclick = async ev => {
-    try{ await navigator.clipboard.writeText(entry); ev.target.textContent = "Copied"; }catch{ ev.target.textContent = "Select and copy above"; }
-  };
+  const line = `{name:${JSON.stringify($("#fName").value.trim())}, slug:${JSON.stringify(slug)}, desc:${JSON.stringify($("#fDesc").value.trim())}, tags:${JSON.stringify(tags)}, logo:"", added:"${new Date().toLocaleDateString("en-CA")}"},`;
+  $("#addBody").innerHTML = `<div class="note">Paste inside the “${esc(d.name)}” list</div>
+    <pre>${esc(line)}</pre>
+    <p class="hint">In <code>index.html</code>, find the <code>${esc(d.id)}</code> industry, paste this on a new line inside <code>sites:[ ]</code>, and make sure the line above it ends with a comma. The folder <code>/${esc(slug)}</code> must exist on the site.</p>`;
+  $("#addFoot").innerHTML = `<button class="btn secondary" type="button" data-close>Done</button><button class="btn" type="button" id="copyBtn">Copy line</button>`;
+  $("#copyBtn").onclick = async ev => { try{ await navigator.clipboard.writeText(line); ev.target.textContent = "Copied"; }catch{ ev.target.textContent = "Select and copy above"; } };
 });
-dlg.addEventListener("close", () => { form.querySelectorAll(".m-foot").forEach((f,i)=>{ if(i>0) f.remove(); }); });
 
 render();
 </script>
