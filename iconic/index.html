@@ -917,10 +917,245 @@ footer{
     transition:none!important;
   }
 }
+
+
+/* ===== ADDED: ONE-TIME LOADING SCREEN (CSS) ===== */
+
+#loader{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  pointer-events:all;
+}
+
+/* Two halves that part like curtains when loading ends */
+.loader-panel{
+  position:absolute;
+  left:0;
+  right:0;
+  height:50.5%;
+  background:var(--black);
+  transition:transform 1.05s cubic-bezier(.76,0,.24,1);
+}
+
+.loader-panel.top{
+  top:0;
+}
+
+.loader-panel.bottom{
+  bottom:0;
+}
+
+.loader-inner{
+  position:relative;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:26px;
+  transition:opacity .6s ease, transform .6s ease;
+}
+
+.loader-logo{
+  display:block;
+  width:auto;
+  height:72px;
+  max-width:210px;
+  object-fit:contain;
+
+  opacity:0;
+  filter:blur(8px);
+  animation:loaderLogoIn 1.5s cubic-bezier(.2,.7,.2,1) .25s forwards;
+}
+
+.loader-line{
+  position:relative;
+  width:140px;
+  height:1px;
+  background:var(--line);
+  overflow:hidden;
+
+  opacity:0;
+  animation:loaderFade .8s ease .7s forwards;
+}
+
+.loader-line:after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:var(--champagne);
+  transform:scaleX(0);
+  transform-origin:left center;
+  animation:loaderLineFill 2.4s cubic-bezier(.65,0,.35,1) .8s forwards;
+}
+
+.loader-meta{
+  display:flex;
+  align-items:center;
+  gap:14px;
+
+  font-size:8px;
+  font-weight:600;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--muted);
+
+  opacity:0;
+  animation:loaderFade .9s ease 1s forwards;
+}
+
+.loader-count{
+  min-width:28px;
+  text-align:right;
+  font-family:var(--serif);
+  font-size:15px;
+  letter-spacing:.05em;
+  color:var(--champagne);
+  font-variant-numeric:tabular-nums;
+}
+
+/* Exit state */
+#loader.done .loader-inner{
+  opacity:0;
+  transform:translateY(-8px);
+}
+
+#loader.done .loader-panel.top{
+  transform:translateY(-101%);
+  transition-delay:.35s;
+}
+
+#loader.done .loader-panel.bottom{
+  transform:translateY(101%);
+  transition-delay:.35s;
+}
+
+@keyframes loaderLogoIn{
+  0%{
+    opacity:0;
+    filter:blur(8px);
+    transform:scale(.96);
+  }
+  100%{
+    opacity:1;
+    filter:blur(0);
+    transform:scale(1);
+  }
+}
+
+@keyframes loaderFade{
+  to{
+    opacity:1;
+  }
+}
+
+@keyframes loaderLineFill{
+  to{
+    transform:scaleX(1);
+  }
+}
+
+/* Already seen this session: never show it */
+html.loader-seen #loader{
+  display:none;
+}
+
+/* Lock scroll only while the loader is visible */
+html.loading,
+html.loading body{
+  overflow:hidden;
+}
+
+@media(max-width:600px){
+
+  .loader-logo{
+    height:58px;
+    max-width:170px;
+  }
+
+  .loader-line{
+    width:110px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+
+  .loader-logo,
+  .loader-line,
+  .loader-meta{
+    animation:none;
+    opacity:1;
+    filter:none;
+  }
+
+  .loader-line:after{
+    animation:none;
+    transform:scaleX(1);
+  }
+}
 </style>
+
+<!-- ===== ADDED: ONE-TIME LOADING SCREEN (CHECK, RUNS BEFORE FIRST PAINT) ===== -->
+<script>
+(function(){
+  var root = document.documentElement;
+  try{
+    if(sessionStorage.getItem("iconic_loader_seen")){
+      root.classList.add("loader-seen");
+    }else{
+      root.classList.add("loading");
+    }
+  }catch(e){
+    root.classList.add("loader-seen");
+  }
+})();
+</script>
+
+<noscript>
+<style>
+#loader{display:none !important;}
+html.loading,
+html.loading body{overflow:auto !important;}
+</style>
+</noscript>
+
 </head>
 
 <body>
+
+<!-- ===== ADDED: ONE-TIME LOADING SCREEN (HTML) ===== -->
+<div id="loader" aria-hidden="true">
+
+  <div class="loader-panel top"></div>
+  <div class="loader-panel bottom"></div>
+
+  <div class="loader-inner">
+
+    <img
+      class="loader-logo"
+      src="https://i.pinimg.com/736x/56/b0/07/56b007965b04f8920b2009bb08ad35e5.jpg"
+      alt=""
+    />
+
+    <div class="loader-line"></div>
+
+    <div class="loader-meta">
+      <span>Loading</span>
+      <span class="loader-count">0</span>
+    </div>
+
+  </div>
+
+</div>
 
 <header>
 
@@ -1543,6 +1778,92 @@ document.addEventListener("click",e=>{
 
 });
 
+</script>
+
+
+<!-- ===== ADDED: ONE-TIME LOADING SCREEN (JS) ===== -->
+<script>
+(function(){
+
+  var root   = document.documentElement;
+  var loader = document.getElementById("loader");
+
+  if(!loader || root.classList.contains("loader-seen")){
+    return;
+  }
+
+  var counter  = loader.querySelector(".loader-count");
+  var MIN_TIME = 3000;   /* minimum time the loader stays visible (ms) */
+  var MAX_TIME = 7000;   /* safety: never keep the loader longer than this */
+  var start    = Date.now();
+  var finished = false;
+  var pageReady = false;
+
+  /* Smoothly count 0 -> 100 over MIN_TIME; holds at 99 until page is ready */
+  function tick(){
+
+    if(finished){ return; }
+
+    var elapsed  = Date.now() - start;
+    var progress = Math.min(elapsed / MIN_TIME, 1);
+    var eased    = 1 - Math.pow(1 - progress, 3);
+    var value    = Math.floor(eased * 100);
+
+    if(!pageReady && value > 99){ value = 99; }
+
+    if(counter){ counter.textContent = value; }
+
+    if(progress < 1 || !pageReady){
+      requestAnimationFrame(tick);
+    }else{
+      if(counter){ counter.textContent = 100; }
+      finish();
+    }
+  }
+
+  function finish(){
+
+    if(finished){ return; }
+    finished = true;
+
+    if(counter){ counter.textContent = 100; }
+
+    setTimeout(function(){
+
+      loader.classList.add("done");
+      root.classList.remove("loading");
+
+      try{
+        sessionStorage.setItem("iconic_loader_seen","1");
+      }catch(e){}
+
+      setTimeout(function(){
+        if(loader && loader.parentNode){
+          loader.parentNode.removeChild(loader);
+        }
+      },1600);
+
+    },350);
+  }
+
+  function onReady(){
+    pageReady = true;
+  }
+
+  if(document.readyState === "complete"){
+    onReady();
+  }else{
+    window.addEventListener("load", onReady);
+  }
+
+  setTimeout(function(){
+    pageReady = true;
+    finish();
+  }, MAX_TIME);
+
+  requestAnimationFrame(tick);
+
+})();
 </script>
 
 </body>
