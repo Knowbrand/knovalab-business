@@ -43,7 +43,7 @@ svg.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .nav .count{font-size:.72rem;color:#777;border:1px solid var(--line);border-radius:999px;padding:0 8px;min-width:26px;text-align:center}
 .nav a.active .count{color:var(--orange);border-color:rgba(255,106,0,.3)}
 .side-foot{margin-top:auto;padding-top:18px;border-top:1px solid var(--line)}
-.powered{margin:14px 0 0;text-align:center;font-size:.74rem;color:#606060}
+.powered{margin:0;text-align:center;font-size:.74rem;color:#606060}
 
 /* BUTTONS */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 22px;border:1px solid transparent;border-radius:9px;background:var(--orange);color:#fff;font-weight:600;transition:.2s}
@@ -61,7 +61,6 @@ svg.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .tb-right{margin-left:auto;display:flex;align-items:center;gap:20px}
 .status{display:flex;align-items:center;gap:8px;font-size:.82rem;color:#777}
 .status:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange)}
-.tb-right .btn{min-height:42px;padding:0 18px}
 .content{max-width:1320px;margin:0 auto;padding:72px 48px 100px}
 h1{font-size:clamp(2.6rem,3.6vw,4rem);margin-bottom:20px;max-width:800px}
 .lede{max-width:640px;font-size:1.08rem;line-height:1.75;margin-bottom:38px}
@@ -91,7 +90,7 @@ h2{font-size:clamp(1.9rem,2.4vw,2.6rem);margin-bottom:8px}
 .card{display:flex;flex-direction:column;gap:18px;min-height:250px;padding:34px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);transition:.2s}
 .card:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.14)}
 .logo{width:50px;height:50px;border-radius:12px;background:var(--tint);color:var(--orange);display:grid;place-items:center;overflow:hidden;flex:none}
-.logo img{width:100%;height:100%;object-fit:cover}
+.logo img{width:100%;height:100%;object-fit:contain}
 .card h3{font-size:1.35rem;margin:0 0 4px}
 .ind{font-size:.8rem;color:#777}
 .card p{margin:0;font-size:.92rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
@@ -106,24 +105,6 @@ h2{font-size:clamp(1.9rem,2.4vw,2.6rem);margin-bottom:8px}
 .empty .logo{margin:0 auto 22px}
 .empty h3{font-size:1.5rem;margin-bottom:10px}
 .empty p{max-width:440px;margin:0 auto 26px}
-
-/* MODAL */
-dialog{width:min(540px,calc(100% - 32px));background:var(--card);color:var(--text);border:1px solid rgba(255,255,255,.14);border-radius:22px;padding:0}
-dialog::backdrop{background:rgba(0,0,0,.75)}
-.m-head,.m-foot{display:flex;align-items:center;padding:22px 30px}
-.m-head{justify-content:space-between;border-bottom:1px solid var(--line)}
-.m-head h3{margin:0;font-size:1.3rem}
-.m-body{padding:26px 30px;display:grid;gap:16px;max-height:68vh;overflow-y:auto}
-.m-foot{justify-content:flex-end;gap:12px;border-top:1px solid var(--line)}
-.f label{display:block;margin-bottom:7px;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:#777;font-weight:600}
-.f input,.f select,.f textarea{width:100%;background:#0a0a0a;border:1px solid var(--line);border-radius:9px;padding:12px 14px;outline:none}
-.f textarea{min-height:76px;resize:vertical}
-.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--orange)}
-.f small{display:block;margin-top:6px;color:#777;font-size:.78rem}
-pre{margin:0;padding:16px;background:#0a0a0a;border:1px solid var(--line);border-radius:12px;font-size:.78rem;line-height:1.6;color:#d4d4d8;white-space:pre-wrap;word-break:break-word}
-.hint{margin:0;font-size:.9rem}
-.hint code{color:var(--orange);font-size:.82rem}
-.note{padding:18px 20px;background:#271508;border:1px solid rgba(255,106,0,.16);border-radius:12px;color:var(--orange);font-weight:600;font-size:.88rem}
 .overlay{display:none}
 
 @media(max-width:1500px){.content{padding:60px 40px 90px}.card{padding:30px}}
@@ -146,8 +127,6 @@ pre{margin:0;padding:16px;background:#0a0a0a;border:1px solid var(--line);border
   .stat{padding:18px 16px}
   .stat strong{font-size:1.7rem}
   .card{padding:26px;min-height:auto}
-  .tb-right .btn span{display:none}
-  .tb-right .btn{padding:0 13px}
   .empty{padding:48px 22px}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
@@ -160,7 +139,6 @@ pre{margin:0;padding:16px;background:#0a0a0a;border:1px solid var(--line);border
     <a class="brand" href="#/"><b>Knovalab</b><small>Business Directory</small></a>
     <nav class="nav" id="nav"></nav>
     <div class="side-foot">
-      <button class="btn secondary block" type="button" data-add><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add a Business</button>
       <p class="powered">Powered by Knovalab</p>
     </div>
   </aside>
@@ -172,7 +150,6 @@ pre{margin:0;padding:16px;background:#0a0a0a;border:1px solid var(--line);border
       <div class="crumb" id="crumb"></div>
       <div class="tb-right">
         <span class="status" id="status"></span>
-        <button class="btn" type="button" data-add><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Add Website</span></button>
       </div>
     </header>
 
@@ -201,14 +178,6 @@ pre{margin:0;padding:16px;background:#0a0a0a;border:1px solid var(--line);border
   </div>
 </div>
 
-<dialog id="addDlg" aria-labelledby="addTitle">
-  <form method="dialog" id="addForm">
-    <div class="m-head"><h3 id="addTitle">Add a Business</h3><button class="btn secondary" type="button" data-close style="min-height:36px;padding:0 14px">Close</button></div>
-    <div class="m-body" id="addBody"></div>
-    <div class="m-foot" id="addFoot"></div>
-  </form>
-</dialog>
-
 <script>
 /* =====================================================================
    HOW TO ADD A WEBSITE
@@ -221,7 +190,9 @@ pre{margin:0;padding:16px;background:#0a0a0a;border:1px solid var(--line);border
    {name:"Business Name", slug:"folder-name", desc:"One short sentence.", tags:["tag one","tag two"], logo:"", added:"2026-10-10"},
 
    slug  = the folder of the site, so the card opens  business.knovalab.in/<slug>
-   logo  = optional image path (leave "" to show the industry icon)
+   url   = optional. Full link for a site on its own domain (e.g. "https://thebravelion.in").
+           When set, the card opens this instead of the slug folder.
+   logo  = optional image link (leave "" to show the industry icon)
    added = optional date, used for "Recently added" sorting
    ===================================================================== */
 
@@ -236,6 +207,7 @@ const DIRECTORY = [
   ]},
 
   { id:"education", name:"Education", icon:"M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5", sites:[
+    {name:"The Brave Lion Pre-Primary School", slug:"thebravelion", url:"https://thebravelion.in", desc:"A joyful, caring pre-primary school for Nursery, Junior KG and Senior KG learners.", tags:["pre-primary","nursery"], logo:"https://i.pinimg.com/736x/f0/e2/e9/f0e2e9a99e4c9d566f665c32e6b5e83e.jpg", added:""},
     // ➕ paste new Education websites here
   ]},
 
@@ -264,7 +236,7 @@ const DIRECTORY = [
   ]},
 
   { id:"other", name:"Other Businesses", icon:"M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z", sites:[
-    {name:"ICONIC", slug:"iconic", desc:"Luxury wedding photography and cinematic films.", tags:["wedding","photography","films"], logo:"", added:""},
+    {name:"ICONIC", slug:"iconic", desc:"Luxury wedding photography and cinematic films.", tags:["wedding","photography","films"], logo:"https://i.pinimg.com/736x/56/b0/07/56b007965b04f8920b2009bb08ad35e5.jpg", added:""},
     // ➕ paste new Other Businesses websites here
   ]}
 
@@ -285,6 +257,7 @@ const words = b => norm([b.name, ...(b.aliases||[]), ind(b.industry).name, ...(b
 const matches = (b, q) => { const t = norm(q).split(" ").filter(Boolean); if(!t.length) return true; const w = words(b); return t.every(x => w.some(y => y.startsWith(x))); };
 const age = d => d ? (Date.now() - new Date(d).getTime()) / 864e5 : Infinity;
 const plural = (n, a, b) => `${n} ${n===1 ? a : b}`;
+const link = b => b.url || "/" + b.slug;
 
 let route = {id:null};
 const readRoute = () => { const m = location.hash.match(/^#\/i\/([a-z0-9-]+)/); route = {id: m && ind(m[1]) ? m[1] : null}; };
@@ -318,7 +291,7 @@ function card(b){
   const i = ind(b.industry);
   const logo = b.logo ? `<img src="${esc(b.logo)}" alt="" loading="lazy">` : icon(i.icon, 'style="width:24px;height:24px"');
   const tags = (b.tags||[]).slice(0,2).map(t => `<span class="tag">${esc(t)}</span>`).join("");
-  return `<a class="card" href="/${esc(b.slug)}" aria-label="Open ${esc(b.name)} website">
+  return `<a class="card" href="${esc(link(b))}" aria-label="Open ${esc(b.name)} website">
     <div class="logo">${logo}</div>
     <div><h3>${esc(b.name)}</h3><div class="ind">${esc(i.name)}</div></div>
     <p>${esc(b.desc)}</p>
@@ -339,8 +312,8 @@ function renderResults(){
   if(list.length){ $("#results").innerHTML = `<div class="grid">${list.map(card).join("")}</div>`; return; }
   $("#results").innerHTML = `<div class="empty"><div class="logo">${icon(cur ? cur.icon : "M11 4a7 7 0 100 14 7 7 0 000-14zM20 20l-3.5-3.5", 'style="width:24px;height:24px"')}</div>
     <h3>${q ? "No matching businesses" : `No websites in ${cur ? esc(cur.name) : "the directory"} yet`}</h3>
-    <p>${q ? "Try a different name, industry or service." : "Add the first one. It takes a minute."}</p>
-    ${q ? `<button class="btn secondary" type="button" id="resetQ">Clear search</button>` : `<button class="btn" type="button" data-add>Add a Business</button>`}</div>`;
+    <p>${q ? "Try a different name, industry or service." : "New websites will appear here soon."}</p>
+    ${q ? `<button class="btn secondary" type="button" id="resetQ">Clear search</button>` : ""}</div>`;
 }
 
 function render(){ readRoute(); renderNav(); renderHead(); renderStats(); renderResults(); }
@@ -352,11 +325,10 @@ $("#clear").addEventListener("click", () => { $("#q").value=""; renderResults();
 $("#searchForm").addEventListener("submit", e => {
   e.preventDefault();
   const list = visible();
-  if($("#q").value.trim() && list.length===1) location.href = "/" + list[0].slug;   // only opens a registered business
+  if($("#q").value.trim() && list.length===1) location.href = link(list[0]);   // only opens a registered business
 });
 document.addEventListener("click", e => {
   if(e.target.closest("#resetQ")){ $("#q").value=""; renderResults(); }
-  if(e.target.closest("[data-add]")){ closeNav(); openAdd(); }
 });
 
 function closeNav(){ document.body.classList.remove("nav-open"); $("#menuBtn").setAttribute("aria-expanded","false"); }
@@ -364,39 +336,6 @@ $("#menuBtn").addEventListener("click", () => $("#menuBtn").setAttribute("aria-e
 $("#overlay").addEventListener("click", closeNav);
 $("#nav").addEventListener("click", e => { if(e.target.closest("a")) closeNav(); });
 document.addEventListener("keydown", e => { if(e.key==="Escape") closeNav(); });
-
-/* ---- Add a Business: builds the one-line entry for you to paste (no backend needed) ---- */
-const dlg = $("#addDlg");
-
-function openAdd(){
-  $("#addBody").innerHTML = `
-    <p class="hint">Fill this in and I'll write the line for you. You then paste it into that industry's list in <code>index.html</code>.</p>
-    <div class="f"><label for="fName">Business name</label><input id="fName" required maxlength="60"></div>
-    <div class="f"><label for="fSlug">Website folder</label><input id="fSlug" required pattern="[a-z0-9\\-]+" placeholder="e.g. iconic"><small id="fHint">business.knovalab.in/…</small></div>
-    <div class="f"><label for="fInd">Industry</label><select id="fInd">${INDUSTRIES.map(i=>`<option value="${i.id}" ${i.id===route.id?"selected":""}>${esc(i.name)}</option>`).join("")}</select></div>
-    <div class="f"><label for="fDesc">Short description</label><textarea id="fDesc" maxlength="140"></textarea></div>
-    <div class="f"><label for="fTags">Tags (comma separated)</label><input id="fTags" placeholder="wedding, photography"></div>`;
-  $("#addFoot").innerHTML = `<button class="btn secondary" type="button" data-close>Cancel</button><button class="btn" type="submit">Generate line</button>`;
-  const hint = () => $("#fHint").textContent = "business.knovalab.in/" + ($("#fSlug").value || "…");
-  $("#fName").addEventListener("input", () => { if(!$("#fSlug").dataset.t) $("#fSlug").value = norm($("#fName").value).replace(/ /g,"-"); hint(); });
-  $("#fSlug").addEventListener("input", () => { $("#fSlug").dataset.t = 1; hint(); });
-  dlg.showModal(); $("#fName").focus();
-}
-
-dlg.addEventListener("click", e => { if(e.target.closest("[data-close]") || e.target===dlg) dlg.close(); });
-
-$("#addForm").addEventListener("submit", e => {
-  e.preventDefault();
-  const slug = $("#fSlug").value.trim(), d = ind($("#fInd").value);
-  if(BUSINESSES.some(b => b.slug===slug)){ $("#fHint").textContent = "That folder is already in the directory."; return; }
-  const tags = $("#fTags").value.split(",").map(t=>t.trim().toLowerCase()).filter(Boolean);
-  const line = `{name:${JSON.stringify($("#fName").value.trim())}, slug:${JSON.stringify(slug)}, desc:${JSON.stringify($("#fDesc").value.trim())}, tags:${JSON.stringify(tags)}, logo:"", added:"${new Date().toLocaleDateString("en-CA")}"},`;
-  $("#addBody").innerHTML = `<div class="note">Paste inside the “${esc(d.name)}” list</div>
-    <pre>${esc(line)}</pre>
-    <p class="hint">In <code>index.html</code>, find the <code>${esc(d.id)}</code> industry, paste this on a new line inside <code>sites:[ ]</code>, and make sure the line above it ends with a comma. The folder <code>/${esc(slug)}</code> must exist on the site.</p>`;
-  $("#addFoot").innerHTML = `<button class="btn secondary" type="button" data-close>Done</button><button class="btn" type="button" id="copyBtn">Copy line</button>`;
-  $("#copyBtn").onclick = async ev => { try{ await navigator.clipboard.writeText(line); ev.target.textContent = "Copied"; }catch{ ev.target.textContent = "Select and copy above"; } };
-});
 
 render();
 </script>
