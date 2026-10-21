@@ -59,6 +59,7 @@ svg.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .crumb{color:#777;font-size:.88rem}
 .crumb b{color:#fff;font-weight:500}
 .tb-right{margin-left:auto;display:flex;align-items:center;gap:20px}
+.tb-right .btn{min-height:40px;padding:0 18px;white-space:nowrap}
 .status{display:flex;align-items:center;gap:8px;font-size:.82rem;color:#777}
 .status:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange)}
 .content{max-width:1320px;margin:0 auto;padding:72px 48px 100px}
@@ -75,6 +76,8 @@ h1{font-size:clamp(2.6rem,3.6vw,4rem);margin-bottom:20px;max-width:800px}
 .search.has-text .clear{display:flex}
 
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:38px 0 90px;max-width:700px}
+.stats[hidden]{display:none}
+.stats[hidden]+.sec-head{margin-top:48px}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px}
 .stat strong{display:block;color:var(--orange);font:700 2.2rem/1 Outfit,Arial,sans-serif;margin-bottom:10px}
 .stat span{font-size:.84rem;color:var(--muted)}
@@ -129,6 +132,7 @@ h2{font-size:clamp(1.9rem,2.4vw,2.6rem);margin-bottom:8px}
   .card{padding:26px;min-height:auto}
   .empty{padding:48px 22px}
 }
+@media(max-width:480px){.crumb{display:none}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -150,6 +154,7 @@ h2{font-size:clamp(1.9rem,2.4vw,2.6rem);margin-bottom:8px}
       <div class="crumb" id="crumb"></div>
       <div class="tb-right">
         <span class="status" id="status"></span>
+        <a class="btn" href="https://knovalab.in/quote/">Contact us</a>
       </div>
     </header>
 
@@ -199,6 +204,7 @@ h2{font-size:clamp(1.9rem,2.4vw,2.6rem);margin-bottom:8px}
 const DIRECTORY = [
 
   { id:"restaurants", name:"Restaurants & Cafes", icon:"M7 3v8M5 3v5a2 2 0 004 0V3M7 11v10M17 3c-2 2-2 6 0 8v10", sites:[
+    {name:"Romae Pizzeria", slug:"romaepizzeria", url:"https://business.knovalab.in/romaepizzeria/", desc:"An Italian-inspired pizzeria with a warm, modern website to explore the menu and order on WhatsApp.", tags:["pizzeria","italian"], logo:"https://i.pinimg.com/736x/7e/a3/c6/7ea3c65593a2c4f853f56d0ac2fedab0.jpg", added:"2026-10-22"},
     // ➕ paste new Restaurants & Cafes websites here
   ]},
 
@@ -281,6 +287,7 @@ function renderHead(){
 }
 
 function renderStats(){
+  $("#stats").hidden = !!route.id;
   const recent = BUSINESSES.filter(b => age(b.added) <= 30).length;
   const third = recent ? ["Added in 30 Days", recent] : ["Industries in Use", new Set(BUSINESSES.map(b=>b.industry)).size];
   $("#stats").innerHTML = [["Total Websites", BUSINESSES.length], ["Industries", INDUSTRIES.length], third]
