@@ -1,0 +1,27 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#080808">
+<title>Contact | INK / FORM</title><meta name="description" content="Demo website for a tattoo studio, created by KnovaLab.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css"></head><body>
+<div id="site-navbar"></div>
+<main>
+<section class="page-hero"><div><h1>Let’s Create Something Personal.</h1><p>Bring an idea, a reference, or just a feeling. Start a conversation about your next tattoo.</p></div></section>
+<div class="wrap"><section class="sec contact-grid">
+<div class="glass pad info"><h2>Studio details</h2>
+<p class="mut">All details below are placeholders.</p>
+<p>Phone<br><span data-cfg="phone"></span></p><p>Address<br><span data-cfg="address"></span></p><p>Hours<br><span data-cfg="hours"></span></p>
+<p><a data-wa href="#">WhatsApp</a> · <a data-social="instagram" href="#">Instagram</a></p>
+<h3 style="margin-top:1.5rem">How it works</h3><ol class="list"><li>Send your idea below.</li><li>The studio replies to discuss design and timing.</li><li>An appointment is only confirmed by the studio.</li></ol></div>
+<div class="glass pad"><h2>Consultation enquiry</h2>
+<p class="mut" style="margin:.6rem 0 1.2rem">This opens WhatsApp with your message prepared. You press send there.</p>
+<form id="enquiry" novalidate>
+<div class="row"><label>Name<input name="name" required autocomplete="name"></label><label>Phone or email<input name="contact" required autocomplete="email"></label></div>
+<label>Preferred contact method<select name="method"><option>WhatsApp</option><option>Phone call</option><option>Email</option></select></label>
+<label>Tattoo idea or description<textarea name="idea" required></textarea></label>
+<div class="row"><label>Preferred placement<input name="placement"></label><label>Approximate size<input name="size" placeholder="e.g. palm-sized"></label></div>
+<div class="row"><label>Preferred timeframe<select name="timeframe"><option value="">No preference</option><option>Within a month</option><option>1–3 months</option><option>Later</option></select></label><label>Reference image link (optional)<input name="ref" type="url" inputmode="url"></label></div>
+<button class="btn" type="submit">Prepare my message</button><p id="form-note" role="status" aria-live="polite"></p>
+</form></div></section></div></main>
+<div id="site-footer"></div>
+<noscript><p style="padding:6rem 1rem">Please enable JavaScript to load the navigation and footer.</p></noscript>
+<script src="../assets/js/main.js" defer></script></body></html>
