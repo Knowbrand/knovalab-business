@@ -6,6 +6,10 @@
 <style>
 /* Quote page only. Change --qa to match the site's accent colour if needed. */
 .qt{--qa:#ff6a00;--qb:rgba(255,255,255,.14);--qf:rgba(255,255,255,.05);--qe:#ff6b6b}
+.qt .qw{width:100%;max-width:1100px;margin-left:auto;margin-right:auto;padding-left:24px;padding-right:24px;box-sizing:border-box}
+.qt .ph .qw>*{max-width:46rem}
+.qt .head>div:first-child{flex:1 1 320px;min-width:0}
+.qt .head h2{max-width:none;margin:0}
 .qt .head{display:flex;flex-wrap:wrap;gap:1.2rem;align-items:flex-end;justify-content:space-between;margin-bottom:2rem}
 .qt .prog{min-width:200px;flex:0 1 280px;font-size:.85rem}
 .qt .bar{height:6px;border-radius:99px;background:var(--qf);margin-top:.5rem;overflow:hidden}
@@ -61,14 +65,14 @@
 <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><i></i><i></i></button>
 <div class="menu" id="menu"><nav class="links" aria-label="Main"><a href="../">Home</a><a href="../#services">Services</a><a href="../#work">Our Work</a><a href="../about/">About</a><a href="../contact/">Contact</a></nav><a class="btn btn-sm" data-wa href="https://wa.me/917822838573">WhatsApp</a></div></div></header>
 <main class="qt">
-<section class="ph"><div class="wrap"><p class="eye">GOA CARS DETAILING</p><h1>Request a quote</h1><p class="lead mut">Choose the services you need, tell us about your car and we will prepare a personalised quotation.</p>
+<section class="ph"><div class="qw"><p class="eye">GOA CARS DETAILING</p><h1>Request a quote</h1><p class="lead mut">Choose the services you need, tell us about your car and we will prepare a personalised quotation.</p>
 <ul class="trust"><li>No obligation</li><li>Personalised quote</li><li>Studio in Bicholim, Goa</li></ul></div></section>
 
-<section class="sec"><div class="wrap">
+<section class="sec"><div class="qw">
 <div class="head" id="head"><div><p class="eye">Your brief</p><h2>A few details. A clearer quote.</h2></div>
 <div class="prog"><span id="pt">0% complete</span><div class="bar"><i id="pb"></i></div></div></div>
 
-<form id="quote-form" novalidate action="https://formsubmit.co/knovalab.inquiry@gmail.com" method="POST">
+<form id="quote-form" novalidate action="https://formsubmit.co/crdeadygaming@gmail.com" method="POST">
 <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
 <input type="hidden" name="_subject" value="New quote request - GOA CARS DETAILING website">
 <input type="hidden" name="_template" value="table">
@@ -130,7 +134,7 @@
 
 <script>
 (function(){
-  var ENDPOINT='https://formsubmit.co/ajax/knovalab.inquiry@gmail.com';
+  var ENDPOINT='https://formsubmit.co/ajax/crdeadygaming@gmail.com';
   var SERVICES=[
     ['Ceramic coating','Long-lasting gloss and protection'],
     ['Graphene coating','Advanced hydrophobic protection'],
@@ -248,7 +252,7 @@
       }else{ console.error('FormSubmit response:',d); throw new Error((d&&d.message)||'fail'); }
     }).catch(function(err){
       console.error('Quote request failed:',err);
-      stat.textContent='Sorry, we could not send your request. Please call +91 78228 38573 or use the WhatsApp button.';
+      stat.textContent=/activat/i.test(err.message)?'This form is waiting for its one-time email activation. Please call +91 78228 38573 or use the WhatsApp button for now.':'Sorry, we could not send your request. Please call +91 78228 38573 or use the WhatsApp button.';
     }).finally(function(){btn.disabled=false;btn.textContent='Request my quote';});
   },true);
   progress();
