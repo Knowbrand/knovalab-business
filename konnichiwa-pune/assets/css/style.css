@@ -1,0 +1,84 @@
+:root{--red:#c8102e;--orange:#f39c1f;--sage:#d9e4dc;--cream:#faf6ec;--ink:#2e2e2e;--green:#8db43c;--w:#fff}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font:17px/1.65 "Zen Kaku Gothic New",system-ui,sans-serif;color:var(--ink);background:var(--cream)}
+h1,h2,h3,.serif{font-family:"Shippori Mincho",serif;line-height:1.15;font-weight:800}
+img{max-width:100%}a{color:inherit}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.wrap{width:min(1120px,100% - 40px);margin:auto}
+.sec{padding:84px 0}.sage{background:var(--sage) url(../img/seigaiha.svg)}.red{background:var(--red);color:var(--cream)}.orange{background:var(--orange)}.dark{background:var(--ink);color:var(--cream)}
+h2{font-size:clamp(30px,4.4vw,48px);margin-bottom:18px}h3{font-size:22px}
+.lead{max-width:62ch;font-size:19px}
+.btn{display:inline-block;padding:13px 26px;border-radius:99px;text-decoration:none;border:2px solid transparent;cursor:pointer;font:inherit;font-weight:700;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}.btn.orange{background:var(--orange);color:var(--ink)}.btn.cream{background:var(--cream);color:var(--red)}.btn.line{border-color:currentColor;color:inherit}.btn.green{background:var(--green);color:var(--ink)}.btn.red{background:var(--red);color:var(--cream)}
+.top{position:sticky;top:0;z-index:20;background:var(--cream);border-bottom:2px solid var(--ink);display:flex;align-items:center;gap:24px;padding:10px max(20px,calc(50% - 560px))}
+.brand{display:flex;align-items:center;gap:10px;font:800 22px "Shippori Mincho",serif;text-decoration:none;margin-right:auto}.brand img{width:38px}
+.top nav{display:flex;gap:6px}.top nav a{padding:8px 14px;border-radius:99px;text-decoration:none;font-weight:700}.top nav a:hover{background:var(--sage)}.top nav a.on{background:var(--red);color:var(--cream)}
+.burger{display:none;background:none;border:2px solid var(--ink);border-radius:10px;padding:7px 11px;font-size:20px;cursor:pointer}
+.hero{padding:72px 0 56px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(46px,8vw,104px);letter-spacing:-.02em}
+.hero .jp{font:800 clamp(20px,2.4vw,28px) "Shippori Mincho";opacity:.85;margin:6px 0 22px}
+.hero .when{font-size:21px;margin-bottom:6px}.hero .by{margin:26px 0;font-size:15px;max-width:52ch;opacity:.9}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.sun{aspect-ratio:1;border-radius:50%;background:var(--cream);color:var(--red);display:grid;place-content:center;text-align:center;padding:30px;box-shadow:0 0 0 14px rgba(250,246,236,.18),0 0 0 32px rgba(250,246,236,.09);animation:rise 1.2s cubic-bezier(.2,.8,.2,1) both}
+@keyframes rise{from{transform:translateY(60px) scale(.85);opacity:0}}
+.sun small{display:block;color:var(--ink);font-weight:700}
+.cd{display:flex;gap:14px;justify-content:center;margin:10px 0}.cd b{display:block;font:800 clamp(34px,5vw,60px) "Shippori Mincho";line-height:1}.cd span{font-size:13px;color:var(--ink)}
+.orgs{display:flex;gap:14px 36px;flex-wrap:wrap;justify-content:center;padding:26px 0;border-bottom:2px solid var(--ink);font-weight:700;text-align:center}
+.orgs span{display:flex;align-items:center;gap:8px}.orgs i{width:10px;height:10px;border-radius:50%;background:var(--red)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.stat{background:var(--w);border:2px solid var(--ink);border-radius:20px;padding:22px}.stat b{font:800 clamp(36px,5vw,54px) "Shippori Mincho";color:var(--red);display:block;line-height:1}
+.stat:nth-child(2n){background:var(--orange)}.stat:nth-child(2n) b{color:var(--ink)}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 30px}
+.chip{border:2px solid var(--ink);background:transparent;border-radius:99px;padding:8px 18px;font:inherit;font-weight:700;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--cream)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:var(--cream);border:2px solid var(--ink);border-radius:20px;overflow:hidden;position:relative;display:flex;flex-direction:column;transition:transform .2s}
+.card:hover{transform:translateY(-5px) rotate(-.6deg)}
+.tile{height:130px;display:grid;place-items:center;font:800 46px "Shippori Mincho";color:var(--cream);transition:letter-spacing .3s;text-align:center}.card:hover .tile{letter-spacing:.12em}
+.t-hands .tile{background:var(--red)}.t-stage .tile{background:var(--ink)}.t-pop .tile{background:var(--green);color:var(--ink)}
+.card .b{padding:16px 18px 20px}.card h3{font-size:19px}.card p{font-size:15px;margin-top:4px}.card em{font-style:normal;font-size:13px;font-weight:700;color:var(--red)}
+.fav{position:absolute;top:10px;right:10px;width:38px;height:38px;border-radius:50%;border:2px solid var(--ink);background:var(--cream);font-size:18px;cursor:pointer}.fav[aria-pressed=true]{background:var(--orange)}
+.card.hide{display:none}
+.mylist{margin-top:26px;font-weight:700}.mylist a{color:var(--red)}
+.hl{columns:2;gap:48px;list-style:none;padding:0}.hl li{break-inside:avoid;padding:14px 0;border-bottom:1.5px solid rgba(46,46,46,.25)}.hl b{color:var(--red)}
+.venue{background:var(--w);border:2px solid var(--ink);border-radius:24px;padding:32px}.venue dl{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;margin:18px 0 24px}.venue dt{font-weight:700;color:var(--red)}.venue dd{margin:0}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.person{background:var(--cream);border:2px solid var(--ink);border-radius:20px;padding:20px;display:flex;gap:16px;align-items:center}
+.person i{flex:none;width:58px;height:58px;border-radius:50%;background:var(--red);color:var(--cream);display:grid;place-items:center;font:800 20px "Shippori Mincho";font-style:normal}.person:nth-child(3n+2) i{background:var(--orange);color:var(--ink)}.person:nth-child(3n) i{background:var(--ink)}
+.person b{display:block;line-height:1.3}.person small{font-size:14px;line-height:1.3;display:block}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.tier{background:var(--w);border:2px solid var(--ink);border-radius:20px;padding:24px}.tier h3{margin-bottom:10px}.tier.pl{background:var(--red);color:var(--cream)}.tier.go{background:var(--orange)}
+.tier small{display:block;font-weight:700;margin-bottom:6px}.tier p+p{margin-top:6px}
+.marq{overflow:hidden;border-block:2px solid var(--ink);padding:16px 0;margin-top:36px;background:var(--sage)}
+.marq div{display:flex;gap:46px;width:max-content;animation:mq 38s linear infinite;font:800 24px "Shippori Mincho"}.marq:hover div{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+.years{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.years span{border:2px solid var(--ink);border-radius:99px;padding:6px 18px;font-weight:700;background:var(--cream)}
+.band{text-align:center}.band h2{margin-inline:auto;max-width:20ch}
+.phero{padding:70px 0 60px}.phero h1{font-size:clamp(40px,6.5vw,76px);margin-bottom:14px}
+.cards3{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.act{background:var(--cream);border:2px solid var(--ink);border-radius:20px;padding:22px}.act h3{font-size:19px;margin-bottom:6px}.act p{font-size:15px}
+.tabs{display:flex;gap:10px;margin-bottom:22px}.panel{display:none;background:var(--w);border:2px solid var(--ink);border-radius:24px;padding:30px}.panel.on{display:block}.panel ol{padding-left:22px}.panel li{padding:7px 0}
+.decl{border-left:6px solid var(--red);padding:6px 0 6px 22px;max-width:70ch}
+.expl{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.expl .act:nth-child(2n){background:var(--sage)}.soon{font-weight:700;color:var(--red)}
+details{background:var(--cream);border:2px solid var(--ink);border-radius:16px;padding:16px 20px;margin-bottom:12px}summary{font-weight:700;cursor:pointer}details[open] summary{color:var(--red);margin-bottom:8px}
+.cinfo{display:grid;gap:16px}.cinfo .act b{display:block;color:var(--red)}
+form{display:grid;gap:20px}.f{display:grid;gap:6px}.row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+label,legend{font-weight:700}
+input[type=text],input[type=email],input[type=tel],select,textarea{font:inherit;padding:12px 14px;border:2px solid var(--ink);border-radius:12px;background:var(--w);width:100%}
+input.bad,select.bad,textarea.bad{border-color:var(--red);background:#fdeaec}.err{color:var(--red);font-size:14px;min-height:1.2em;font-weight:700}
+fieldset{border:0;padding:0}.opts{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.opt{position:relative}.opt input{position:absolute;opacity:0}.opt span{display:inline-block;padding:9px 18px;border:2px solid var(--ink);border-radius:99px;font-weight:700;cursor:pointer;background:var(--w)}
+.opt input:checked+span{background:var(--red);color:var(--cream)}.opt input:focus-visible+span{outline:3px solid var(--orange);outline-offset:2px}
+.step{display:inline-flex;align-items:center;border:2px solid var(--ink);border-radius:99px;background:var(--w);margin-top:8px;width:max-content}.step button{width:42px;height:42px;border:0;background:none;font-size:22px;cursor:pointer;font-weight:700}.step output{min-width:34px;text-align:center;font-weight:700}
+.chk{display:flex;gap:10px;align-items:flex-start;font-weight:400}.chk input{margin-top:6px;accent-color:var(--red)}
+.regwrap{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:start}
+.pass{position:sticky;top:90px;background:var(--red);color:var(--cream);border-radius:24px;padding:28px;border:2px solid var(--ink);box-shadow:8px 8px 0 var(--ink)}
+.pass img{width:64px;margin-bottom:10px}.pass h3{font-size:26px;margin-bottom:14px}.pass dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;border-top:2px dashed rgba(250,246,236,.6);padding-top:14px}.pass dt{opacity:.8}.pass dd{margin:0;font-weight:700;word-break:break-word}
+.pass .ref{margin-top:16px;padding-top:14px;border-top:2px dashed rgba(250,246,236,.6);font:800 22px "Shippori Mincho";letter-spacing:.06em}
+.done{display:none;background:var(--green);border:2px solid var(--ink);border-radius:20px;padding:24px;margin-bottom:20px}.done.on{display:block}.done h3{margin-bottom:6px}.done .btn{margin-top:12px}
+.foot{padding:56px 0 24px}.fg{display:grid;grid-template-columns:1.4fr .8fr 1.2fr;gap:40px}.foot h3{color:var(--orange);font-size:20px;margin-bottom:10px}.foot a{display:block;text-decoration:none;padding:3px 0}.foot a:hover{color:var(--orange)}.foot p{font-size:15px}.copy{margin-top:36px;padding-top:18px;border-top:1px solid rgba(250,246,236,.25);font-size:14px;opacity:.8}
+@media(max-width:900px){.hero .wrap,.two,.regwrap,.fg{grid-template-columns:1fr}.grid,.cards3,.expl{grid-template-columns:1fr 1fr}.team,.tiers{grid-template-columns:1fr}.hl{columns:1}.sun{max-width:420px;margin:auto}.pass{position:static}
+.burger{display:block}.top nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;padding:12px 20px;border-bottom:2px solid var(--ink)}.top nav.open{display:flex}.top>.btn{display:none}}
+@media(max-width:560px){.grid,.cards3,.expl,.row{grid-template-columns:1fr}.sec{padding:60px 0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
