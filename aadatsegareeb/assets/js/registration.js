@@ -1,5 +1,5 @@
 /* Aadat Se Gareeb — registration form logic.
-   The receiving inbox is NOT in this file. The form POSTs to a hosted form service (Formspree);
+   The inbox/alias lives only in the form action in panelregistration/index.html. The form POSTs to a hosted form service (FormSubmit);
    the destination address lives only in that service's private dashboard. */
 (function () {
   var PLACEHOLDER = 'YOUR_FORM_ID';
@@ -19,7 +19,7 @@
   }
   function configured(form) {
     var ep = form.getAttribute('action') || '';
-    return /^https:\/\/formspree\.io\/f\//.test(ep) && !/YOUR_(REQUEST_)?FORM_ID/.test(ep);
+    return /^https:\/\/formsubmit\.co\/ajax\/.+/.test(ep);
   }
 
   /* ---------- panel application ---------- */
@@ -90,7 +90,7 @@
       fetch(form.getAttribute('action'), { method: 'POST', body: data, headers: { Accept: 'application/json' }, signal: ctrl.signal })
         .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, body: j }; }); })
         .then(function (res) {
-          if (!res.ok) throw new Error('rejected');
+          if (!res.ok || String(res.body.success) === 'false') throw new Error('rejected');
           done = true; form.hidden = true;
           var s = document.getElementById('success'); s.hidden = false; s.focus();
           s.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -120,7 +120,7 @@
       busy = true; var b = req.querySelector('button'); b.disabled = true; b.textContent = 'Sending…';
       var d = new FormData(req); d.set('_subject', '[AADAT SE GAREEB] Data correction/deletion request'); d.set('Submitted At', istNow());
       fetch(req.getAttribute('action'), { method: 'POST', body: d, headers: { Accept: 'application/json' } })
-        .then(function (r) { if (!r.ok) throw 0; req.reset(); banner(req, 'success', 'Request received. We will use the email you gave to follow up.'); })
+        .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { if (!r.ok || String(j.success) === 'false') throw 0; req.reset(); banner(req, 'success', 'Request received. We will use the email you gave to follow up.'); }); })
         .catch(function () { banner(req, 'error', 'The request was not sent. Please try again.'); })
         .finally(function () { busy = false; b.disabled = false; b.textContent = 'Send request'; });
     });
